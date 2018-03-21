@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Netflix Integration · Atlas</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Atlas Docs'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+<script type="text/javascript" src="../js/groups.js"></script>
+<link rel="stylesheet" type="text/css" href="../lib/normalize.css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="../lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/page.css"/>
+
+<!--
+<link rel="shortcut icon" href="../images/favicon.ico" />
+-->
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="../index.html" >
+<span class="home-icon">⌂</span>Atlas
+</a>
+<div class="version-number">
+0.1.0*
+</div>
+</div>
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<div class="nav-toc">
+<ul>
+  <li><a href="../tutorial.html" class="page">Stack Language Tutorial</a></li>
+  <li><a href="../reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="../reference/query/index.html" class="page">Query</a></li>
+    <li><a href="../reference/and.html" class="page">and</a></li>
+    <li><a href="../reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="../reference/math-and.html" class="page">and</a></li>
+  </ul></li>
+  <li><a href="../spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="../spectator/netflix.html" class="active page">Netflix Integration</a></li>
+  </ul></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="../index.html">Atlas</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="../index.html" >
+<span class="home-icon">⌂</span>Atlas
+</a>
+<div class="version-number">
+0.1.0*
+</div>
+</div>
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<div class="nav-toc">
+<ul>
+  <li><a href="../tutorial.html" class="page">Stack Language Tutorial</a></li>
+  <li><a href="../reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="../reference/query/index.html" class="page">Query</a></li>
+    <li><a href="../reference/and.html" class="page">and</a></li>
+    <li><a href="../reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="../reference/math-and.html" class="page">and</a></li>
+  </ul></li>
+  <li><a href="../spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="../spectator/netflix.html" class="active page">Netflix Integration</a></li>
+  </ul></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="../index.html">Atlas</a></li>
+  <li><a href="../spectator/index.html">Spectator</a></li>
+  <li>Netflix Integration</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#netflix-integration" name="netflix-integration" class="anchor"><span class="anchor-link"></span></a>Netflix Integration</h1><div class="group-java">
+<p>When running at Netflix, use the <code>atlas-client</code> library to enable transferring the instrumented data to <a href="http://github.com/Netflix/atlas/wiki/">Atlas</a>. See the appropriate section for the type of project you are working on:</p>
+<ul>
+  <li><a href="#libraries">Libraries</a></li>
+  <li><a href="#applications">Applications</a>, specifically standalone apps using guice or governator directly.</li>
+  <li><a href="#base-server">Base Server</a></li>
+</ul>
+<h2><a href="#libraries" name="libraries" class="anchor"><span class="anchor-link"></span></a>Libraries</h2>
+<p>For libraries, the only dependency that should be needed is:</p>
+<pre><code>com.netflix.spectator:spectator-api:0.62.0
+</code></pre>
+<p>The bindings to integrate internally should be included with the application. In your code, just inject a registry, e.g.:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  @Inject
+  public Foo(Registry registry) {
+    ...
+  }
+  ...
+}
+</code></pre>
+<p>See the <a href="testing.md">testing docs</a> for more information about creating a binding to use with tests.</p>
+<p>Libraries should not install <code>SpectatorModule</code>. The bindings to use for the registry should be determined by the <a href="#application">application</a> that is using the library. Think of it as being like slf4j where <a href="https://www.slf4j.org/faq.html#configure_logging">logging configuration</a> is up to the end-user, not the library owner.</p>
+<p>When creating a Guice module for your library, you may want to avoid binding errors if the end-user has not provided a binding for the Spectator registry. This can be done by using optional injections inside of the module, for example:</p>
+<pre class="prettyprint"><code class="language-java">// Sample library class
+public class MyLib {
+  Registry registry;
+
+  @Inject
+  public MyLib(Registry registry) {
+    this.registry = registry;
+  }
+}
+
+// Guice module to configure the library and setup the bindings
+public class MyLibModule extends AbstractModule {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MyLibModule.class);
+
+  @Override
+  protected void configure() {
+  }
+
+  @Provides
+  private MyLib provideMyLib(OptionalInjections opts) {
+    return new MyLib(opts.registry());
+  }
+
+  private static class OptionalInjections {
+    @Inject(optional = true)
+    private Registry registry;
+
+    Registry registry() {
+      if (registry == null) {
+        LOGGER.warn(&quot;no spectator registry has been bound, so using noop implementation&quot;);
+        registry = new NoopRegistry();
+      }
+      return registry;
+    }
+  }
+}
+</code></pre>
+<h2><a href="#applications" name="applications" class="anchor"><span class="anchor-link"></span></a>Applications</h2>
+<p>Application should include a dependency on the <code>atlas-client</code> plugin:</p>
+<pre><code>netflix:atlas-client:latest.release
+</code></pre>
+<p>Note this is an internal only library with configs specific to the Netflix environments. It is assumed you are using Nebula so that internal maven repositories are available for your build. When configuring with governator specify the <code>AtlasModule</code>:</p>
+<pre class="prettyprint"><code class="language-java">Injector injector = LifecycleInjector.builder()
+    .withModules(new AtlasModule())
+    .build()
+    .createInjector();
+</code></pre>
+<p>The registry binding will then be available so it can be injected as shown in the <a href="#libraries">libraries section</a>. The insight libraries do not use any governator or guice specific features. So it is possible to use guice or other dependency injection frameworks directly with the following caveats:</p>
+<ol>
+  <li>However, some of the libraries do use the <a href="http://docs.oracle.com/javaee/7/api/javax/annotation/PostConstruct.html">@PostConstruct</a> and <a href="http://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html">@PreDestroy</a> annotations for managing lifecycle. Governator adds lifecycle management and many other features on top of guice and is the recommended way. For more minimalist support of just the lifecycle annotations on top of guice see <a href="https://github.com/Netflix/iep/tree/master/iep-guice#description">iep-guice</a>.</li>
+  <li>The bindings and configuration necessary to run correctly with the internal setup are only supported as guice modules. If trying to use some other dependency injection framework, then you will be responsible for either finding a way to leverage the guice module in that framework or recreating those bindings and maintaining them as things change. It is not a paved road path.</li>
+</ol>
+<h2><a href="#base-server" name="base-server" class="anchor"><span class="anchor-link"></span></a>Base Server</h2>
+<p>If using <code>base-server</code>, then you will get the Spectator and Atlas bindings automatically.</p>
+<h2><a href="#auto-plugin" name="auto-plugin" class="anchor"><span class="anchor-link"></span></a>Auto Plugin</h2></div><div class="callout warning group-java"><div class="callout-title">Warning</div>
+<p><strong>Deprecated</strong>: Use of AutoBindSingleton is generally discouraged. It is recommended to use one of the other methods.</p></div><div class="group-java">
+<p>If you are only interested in getting the GC logging, there is a library with an auto-bind singleton that can be used:</p>
+<pre><code>com.netflix.spectator:spectator-nflx:0.62.0
+</code></pre>
+<p>Assuming you are using karyon/base-server or governator with <code>com.netflix</code> in the list of base packages then the plugin should get automatically loaded.</p></div><div class="group-python">
+<p>When running at Netflix, use the <code>nflx-spectator-config</code> library to enable transferring the instrumented data to <a href="http://github.com/Netflix/atlas/wiki/">Atlas</a>. See the appropriate section for the type of project you are working on:</p>
+<ul>
+  <li><a href="#libraries">Libraries</a></li>
+  <li><a href="#applications">Applications</a></li>
+  <li><a href="#winston">Winston</a></li>
+</ul>
+<h2><a href="#libraries" name="libraries" class="anchor"><span class="anchor-link"></span></a>Libraries</h2>
+<p>Libraries should use the open source library directly and allow the application to determine how it is configured.</p>
+<pre><code>pip install netflix-spectator-py
+</code></pre>
+<h2><a href="#applications" name="applications" class="anchor"><span class="anchor-link"></span></a>Applications</h2>
+<p>Should include a dependency on <code>nflx-spectator-config</code> to get the right settings for publishing internally.</p>
+<h2><a href="#winston" name="winston" class="anchor"><span class="anchor-link"></span></a>Winston</h2>
+<p>If using Winston, then you will get the Spectator and Atlas bindings automatically.</p></div>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/netflix.md">here</a>.
+</div>
+
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="../spectator/netflix.html#netflix-integration" class="header">Netflix Integration</a>
+  <ul>
+    <li><a href="../spectator/netflix.html#libraries" class="header group-java">Libraries</a></li>
+    <li><a href="../spectator/netflix.html#applications" class="header group-java">Applications</a></li>
+    <li><a href="../spectator/netflix.html#base-server" class="header group-java">Base Server</a></li>
+    <li><a href="../spectator/netflix.html#auto-plugin" class="header group-java">Auto Plugin</a></li>
+    <li><a href="../spectator/netflix.html#libraries" class="header group-python">Libraries</a></li>
+    <li><a href="../spectator/netflix.html#applications" class="header group-python">Applications</a></li>
+    <li><a href="../spectator/netflix.html#winston" class="header group-python">Winston</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2018</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="../lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="../js/magellan.js"></script>
+
+<style type="text/css">@import "../lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="../lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+
+</html>
