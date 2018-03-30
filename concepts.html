@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="description" content="Atlas Docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.4.0, mkdocs-material=2.2.2">
+
+<meta name="lang:clipboard.copy" content="Copy to clipboard">
+<meta name="lang:clipboard.copied" content="Copied to clipboard">
+<meta name="lang:search.result.none" content="No matching documents">
+<meta name="lang:search.result.one" content="1 matching document">
+<meta name="lang:search.result.other" content="# matching documents">
+<meta name="lang:search.language" content="">
+<meta name="lang:search.tokenizer" content="[\s\-]+">
+
+
+<meta name="description" content="Atlas Docs">
+<link rel="shortcut icon" href="images/atlas_logo_small.png">
+<title>Concepts · Atlas</title>
+<link rel="stylesheet" href="assets/stylesheets/application.7a4cdee3.css">
+<link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
+<link rel="stylesheet" href="lib/prettify/prettify.css">
+<script src="lib/modernizr/modernizr.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+<style>
+body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}
+code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/stylesheets/paradox-material-theme.css">
+</head>
+<body
+>
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+<label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a href="index.html" title="Atlas" class="md-header-nav__button md-logo">
+<img src="images/atlas_logo_small.png" width="24" height="24">
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
+Atlas
+</span>
+<span class="md-header-nav__topic">
+Concepts
+</span>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="search"></label>
+<div class="md-search__inner">
+<form class="md-search__form" name="search">
+<input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+<label class="md-icon md-search__icon" for="search"></label>
+<button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix>
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
+Type to start searching
+</div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<div class="md-header-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+</div>
+</div>
+</nav>
+</header>
+
+<div class="md-container">
+<main class="md-main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
+<label class="md-nav__title md-nav__title--site" for="drawer">
+<span class="md-nav__button md-logo">
+<img src="images/atlas_logo_small.png" width="24" height="24">
+</span>
+<a href="index.html" title="Atlas">
+Atlas
+</a>
+</label>
+<div class="md-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<ul>
+  <li><a href="overview.html" class="page">Overview</a></li>
+  <li><a href="getting-started.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="active page">Concepts</a></li>
+  <li><a href="presentations.html" class="page">Presentations</a></li>
+  <li><a href="asl/index.html" class="page">Stack Language</a>
+  <ul>
+    <li><a href="asl/alerting.html" class="page">Alerting Expressions</a></li>
+    <li><a href="asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
+    <li><a href="asl/des.html" class="page">Double Exponential Smoothing</a></li>
+  </ul></li>
+  <li><a href="asl-reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="asl-reference/query/index.html" class="page">Query</a></li>
+    <li><a href="asl-reference/and.html" class="page">and</a></li>
+    <li><a href="asl-reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="asl-reference/math-and.html" class="page">and</a></li>
+  </ul></li>
+  <li><a href="spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="spectator/netflix.html" class="page">Netflix Integration</a></li>
+  </ul></li>
+</ul>
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="concepts.html#concepts" class="header">Concepts</a>
+  <ul>
+    <li><a href="concepts.html#time-series" class="header">Time Series</a></li>
+    <li><a href="concepts.html#tags" class="header">Tags</a></li>
+    <li><a href="concepts.html#metric" class="header">Metric</a></li>
+    <li><a href="concepts.html#data-point" class="header">Data Point</a></li>
+    <li><a href="concepts.html#step-size" class="header">Step Size</a></li>
+    <li><a href="concepts.html#normalization" class="header">Normalization</a></li>
+    <li><a href="concepts.html#aggregation-function" class="header">Aggregation Function</a></li>
+    <li><a href="concepts.html#consolidation-function" class="header">Consolidation Function</a></li>
+    <li><a href="concepts.html#nan-aware-operations" class="header">NaN Aware Operations</a></li>
+    <li><a href="concepts.html#naming-conventions" class="header">Naming Conventions</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+<div class="md-nav__title--site md-version" title="Version">
+<i class="md-icon">label_outline</i> 0.1.0*
+</div>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="concepts.html#concepts" class="header">Concepts</a>
+  <ul>
+    <li><a href="concepts.html#time-series" class="header">Time Series</a></li>
+    <li><a href="concepts.html#tags" class="header">Tags</a></li>
+    <li><a href="concepts.html#metric" class="header">Metric</a></li>
+    <li><a href="concepts.html#data-point" class="header">Data Point</a></li>
+    <li><a href="concepts.html#step-size" class="header">Step Size</a></li>
+    <li><a href="concepts.html#normalization" class="header">Normalization</a></li>
+    <li><a href="concepts.html#aggregation-function" class="header">Aggregation Function</a></li>
+    <li><a href="concepts.html#consolidation-function" class="header">Consolidation Function</a></li>
+    <li><a href="concepts.html#nan-aware-operations" class="header">NaN Aware Operations</a></li>
+    <li><a href="concepts.html#naming-conventions" class="header">Naming Conventions</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<div class="md-content__searchable">
+<h1><a href="#concepts" name="concepts" class="anchor"><span class="anchor-link"></span></a>Concepts</h1>
+<p>This page is meant to provide a basic overview of some of the key concepts and terminology that is used for Atlas. If you have experience with other monitoring systems, then much of this should be familiar though we might be using different terms.</p>
+<h2><a href="#time-series" name="time-series" class="anchor"><span class="anchor-link"></span></a>Time Series</h2>
+<p>Atlas is a backend for storing and querying dimensional time series data. A time series is a sequence of <a href="#data-point">data points</a> reported at a consistent interval over time. The time interval between successive data points is called the <a href="#step-size">step size</a>. In Atlas each time series is paired with metadata called <a href="#tags">tags</a> that allow us to query and group the data.</p>
+<h2><a href="#tags" name="tags" class="anchor"><span class="anchor-link"></span></a>Tags</h2>
+<p>A set of key value pairs associated with a <a href="#time-series">time series</a>. Each time series must have at least one tag with a key of <code>name</code>. To make it more concrete, here is an example of a tag set represented as a JSON object:</p>
+<pre class="prettyprint"><code class="language-json">{
+  &quot;name&quot;:       &quot;server.requestCount&quot;,
+  &quot;status&quot;:     &quot;200&quot;,
+  &quot;endpoint&quot;:   &quot;api&quot;,
+  &quot;nf.app&quot;:     &quot;fooserver&quot;,
+  &quot;nf.cluster&quot;: &quot;fooserver-main&quot;,
+  &quot;nf.stack&quot;:   &quot;main&quot;,
+  &quot;nf.region&quot;:  &quot;us-east-1&quot;,
+  &quot;nf.zone&quot;:    &quot;us-east-1c&quot;,
+  &quot;nf.node&quot;:    &quot;i-12345678&quot;
+}
+</code></pre>
+<p>Usage of tags will typically fall into two categories:</p>
+<ol>
+  <li><em>Namespace:</em> these are tags necessary to qualify a name so it can be meaningfully aggregated.  For example, using the sample above consider computing the sum of all metrics for  application <code>fooserver</code>. That number would be meaningless. Properly modelled data should try  to make the aggregates meaningful by selecting the <code>name</code>. The sum of all metrics with  <code>name = server.requestCount</code> is the overall request count for the service.</li>
+  <li><em>Dimensions:</em> these are tags used to drill down into the data, for example, see the number of  requests with <code>status = 200</code> or for a particular node. Most tags should fall into this  category.</li>
+</ol>
+<p>When creating metrics it is important to carefully think about how the data should be tagged. See the <a href="http://netflix.github.io/spectator/en/latest/intro/conventions/">naming conventions</a> docs for more information.</p>
+<h2><a href="#metric" name="metric" class="anchor"><span class="anchor-link"></span></a>Metric</h2>
+<p>A metric is a specific quantity being measured, e.g., the number of requests received by a server. In casual language about Atlas metric is often used interchangeably with <a href="#time-series">time series</a>. A time series is one way to track a metric and is the method supported by Atlas. In most cases there will be many time series for a given metric. Going back to the example, request count would usually be tagged with additional dimensions such as status and node. There is one time series for each distinct combination of tags, but conceptually it is the same metric.</p>
+<h2><a href="#data-point" name="data-point" class="anchor"><span class="anchor-link"></span></a>Data Point</h2>
+<p>A data point is a triple consisting of tags, timestamp, and a value. It is important to understand at a high level how data points correlate with the measurement. Consider requests hitting a server, this would typically be measured using a <a href="http://netflix.github.io/spectator/en/latest/intro/counter/">counter</a>. Each time a request is received the counter is incremented. There is not one data point per increment, a data point represents the behavior over a span of time called the <a href="#step-size">step size</a>. The client library will sample the counter once for each interval and report a single value.</p>
+<p>Suppose that each circle in the diagram below represents a request:</p>
+<pre><code>1:00       1:01       1:02       1:03
+ ├─●────●●●─┼──────────┼──●───────┤
+</code></pre>
+<p>There are 5 requests shown, 4 from 1:00 to 1:01, and 1 from 1:02 to 1:03. Assuming all requests incremented the same time series, i.e. all other dimensions such as status code are the same, then this would result in three data points. For counters values are always a rate per second, so for a one minute step size the total number of requests would be divided by 60 seconds. So the values stored would be:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Time </th>
+      <th>Value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1:01 </td>
+      <td>4 / 60 = 0.0667 </td>
+    </tr>
+    <tr>
+      <td>1:02 </td>
+      <td>0 / 60 = 0.0000 </td>
+    </tr>
+    <tr>
+      <td>1:03 </td>
+      <td>1 / 60 = 0.0167 </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#step-size" name="step-size" class="anchor"><span class="anchor-link"></span></a>Step Size</h2>
+<p>The amount of time between two successive data points in a <a href="#time-series">time series</a>. For Atlas the datapoints will always be on even boundaries of the step size. If data is not reported on step boundaries, it will get <a href="#normalization">normalized</a> to the boundary.</p>
+<h2><a href="#normalization" name="normalization" class="anchor"><span class="anchor-link"></span></a>Normalization</h2>
+<p>In Atlas this usually refers to normalizing data points to step boundaries. Suppose that values are actually getting reported at 30 seconds after the minute instead of exactly on the minute. The values will get normalized to the minute boundary so that all time series in the system are consistent.</p>
+<p>How a normalized value is computed depends on the data source type. Atlas supports three types indicated by the value of the <code>atlas.dstype</code> tag. In general, you should not need to worry about that, client libraries like <a href="http://netflix.github.io/spectator/en/latest/">spectator</a> will automatically handle tagging based on the data source type.</p>
+<p>It is recommended to at least skim through the normalization for <a href="#gauge">gauges</a> and <a href="#rates">rates</a> to better understand how the values you see actually relate to measured data.</p>
+<h4><a href="#gauge" name="gauge" class="anchor"><span class="anchor-link"></span></a>Gauge</h4>
+<p>A value that is sampled from some source and the value is used as is. The last value received will be the value used for the interval. For example:</p>
+<pre><code>                ┌─────────┐                                    ┌─────────┐
+                │    8    │                                    │    8    │
+                │         ├───────                             │         │
+                │         │    6                               │         │
+──────┐         │         │                ┌─────────┐         │         │
+ 4    │         │         │                │    4    │         │         │
+      ├─────────┤         │           to   │         ├─────────┤         │
+      │    2    │         │                │         │    2    │         │
+ ├─────────┼─────────┼─────────┤           ├─────────┼─────────┼─────────┤
+1:00      1:01      1:02      1:03        1:00      1:01      1:02      1:03
+</code></pre>
+<h4><a href="#rate" name="rate" class="anchor"><span class="anchor-link"></span></a>Rate</h4>
+<p>A rate is a value representing the rate per second since the last reported value. Rate values are normalized using a weighted average. For example:</p>
+<pre><code>                ┌─────────┐
+                │    8    │                                    ┌─────────┐
+                │         ├───────                             │    7    │
+                │         │    6                     ┌─────────┤         │
+──────┐         │         │                          │    5    │         │
+ 4    │         │         │                ┌─────────┤         │         │
+      ├─────────┤         │           to   │    3    │         │         │
+      │    2    │         │                │         │         │         │
+ ├─────────┼─────────┼─────────┤           ├─────────┼─────────┼─────────┤
+1:00      1:01      1:02      1:03        1:00      1:01      1:02      1:03
+</code></pre>
+<p>In this example, the data is reported at exactly 30s after the minute boundary. So each value represents the average rate per second for 50% of the minute.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Time </th>
+      <th>Value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1:01 </td>
+      <td>4 * 0.5 + 2 * 0.5 = 2 + 1 = 3 </td>
+    </tr>
+    <tr>
+      <td>1:02 </td>
+      <td>2 * 0.5 + 8 * 0.5 = 1 + 4 = 5 </td>
+    </tr>
+    <tr>
+      <td>1:03 </td>
+      <td>8 * 0.5 + 6 * 0.5 = 4 + 3 = 7 </td>
+    </tr>
+  </tbody>
+</table>
+<p>If many samples are received for a given interval, then they will each be weighted based on the fraction of the interval they represent. When no previous sample exists, value will be treated as the average rate per second over the previous step. This behavior is important to avoid under counting the contribution from a previous interval. The example below shows what happens if there is no previous or next sample:</p>
+<pre><code>                ┌─────────┐
+                │    8    │
+                │         │
+                │         │                          ┌─────────┐
+                │         │                          │    5    ├─────────┐
+                │         │                          │         │    4    │
+      ┌─────────┤         │           to        1    │         │         │
+      │    2    │         │                ┌─────────┤         │         │
+ ├─────────┼─────────┼─────────┤           ├─────────┼─────────┼─────────┤
+1:00      1:01      1:02      1:03        1:00      1:01      1:02      1:03
+</code></pre>
+<p>Why perform weighted averaging for rates instead of the simpler last value approach used with gauges? Because it gives us a better summary of what we actually know from the measurements received. In practical terms:</p>
+<ul>
+  <li>It avoids dropping information if samples are more frequent than the step. Suppose we have  a 1 minute step, but data is actually betting reported every 10s. For this example, assume  we get 1, 5, 90, 5, 4, and 2. The last value normalization used with gauges would end up  with a value of 2. The rate normalization will give 17.833. Each value is a rate per second,  so if you take the <code>(1 + 5 + 90 + 5 + 4 + 2) * 10 = 1070</code> actual events measured during the  interval. That is equivalent to <code>17.833 * 60</code> indicating we have an accurate average rate  for the step size.</li>
+  <li>Avoids skewing the data causing misleading spikes or drops in the aggregates. Using Atlas  you will typically be looking at an aggregate of time series rather than an individual time  series that was reported. With last value it can have the effect of skewing samples to a later  interval. Suppose the client is reporting once a minute at 5s after the minute. That value  indicates more about the previous interval than it does the current one. During traffic  transitions, such as moving traffic over to a new cluster or even some auto-scaling events,  differences in this skew can result in the appearance of a drop because there will be many  new time series getting reported with a delayed start. For existing time series it is still  skewed, but tends to be less noticeable. The weighted averaging avoids these problems for  the most part.</li>
+</ul>
+<h4><a href="#counter" name="counter" class="anchor"><span class="anchor-link"></span></a>Counter</h4>
+<p>Counter is similar to rate, except that the value reported is monotonically increasing and will be converted to a rate by the backend. The conversion is done by computing the delta between the current sample and the previous sample and dividing by the time between the samples. After that it is the same as a <a href="#rate">rate</a>.</p>
+<p>Note, that unless the input is a montonically increasing counter it is generally better to have the client perform rate conversion. Since, the starting value is unknown, at least two samples must be received before the first delta can be computed. This means that new time series relying on counter type will be delayed by one interval.</p>
+<h2><a href="#aggregation-function" name="aggregation-function" class="anchor"><span class="anchor-link"></span></a>Aggregation Function</h2>
+<p>Combines a set of time series into a single time series. A conceptual measurement such as cpu usage or requests per second. A metric will usually end up getting reported as a set of time series, for example a cpu usage time series for each node.</p>
+<h2><a href="#consolidation-function" name="consolidation-function" class="anchor"><span class="anchor-link"></span></a>Consolidation Function</h2>
+<p>Converts a time series from a primary step size to a larger step size that is a multiple of the primary. For example, if you have a time series with data points each minute and you want a time series with data points every 5 minutes.</p>
+<p>In most cases you won&rsquo;t use a consolidation function directly. The system will automatically apply consolidation to ensure there is at least one pixel per datapoint on the rendered images.</p>
+<h2><a href="#nan-aware-operations" name="nan-aware-operations" class="anchor"><span class="anchor-link"></span></a>NaN Aware Operations</h2>
+<p>This typically refers to how binary operations treat NaN values in the data. A NaN value means that the value is unknown for a given interval. NaN aware operations will keep the value as NaN if both sides are NaN, but treat it as a special value such as 0.0 otherwise. This is useful to avoid gaps in the graph if a subset of time series used in an aggregate have gaps in data.</p>
+<table>
+  <thead>
+    <tr>
+      <th><em>lhs</em> </th>
+      <th><em>rhs</em> </th>
+      <th><em>result</em> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN </td>
+      <td>NaN </td>
+      <td>op(NaN, NaN) </td>
+    </tr>
+    <tr>
+      <td>v1 </td>
+      <td>NaN </td>
+      <td>op(v1, 0.0) </td>
+    </tr>
+    <tr>
+      <td>NaN </td>
+      <td>v2 </td>
+      <td>op(0.0, v2) </td>
+    </tr>
+    <tr>
+      <td>v1 </td>
+      <td>v2 </td>
+      <td>op(v1, v2) </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#naming-conventions" name="naming-conventions" class="anchor"><span class="anchor-link"></span></a>Naming Conventions</h2>
+<p>See <a href="http://netflix.github.io/spectator/en/latest/intro/conventions/">naming conventions</a>.</p>
+</div>
+<div>
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/concepts.md" title="Edit this page" class="md-source-file md-edit">
+Edit this page
+</a>
+</div>
+<div class="print-only">
+<span class="md-source-file md-version">
+0.1.0*
+</span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a href="getting-started.html" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Previous
+</span>
+Getting Started
+</span>
+</div>
+</a>
+<a href="presentations.html" title="Presentations" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Next
+</span>
+Presentations
+</span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+Powered by
+<a href="https://github.com/lightbend/paradox">Paradox</a>
+and
+<a href="https://jonas.github.io/paradox-material-theme/">Paradox Material Theme</a>
+
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+<script src="assets/javascripts/application.5165553b.js"></script>
+<script src="assets/javascripts/paradox-material-theme.js"></script>
+<script>app.initialize({version:"0.17",url:{base:"."}})</script>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+window.prettyPrint && prettyPrint();
+});
+</script>
+</body>
+</html>

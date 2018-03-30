@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="images/atlas_logo_small.png">
-<title>Atlas</title>
+<title>Getting Started · Atlas</title>
 <link rel="stylesheet" href="assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="lib/prettify/prettify.css">
@@ -50,7 +50,12 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 </div>
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
 Atlas
+</span>
+<span class="md-header-nav__topic">
+Getting Started
+</span>
 </div>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -129,7 +134,7 @@ Netflix/atlas-docs
 <select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
 <ul>
   <li><a href="overview.html" class="page">Overview</a></li>
-  <li><a href="getting-started.html" class="page">Getting Started</a></li>
+  <li><a href="getting-started.html" class="active page">Getting Started</a></li>
   <li><a href="concepts.html" class="page">Concepts</a></li>
   <li><a href="presentations.html" class="page">Presentations</a></li>
   <li><a href="asl/index.html" class="page">Stack Language</a>
@@ -152,6 +157,16 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="getting-started.html#getting-started" class="header">Getting Started</a>
+  <ul>
+    <li><a href="getting-started.html#run-a-demo-instance" class="header">Run a Demo Instance</a></li>
+    <li><a href="getting-started.html#explore-available-tags" class="header">Explore Available Tags</a></li>
+    <li><a href="getting-started.html#generate-graphs" class="header">Generate Graphs</a></li>
+    <li><a href="getting-started.html#running-demo-with-memory-storage" class="header">Running Demo with Memory Storage</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -162,25 +177,89 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="getting-started.html#getting-started" class="header">Getting Started</a>
+  <ul>
+    <li><a href="getting-started.html#run-a-demo-instance" class="header">Run a Demo Instance</a></li>
+    <li><a href="getting-started.html#explore-available-tags" class="header">Explore Available Tags</a></li>
+    <li><a href="getting-started.html#generate-graphs" class="header">Generate Graphs</a></li>
+    <li><a href="getting-started.html#running-demo-with-memory-storage" class="header">Running Demo with Memory Storage</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<div class="callout warning "><div class="callout-title">Warning</div>
-<p>This site is still a work in progress <a href="https://github.com/Netflix/atlas-docs/issues/1">#1</a>. Until migration is complete, refer to:</p>
+<h1><a href="#getting-started" name="getting-started" class="anchor"><span class="anchor-link"></span></a>Getting Started</h1>
+<p>The instructions on this page are for quickly getting a sample backend server running on a local machine. For other common tasks see:</p>
 <ul>
-  <li><a href="https://github.com/Netflix/atlas/wiki">Atlas Documentation</a></li>
-  <li><a href="https://github.com/Netflix/spectator-py">Spectator Documentation</a></li>
-</ul></div>
-<h1><a href="#atlas" name="atlas" class="anchor"><span class="anchor-link"></span></a>Atlas</h1>
-<img src="https://github.com/Netflix/atlas/wiki/images/atlas_logo.png" width="230" height="230" align="left"></img>
-<p>Atlas was developed by Netflix to manage dimensional time series data for near real-time operational insight. Atlas features in-memory data storage, allowing it to gather and report very large numbers of metrics, very quickly.</p>
-<p>Atlas captures operational intelligence. Whereas business intelligence is data gathered for analyzing trends over time, operational intelligence provides a picture of what is currently happening within a system.</p>
-<p>Atlas was built because the existing systems Netflix was using for operational intelligence were not able to cope with the increase in metrics we were seeing as we expanded our operations in the cloud. In 2011, we were monitoring 2 million metrics related to our streaming systems. By 2014, we were at 1.2 billion metrics and the numbers continue to rise. Atlas is designed to handle this large quantity of data and can scale with the hardware we use to analyze and store it.</p>
-<p>For details and background on the project please read through the <a href="./overview.html">overview</a> page.</p>
-<p>Check out the <a href="./getting-started.html">getting started</a> page for an introduction to using Atlas in the cloud environment. Once you&rsquo;ve explored the example, check out the stack language references to see the various types of information you can access.</p>
+  <li>Querying Data:
+    <ul>
+      <li><a href="Examples">Examples</a></li>
+      <li><a href="Stack-Language">Tutorial</a></li>
+    </ul>
+  </li>
+  <li><a href="http://netflix.github.io/spectator/en/latest/">Instrumenting Code</a></li>
+</ul>
+<h2><a href="#run-a-demo-instance" name="run-a-demo-instance" class="anchor"><span class="anchor-link"></span></a>Run a Demo Instance</h2>
+<p><strong>Prerequisites</strong></p>
+<ul>
+  <li>These instructions assume a unix based machine with <a href="http://curl.haxx.se/">curl</a>. Other systems  may work, but have not been tried.</li>
+  <li>Java 8 or higher is required.</li>
+</ul>
+<p>To quickly run a version with some synthetic sample data:</p>
+<pre><code>$ curl -LO https://github.com/Netflix/atlas/releases/download/v1.5.3/atlas-1.5.3-standalone.jar
+$ java -jar atlas-1.5.3-standalone.jar
+</code></pre>
+<h2><a href="#explore-available-tags" name="explore-available-tags" class="anchor"><span class="anchor-link"></span></a>Explore Available Tags</h2>
+<p>The tags API is used to explore available tags and the relationships between them.</p>
+<pre><code># show all tags
+$ curl -s &#39;http://localhost:7101/api/v1/tags&#39;
+
+# show all values of the name, nf.app and type tags
+$ curl -s &#39;http://localhost:7101/api/v1/tags/name&#39;
+$ curl -s &#39;http://localhost:7101/api/v1/tags/nf.app&#39;
+$ curl -s &#39;http://localhost:7101/api/v1/tags/type&#39;
+
+# show all name tags that also have the type tag
+$ curl -s &#39;http://localhost:7101/api/v1/tags/name?q=type,:has&#39;
+
+# show all name tags that have an nf.app tag with a value of nccp
+$ curl -s &#39;http://localhost:7101/api/v1/tags/name?q=nf.app,nccp,:eq&#39;
+</code></pre>
+<h2><a href="#generate-graphs" name="generate-graphs" class="anchor"><span class="anchor-link"></span></a>Generate Graphs</h2>
+<p>These graph API URLs show off a couple of the capabilities of the Atlas backend. See the <a href="https://github.com/Netflix/atlas/wiki/Examples">Examples</a> page for more detailed use cases.</p>
+<pre><code># graph all metrics with a name tag value of ssCpuUser, using an :avg aggregation
+$ curl -Lo graph.png &#39;http://localhost:7101/api/v1/graph?q=name,ssCpuUser,:eq,:avg&#39;
+
+# duplicate the ssCpuUser signal, check if it is greater than 22.8 and display the result as a vertical span with 30% alpha
+$ curl -Lo graph.png &#39;http://localhost:7101/api/v1/graph?q=name,ssCpuUser,:eq,:avg,:dup,22.8,:gt,:vspan,30,:alpha&#39;
+</code></pre>
+<h2><a href="#running-demo-with-memory-storage" name="running-demo-with-memory-storage" class="anchor"><span class="anchor-link"></span></a>Running Demo with Memory Storage</h2>
+<p>Run an instance with a configuration to use the memory storage:</p>
+<pre><code>$ curl -Lo memory.conf https://raw.githubusercontent.com/Netflix/atlas/v1.5.x/conf/memory.conf
+$ java -jar atlas-1.5.3-standalone.jar memory.conf
+</code></pre>
+<p>Now we can send some data to it. To quickly get started there is a sample script to send in some data:</p>
+<pre><code>$ curl -Lo publish-test.sh https://raw.githubusercontent.com/Netflix/atlas/v1.5.x/scripts/publish-test.sh
+$ chmod 755 publish-test.sh
+$ ./publish-test.sh
+</code></pre>
+<p>Then view the data in a web browser:</p>
+<pre><code>$ open &#39;http://localhost:7101/api/v1/graph?q=name,randomValue,:eq,:sum,(,name,),:by&#39;
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/getting-started.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -196,13 +275,26 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="overview.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="overview.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Previous
+</span>
+Overview
+</span>
+</div>
+</a>
+<a href="concepts.html" title="Concepts" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Overview
+Concepts
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

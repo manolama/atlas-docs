@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Timers · Atlas</title>
+<title>Alerting Expressions · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Timers
+Alerting Expressions
 </span>
 </div>
 </div>
@@ -139,7 +139,7 @@ Netflix/atlas-docs
   <li><a href="../presentations.html" class="page">Presentations</a></li>
   <li><a href="../asl/index.html" class="page">Stack Language</a>
   <ul>
-    <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
+    <li><a href="../asl/alerting.html" class="active page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
     <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
@@ -152,17 +152,19 @@ Netflix/atlas-docs
   </ul></li>
   <li><a href="../spectator/index.html" class="page">Spectator</a>
   <ul>
-    <li><a href="../spectator/timers.html" class="active page">Timers</a></li>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
     <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../spectator/timers.html#timers" class="header">Timers</a>
+  <li><a href="../asl/alerting.html#alerting-expressions" class="header">Alerting Expressions</a>
   <ul>
-    <li><a href="../spectator/timers.html#timer" class="header">Timer</a></li>
-    <li><a href="../spectator/timers.html#longtasktimer" class="header">LongTaskTimer</a></li>
+    <li><a href="../asl/alerting.html#threshold-alerts" class="header">Threshold Alerts</a></li>
+    <li><a href="../asl/alerting.html#dampening" class="header">Dampening</a></li>
+    <li><a href="../asl/alerting.html#visualization" class="header">Visualization</a></li>
+    <li><a href="../asl/alerting.html#summary" class="header">Summary</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -181,10 +183,12 @@ Netflix/atlas-docs
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../spectator/timers.html#timers" class="header">Timers</a>
+  <li><a href="../asl/alerting.html#alerting-expressions" class="header">Alerting Expressions</a>
   <ul>
-    <li><a href="../spectator/timers.html#timer" class="header">Timer</a></li>
-    <li><a href="../spectator/timers.html#longtasktimer" class="header">LongTaskTimer</a></li>
+    <li><a href="../asl/alerting.html#threshold-alerts" class="header">Threshold Alerts</a></li>
+    <li><a href="../asl/alerting.html#dampening" class="header">Dampening</a></li>
+    <li><a href="../asl/alerting.html#visualization" class="header">Visualization</a></li>
+    <li><a href="../asl/alerting.html#summary" class="header">Summary</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -195,119 +199,67 @@ Netflix/atlas-docs
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#timers" name="timers" class="anchor"><span class="anchor-link"></span></a>Timers</h1>
-<p>A timer is used to measure how long some event is taking. Two types of timers are supported:</p>
+<h1><a href="#alerting-expressions" name="alerting-expressions" class="anchor"><span class="anchor-link"></span></a>Alerting Expressions</h1>
+<p>The stack language provides some basic techniques to convert an input line into a set of signals that can be used to trigger and visualize alert conditions. This section assumes a familiarity with the stack language and the <a href="Alerting-Philosophy">alerting philosophy</a></p>
+<h2><a href="#threshold-alerts" name="threshold-alerts" class="anchor"><span class="anchor-link"></span></a>Threshold Alerts</h2>
+<p>To start we need an input metric. For this example the input will be a sample metric showing high CPU usage for a period:</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum</p>
+<p>Lets say we want to trigger an alert when the CPU usage goes above 80%. To do that simply use the <a href="math-gt">:gt</a> operator and append <code>80,:gt</code> to the query:</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt</p>
+<p>The result is a <em>signal line</em> that is non-zero, typically 1, when in a triggering state and zero when everything is fine.</p>
+<h2><a href="#dampening" name="dampening" class="anchor"><span class="anchor-link"></span></a>Dampening</h2>
+<p>Our threshold alert above will trigger if the CPU usage is ever recorded to be above the threshold. Alert conditions are often combined with a check for the number of occurences. This is done by using the <a href="stateful-rolling-count">:rolling-count</a> operator to get a line showing how many times the input signal has been true withing a specified window and then applying a second threshold to the rolling count.</p>
+<table>
+<tr>
+<td>Input</td>
+<td>Rolling count</td>
+<td>Dampened signal</td>
+</tr>
+<tr>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt" /></td>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count" /></td>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count,4,:gt" /></td>
+</tr>
+<tr>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>
+</pre></td>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
+<b>5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a></b>
+</pre></td>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
+5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a>,
+<b>4,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a></b>
+</pre></td>
+</tr>
+</table>
+<h2><a href="#visualization" name="visualization" class="anchor"><span class="anchor-link"></span></a>Visualization</h2>
+<p>A signal line is useful to tell whether or not something is in a triggered state, but can be difficult for a person to follow. Alert expressions can be visualized by showing the input, threshold, and triggering state on the same graph.</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:2over,:gt,:vspan,40,:alpha,triggered,:legend,:rot,input,:legend,:rot,threshold,:legend,:rot</p>
+<h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+<p>You should now know the basics of crafting an alert expression using the stack language. Other topics that may be of interest:</p>
 <ul>
-  <li><code>Timer</code>: for frequent short duration events.</li>
-  <li><code>LongTaskTimer</code>: for long running tasks.</li>
+  <li><a href="Alerting-Philosophy">Alerting Philosophy</a>: overview of best practices associated with alerts.</li>
+  <li><a href="Stack-Language-Reference">Stack Language Reference</a>: comprehensive list of avialable operators.</li>
+  <li><a href="DES">DES</a>: double exponential smoothing. A technique for detecting anomalies in normally clean  input signals where a precise threshold is unknown. For example, the requests per second hitting  a service.</li>
 </ul>
-<p>The long duration timer is setup so that you can track the time while an event being measured is still running. A regular timer just records the duration and has no information until the task is complete.</p>
-<p>As an example, consider a chart showing request latency to a typical web server. The expectation is many short requests so the timer will be getting updated many times per second.</p>
-<p><img src="../images/request_latency.png" alt="Request Latency" /></p>
-<p>Now consider a background process to refresh metadata from a data store. For example, Edda caches AWS resources such as instances, volumes, auto-scaling groups etc. Normally all data can be refreshed in a few minutes. If the AWS services are having problems it can take much longer. A long duration timer can be used to track the overall time for refreshing the metadata.</p>
-<p>The charts below show max latency for the refresh using a regular timer and a long task timer. Regular timer, note that the y-axis is using a logarithmic scale:</p>
-<p><img src="../images/regular_timer.png" alt="Regular Timer" /></p>
-<p>Long task timer:</p>
-<p><img src="../images/duration_timer.png" alt="Long Task Timer" /></p>
-<h2><a href="#timer" name="timer" class="anchor"><span class="anchor-link"></span></a>Timer</h2>
-<p>To get started create an instance using the registry:</p>
-<dl>
-  <dt>Java</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-java">public class TimerExample {
-
-  private final Registry registry;
-  private final Timer requestLatency;
-
-  @Inject
-  public TimerExample(Registry registry) {
-    this.registry = registry;
-    requestLatency = registry.timer(&quot;server.requestLatency&quot;);
-  }</code></pre></dd>
-  <dt>Python</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-py">class TimerExample:
-
-    def __init__(self, registry=GlobalRegistry):
-        self._registry = registry
-        self._requestLatency = registry.timer(&#39;server.requestLatency&#39;)</code></pre></dd>
-</dl>
-<p>Then wrap the call you need to measure, preferably using <span class="group-java">a lambda</span><span class="group-python">a with statement</span>:</p>
-<dl>
-  <dt>Java</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-java">public Response handleUsingLambda(Request request) throws Exception {
-  return requestLatency.record(() -&gt; handleImpl(request));
-}</code></pre></dd>
-  <dt>Python</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-py">def handle_using_with(self, request):
-    with self._requestLatency.stopwatch():
-        return self._handle_impl(request)</code></pre></dd>
-</dl>
-<p>The lambda variants will handle exceptions for you and ensure the record happens as part of a finally block using the monotonic time. It could also have been done more explicitly like:</p>
-<dl>
-  <dt>Java</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-java">public Response handleExplicitly(Request request) {
-  final long start = registry.clock().monotonicTime();
-  try {
-    return handleImpl(request);
-  } finally {
-    final long end = registry.clock().monotonicTime();
-    requestLatency.record(end - start, TimeUnit.NANOSECONDS);
-  }
-}</code></pre></dd>
-  <dt>Python</dt>
-  <dd>
-  <pre class="prettyprint"><code class="language-py">def handle_explicitly(self, request):
-    start = self._registry.clock().monotonic_time()
-    try:
-        return self._handle_impl(request)
-    finally:
-        end = self._registry.clock().monotonic_time()
-        self._requestLatency.record(end - start)</code></pre></dd>
-</dl>
-<p>This example uses the clock from the registry which can be useful for testing if you need to control the timing. In actual usage it will typically get mapped to the system clock. It is recommended to use a monotonically increasing source for measuring the times to avoid occasionally having bogus measurements due to time adjustments. For more information see the <a href="clock.md">Clock documentation</a>.</p>
-<h2><a href="#longtasktimer" name="longtasktimer" class="anchor"><span class="anchor-link"></span></a>LongTaskTimer</h2>
-<p>To get started create an instance using the registry:</p>
-<pre class="prettyprint"><code class="language-java">public class MetadataService {
-
-  private final LongTaskTimer metadataRefresh;
-
-  @Inject
-  public MetadataService(Registry registry) {
-    metadataRefresh = registry.longTaskTimer(&quot;metadata.refreshDuration&quot;);
-    // setup background thread to call refresh()
-  }
-
-  private void refresh() {
-    final int id = metadataRefresh.start();
-    try {
-      refreshImpl();
-    } finally {
-      metadataRefresh.stop(id);
-    }
-  }
-</code></pre>
-<p>The id is used to keep track of a particular task being measured by the timer. It must be stopped using the provided id. Note that unlike a regular timer that does not do anything until the final duration is recorded, a long duration timer will report as two gauges:</p>
-<ul>
-  <li><code>duration</code>: total duration spent within all currently running tasks.</li>
-  <li><code>activeTasks</code>: number of currently running tasks.</li>
-</ul>
-<p>This means that you can see what is happening while the task is running, but you need to keep in mind:</p>
-<ul>
-  <li>The id is fixed before the task begins. There is no way to change tags based  on the run, e.g., update a different timer if an exception is thrown.</li>
-  <li>Being a guage it is inappropriate for short tasks. In particular, gauges are  sampled and if it is not sampled during the execution or the sampling period  is a significant subset of the expected duration, then the duration value  will not be meaningful.</li>
-</ul>
-<p>Like a regular timer, the duration timer also supports using a lambda to simplify the common case:</p>
-<pre class="prettyprint"><code class="language-java">  private void refresh() {
-    metadataRefresh.record(this::refreshImpl);
-  }
-</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/timers.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/alerting.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -323,7 +275,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../spectator/index.html" title="Spectator" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../asl/index.html" title="Stack Language" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -332,17 +284,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Spectator
+Stack Language
 </span>
 </div>
 </a>
-<a href="../spectator/netflix.html" title="Netflix Integration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Netflix Integration
+Alerting Philosophy
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
