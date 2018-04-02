@@ -145,10 +145,9 @@ Netflix/atlas-docs
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
-    <li><a href="../asl-reference/query/index.html" class="page">Query</a></li>
     <li><a href="../asl-reference/and.html" class="active page">and</a></li>
     <li><a href="../asl-reference/dist-avg.html" class="page">dist-avg</a></li>
-    <li><a href="../asl-reference/math-and.html" class="page">and</a></li>
+    <li><a href="../asl-reference/eq.html" class="page">eq</a></li>
   </ul></li>
   <li><a href="../spectator/index.html" class="page">Spectator</a>
   <ul>
@@ -157,11 +156,44 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../asl-reference/and.html#and" class="header">and</a>
+  <ul>
+    <li><a href="../asl-reference/and.html#query-variant" class="header">Query Variant</a></li>
+    <li><a href="../asl-reference/and.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/and.html#summary" class="header">Summary</a></li>
+    <li><a href="../asl-reference/and.html#math-variant" class="header">Math Variant</a></li>
+    <li><a href="../asl-reference/and.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/and.html#summary" class="header">Summary</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
 <i class="md-icon">label_outline</i> 0.1.0*
 </div>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../asl-reference/and.html#and" class="header">and</a>
+  <ul>
+    <li><a href="../asl-reference/and.html#query-variant" class="header">Query Variant</a></li>
+    <li><a href="../asl-reference/and.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/and.html#summary" class="header">Summary</a></li>
+    <li><a href="../asl-reference/and.html#math-variant" class="header">Math Variant</a></li>
+    <li><a href="../asl-reference/and.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/and.html#summary" class="header">Summary</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 </div>
@@ -173,9 +205,28 @@ Netflix/atlas-docs
 <h1><a href="#and" name="and" class="anchor"><span class="anchor-link"></span></a>and</h1>
 <p>There are two overloaded variants of the <code>:and</code> operator:</p>
 <ul>
-  <li><a href="query/and.html">Query variant</a> that is used to help restrict the set of time series used  for an expression.</li>
-  <li><a href="math-and.html">Math variant</a> that is used to combine to signal time series.</li>
+  <li><a href="#query-variant">Query variant</a> that is used to help restrict the set of time series used  for an expression.</li>
+  <li><a href="#math-variant">Math variant</a> that is used to combine to signal time series.</li>
 </ul>
+<h2><a href="#query-variant" name="query-variant" class="anchor"><span class="anchor-link"></span></a>Query Variant</h2>
+<h2><a href="#signature" name="signature" class="anchor"><span class="anchor-link"></span></a>Signature</h2>
+<p><code>Query Query -- Query</code></p>
+<h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+<p>Query expression that matches if both sub queries match. Suppose you have three time series:</p>
+<ul>
+  <li><code>name=http.requests, status=200, nf.app=server</code></li>
+  <li><code>name=sys.cpu, type=user, nf.app=foo</code></li>
+  <li><code>name=sys.cpu, type=user, nf.app=bar</code></li>
+</ul>
+<p>The query <code>name,sys.cpu,:eq,nf.app,foo,:eq,:and</code> would match:</p>
+<ul>
+  <li><code>name=sys.cpu, type=user, nf.app=foo</code></li>
+</ul>
+<h2><a href="#math-variant" name="math-variant" class="anchor"><span class="anchor-link"></span></a>Math Variant</h2>
+<h2><a href="#signature" name="signature" class="anchor"><span class="anchor-link"></span></a>Signature</h2>
+<p><code>TimeSeriesExpr TimeSeriesExpr -- TimeSeriesExpr</code></p>
+<h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+<p>Compute a new time series where each interval has the value <code>(a AND b)</code> where <code>a</code>  and <code>b</code> are the corresponding intervals in the input time series.</p>
 </div>
 <div>
 <a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl-reference/and.md" title="Edit this page" class="md-source-file md-edit">
@@ -194,7 +245,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl-reference/query/and.html" title="and" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -203,7 +254,7 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-and
+Stack Language Reference
 </span>
 </div>
 </a>
