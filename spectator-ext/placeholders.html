@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Placeholders · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Placeholders
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -171,7 +171,7 @@ Netflix/atlas-docs
     <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
     <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
     <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
-    <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
+    <li><a href="../spectator-ext/placeholders.html" class="active page">Placeholders</a></li>
   </ul></li>
   <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
   <ul>
@@ -180,6 +180,14 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/placeholders.html#placeholders" class="header">Placeholders</a>
+  <ul>
+    <li><a href="../spectator-ext/placeholders.html#dependencies" class="header">Dependencies</a></li>
+    <li><a href="../spectator-ext/placeholders.html#usage" class="header">Usage</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +198,109 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/placeholders.html#placeholders" class="header">Placeholders</a>
+  <ul>
+    <li><a href="../spectator-ext/placeholders.html#dependencies" class="header">Dependencies</a></li>
+    <li><a href="../spectator-ext/placeholders.html#usage" class="header">Usage</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#placeholders" name="placeholders" class="anchor"><span class="anchor-link"></span></a>Placeholders</h1>
+<p>The placeholders extension allows for identifiers to be created with dimensions that will get filled in based on the context when an activity occurs. The primary use-cases are to support:</p>
+<ol>
+  <li>Optional dimensions that can be conditionally enabled.</li>
+  <li>Pulling dimensions from another context such as a thread local store. This can make  it is easier to share the across various parts of the code.</li>
+</ol>
+<h2><a href="#dependencies" name="dependencies" class="anchor"><span class="anchor-link"></span></a>Dependencies</h2>
+<p>To use the placeholders support add a dependency on:</p>
+<pre><code>com.netflix.spectator:spectator-ext-placeholders:0.62.0
+</code></pre>
+<h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
+<p>Placeholder support is available for activity based types including <a href="../intro/counter.md">counters</a>, <a href="../intro/timer.md">timers</a>, and <a href="../intro/dist-summary.md">distribution summaries</a>. To get started create a <code>PlaceholderFactory</code> from the registry:</p>
+<pre class="prettyprint"><code class="language-java">PlaceholderFactory factory = PlaceholderFactory.from(registry);
+</code></pre>
+<p>Then use the factory to create an identifier using a <code>TagFactory</code> to dynamically fetch the value for a given dimension when some activity occurs. Suppose we want to use a dynamic configuration library such as <a href="https://github.com/Netflix/archaius/tree/2.x">Archaius</a> to conditionally enable a dimension with high cardinality:</p>
+<pre class="prettyprint"><code class="language-java">public class Server {
+  
+  private final Context context;
+  private final Counter rps;
+  
+  public Server(Context context, PropertyFactory props, Registry registry) {
+    this.context = context;
+    
+    // Property that can be dynamically updated to indicate whether or not
+    // detailed dimensions should be added to metrics.
+    Property&lt;Boolean&gt; enabled = props
+      .getProperty(&quot;server.detailedMetricsEnabled&quot;)
+      .asBoolean(false);
+      
+    // Factory for creating instances of the counter using placeholders
+    PlaceholderFactory factory = PlaceholderFactory.from(registry);
+    
+    // Create the underlying id with 4 possible dimensions:
+    // *  method and status - low cardinality and always added if available
+    //    in the context.
+    // *  geo and device - high cardinality and only available if the property
+    //    to enable detailed metrics is set to true.
+    PlaceholderId rpsId = factory.createId(&quot;server.requests&quot;)
+      .withTagFactory(TagFactory.from(&quot;method&quot;, context::getMethod))
+      .withTagFactory(TagFactory.from(&quot;status&quot;, context::getStatus))
+      .withTagFactory(new DetailedDimension(&quot;geo&quot;, enabled, context::getGeo))
+      .withTagFactory(new DetailedDimension(&quot;device&quot;, enabled, context::getDevice));
+    rps = factory.counter(rpsId);
+  }
+  
+  public Response handle(Request request) {
+    fillInContext(request);
+    Response response = process(request);
+    fillInContext(response);
+    
+    // Update the counter, the placeholders will be resolved when the activity, in
+    // this case the increment is called.
+    rps.increment();
+    return response;
+  }
+ 
+  // Tag factory that can be controlled with an enabled property.
+  private static class DetailedDimension implements TagFactory {
+    
+    private final String name;
+    private final Supplier&lt;String&gt; valueFunc;
+    
+    DetailedDimension(String name, Property&lt;Boolean&gt; enabled, Supplier&lt;String&gt; valueFunc) {
+      this.name = name;
+      this.enabled = enabled;
+      this.valueFunc = valueFunc;
+    }
+    
+    @Override public String name() {
+      return name;
+    }
+    
+    @Override public Tag createTag() {
+      return enabled.get()
+          ? new BasicTag(name, valueFunc.get())
+          : null;
+    }
+  }
+}
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator-ext/placeholders.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +316,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator-ext/log4j2.html" title="Log4j2 Appender" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +325,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Log4j2 Appender
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator-reg/index.html" title="Spectator Registries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Spectator Registries
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

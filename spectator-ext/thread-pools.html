@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Thread Pools · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Thread Pools
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -168,7 +168,7 @@ Netflix/atlas-docs
     <li><a href="../spectator-ext/jvm-gc.html" class="page">Garbage Collection</a></li>
     <li><a href="../spectator-ext/jvm-gc-causes.html" class="page">GC Causes</a></li>
     <li><a href="../spectator-ext/jvm-memory-pools.html" class="page">Memory Pools</a></li>
-    <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
+    <li><a href="../spectator-ext/thread-pools.html" class="active page">Thread Pools</a></li>
     <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
     <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
     <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
@@ -180,6 +180,14 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/thread-pools.html#thread-pools" class="header">Thread Pools</a>
+  <ul>
+    <li><a href="../spectator-ext/thread-pools.html#getting-started" class="header">Getting Started</a></li>
+    <li><a href="../spectator-ext/thread-pools.html#metrics" class="header">Metrics</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +198,60 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/thread-pools.html#thread-pools" class="header">Thread Pools</a>
+  <ul>
+    <li><a href="../spectator-ext/thread-pools.html#getting-started" class="header">Getting Started</a></li>
+    <li><a href="../spectator-ext/thread-pools.html#metrics" class="header">Metrics</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#thread-pools" name="thread-pools" class="anchor"><span class="anchor-link"></span></a>Thread Pools</h1>
+<p>Java&rsquo;s <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a> exposes several properties that are useful to monitor to assess the health, performance, and configuration of the pool.</p>
+<h2><a href="#getting-started" name="getting-started" class="anchor"><span class="anchor-link"></span></a>Getting Started</h2>
+<p>To report thread pool metrics, one can attach a <a href="http://netflix.github.io/spectator/en/latest/javadoc/spectator-api/com/netflix/spectator/api/patterns/ThreadPoolMonitor.html">ThreadPoolMonitor</a> in the following manner:</p>
+<pre class="prettyprint"><code class="language-java">import com.netflix.spectator.api.patterns.ThreadPoolMonitor;
+
+ThreadPoolMonitor.attach(registry, myThreadPoolExecutor, &quot;my-thread-pool&quot;);
+</code></pre>
+<p>The thread pool&rsquo;s properties will be polled regularly in the background and will report metrics to the provided registry. The third parameter will be added to each metric as an <code>id</code> dimension, if provided. However, if the value is <code>null</code> or an empty string, then a default will be used as the <code>id</code>.</p>
+<h2><a href="#metrics" name="metrics" class="anchor"><span class="anchor-link"></span></a>Metrics</h2>
+<h3><a href="#threadpool-taskcount" name="threadpool-taskcount" class="anchor"><span class="anchor-link"></span></a>threadpool.taskCount</h3>
+<p>Counter of the total number of tasks that have been scheduled.</p>
+<p><strong>Unit:</strong> tasks/second<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getTaskCount()</code></p>
+<h3><a href="#threadpool-completedtaskcount" name="threadpool-completedtaskcount" class="anchor"><span class="anchor-link"></span></a>threadpool.completedTaskCount</h3>
+<p>Counter of the total number of tasks that have completed.</p>
+<p><strong>Unit:</strong> tasks/second<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getCompletedTaskCount()</code></p>
+<h3><a href="#threadpool-currentthreadsbusy" name="threadpool-currentthreadsbusy" class="anchor"><span class="anchor-link"></span></a>threadpool.currentThreadsBusy</h3>
+<p>Gauge showing the current number of threads actively doing work.</p>
+<p><strong>Unit:</strong> count<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getActiveCount()</code></p>
+<h3><a href="#threadpool-maxthreads" name="threadpool-maxthreads" class="anchor"><span class="anchor-link"></span></a>threadpool.maxThreads</h3>
+<p>Gauge showing the current maximum number of threads configured for the pool.</p>
+<p><strong>Unit:</strong> count<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getMaximumPoolSize()</code></p>
+<h3><a href="#threadpool-poolsize" name="threadpool-poolsize" class="anchor"><span class="anchor-link"></span></a>threadpool.poolSize</h3>
+<p>Gauge showing the current size of the pool.</p>
+<p><strong>Unit:</strong> count<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getPoolSize()</code></p>
+<h3><a href="#threadpool-corepoolsize" name="threadpool-corepoolsize" class="anchor"><span class="anchor-link"></span></a>threadpool.corePoolSize</h3>
+<p>Gauge showing the current maximum number of core threads configured for the pool.</p>
+<p><strong>Unit:</strong> count<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getCorePoolSize()</code></p>
+<h3><a href="#threadpool-queuesize" name="threadpool-queuesize" class="anchor"><span class="anchor-link"></span></a>threadpool.queueSize</h3>
+<p>Gauge showing the current number of threads queued for execution.</p>
+<p><strong>Unit:</strong> count<br/> <strong>Data Source:</strong> <code>ThreadPoolExecutor#getQueue().size()</code></p>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator-ext/thread-pools.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +267,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator-ext/jvm-memory-pools.html" title="Memory Pools" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +276,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Memory Pools
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator-ext/log4j1.html" title="Log4j1 Appender" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Log4j1 Appender
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

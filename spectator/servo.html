@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="description" content="Atlas Docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.4.0, mkdocs-material=2.2.2">
+
+<meta name="lang:clipboard.copy" content="Copy to clipboard">
+<meta name="lang:clipboard.copied" content="Copied to clipboard">
+<meta name="lang:search.result.none" content="No matching documents">
+<meta name="lang:search.result.one" content="1 matching document">
+<meta name="lang:search.result.other" content="# matching documents">
+<meta name="lang:search.language" content="">
+<meta name="lang:search.tokenizer" content="[\s\-]+">
+
+
+<meta name="description" content="Atlas Docs">
+<link rel="shortcut icon" href="../images/atlas_logo_small.png">
+<title>Servo Comparison · Atlas</title>
+<link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
+<link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
+<link rel="stylesheet" href="../lib/prettify/prettify.css">
+<script src="../lib/modernizr/modernizr.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+<style>
+body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}
+code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/stylesheets/paradox-material-theme.css">
+</head>
+<body
+>
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+<label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a href="../index.html" title="Atlas" class="md-header-nav__button md-logo">
+<img src="../images/atlas_logo_small.png" width="24" height="24">
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
+Atlas
+</span>
+<span class="md-header-nav__topic">
+Servo Comparison
+</span>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="search"></label>
+<div class="md-search__inner">
+<form class="md-search__form" name="search">
+<input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+<label class="md-icon md-search__icon" for="search"></label>
+<button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix>
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
+Type to start searching
+</div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<div class="md-header-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+</div>
+</div>
+</nav>
+</header>
+
+<div class="md-container">
+<main class="md-main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
+<label class="md-nav__title md-nav__title--site" for="drawer">
+<span class="md-nav__button md-logo">
+<img src="../images/atlas_logo_small.png" width="24" height="24">
+</span>
+<a href="../index.html" title="Atlas">
+Atlas
+</a>
+</label>
+<div class="md-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<ul>
+  <li><a href="../overview.html" class="page">Overview</a></li>
+  <li><a href="../getting-started.html" class="page">Getting Started</a></li>
+  <li><a href="../concepts.html" class="page">Concepts</a></li>
+  <li><a href="../presentations.html" class="page">Presentations</a></li>
+  <li><a href="../asl/index.html" class="page">Stack Language</a>
+  <ul>
+    <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
+    <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
+  </ul></li>
+  <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="../asl-reference/and.html" class="page">and</a></li>
+    <li><a href="../asl-reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="../asl-reference/eq.html" class="page">eq</a></li>
+  </ul></li>
+  <li><a href="../spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="../spectator/registry.html" class="page">Registry</a></li>
+    <li><a href="../spectator/counters.html" class="page">Counters</a></li>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
+    <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
+    <li><a href="../spectator/clock.html" class="page">Clock</a></li>
+    <li><a href="../spectator/testing.html" class="page">Testing</a></li>
+    <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
+    <li><a href="../spectator/conventions.html" class="page">Names</a></li>
+    <li><a href="../spectator/servo.html" class="active page">Servo Comparison</a></li>
+  </ul></li>
+  <li><a href="../spectator-ext/index.html" class="page">Spectator Extensions</a>
+  <ul>
+    <li><a href="../spectator-ext/jvm-buffer-pools.html" class="page">Buffer Pools</a></li>
+    <li><a href="../spectator-ext/jvm-gc.html" class="page">Garbage Collection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html" class="page">GC Causes</a></li>
+    <li><a href="../spectator-ext/jvm-memory-pools.html" class="page">Memory Pools</a></li>
+    <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
+    <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
+    <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
+    <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
+  </ul></li>
+  <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
+  <ul>
+    <li><a href="../spectator-reg/metrics3.html" class="page">Metrics3 Registry</a></li>
+    <li><a href="../spectator-reg/servo.html" class="page">Servo Registry</a></li>
+  </ul></li>
+</ul>
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/servo.html#servo-comparison" class="header">Servo Comparison</a>
+  <ul>
+    <li><a href="../spectator/servo.html#differences" class="header">Differences</a></li>
+    <li><a href="../spectator/servo.html#migration" class="header">Migration</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+<div class="md-nav__title--site md-version" title="Version">
+<i class="md-icon">label_outline</i> 0.1.0*
+</div>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/servo.html#servo-comparison" class="header">Servo Comparison</a>
+  <ul>
+    <li><a href="../spectator/servo.html#differences" class="header">Differences</a></li>
+    <li><a href="../spectator/servo.html#migration" class="header">Migration</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<div class="md-content__searchable">
+<h1><a href="#servo-comparison" name="servo-comparison" class="anchor"><span class="anchor-link"></span></a>Servo Comparison</h1>
+<p><a href="https://github.com/Netflix/servo">Servo</a> is an alternative client monitoring library that is also developed by Netflix. Originally spectator was an experiment for a simpler API that wrapped servo. It was done as a separate project to avoid breaking backwards compatibility for servo.</p>
+<p>From a user perspective, both will be supported for a long time, but most of our efforts for future improvement will go to spectator. For new code it is recommended to use the spectator API. If running [at Netflix](Netflix Integration) the correct bindings will be in place for both servo and spectator.</p>
+<h2><a href="#differences" name="differences" class="anchor"><span class="anchor-link"></span></a>Differences</h2>
+<p>This section provides a quick summary of the differences.</p>
+<h3><a href="#simpler-api" name="simpler-api" class="anchor"><span class="anchor-link"></span></a>Simpler API</h3>
+<p>Servo gives the user a lot of control, but this makes it hard to use correctly. For example, to create a counter the user needs to understand the tradeoffs and choose between:</p>
+<ul>
+  <li><a href="#basiccounter">BasicCounter</a></li>
+  <li><a href="#dynamiccounter">DynamicCounter</a></li>
+  <li><a href="#contextualcounter">ContextualCounter</a></li>
+  <li><a href="#stepcounter">StepCounter</a></li>
+</ul>
+<p>Further each of these can impact how data is reported to observers. The spectator API focuses on the constructs a user needs to instrument the code. In spectator the user would always use the registry to create a <a href="counter.md">Counter</a>. The implementation details are left up to the registry.</p>
+<p>The <a href="#registration">registration</a> is simpler as well to avoid common pitfalls when using servo like overwriting a registered object.</p>
+<h3><a href="#more-focused" name="more-focused" class="anchor"><span class="anchor-link"></span></a>More Focused</h3>
+<p>The goal of spectator is instrumenting code to send to a dimensional time-series system like <a href="https://github.com/Netflix/atlas/wiki">Atlas</a>. Servo has goals of staying compatible with a number of legacy libraries and naming formats, exposing data to JMX, etc. Examples of how this influences decisions:</p>
+<ul>
+  <li>No support for non-numeric data. Servo supported this for exposing to JMX.  Exposing the numeric data registered in spectator to JMX can be done  using a registry that supports it, but there is no goal to be a general  interface for exposing arbitrary data in JMX.</li>
+  <li>No support for customizeable time units when reporting timer data. Base  units should always be used for reporting and conversions can be performed  in the presentation layer if needed. It also avoids a lot of the confusion  around the timer unit for the data and issues like creating aggregates that  are meaningless because of mixed units.</li>
+</ul>
+<p>It is better to have a simple way to get correct and easy to reason about data to the backend than many options. If you want more knobs, then you can use Servo.</p>
+<h3><a href="#di-friendly" name="di-friendly" class="anchor"><span class="anchor-link"></span></a>DI Friendly</h3>
+<p>When servo was originally written dependency injection was not heavily used at Netflix. Further servo needed to stay compatible with a number of use-cases that were heavily static.</p>
+<p>While spectator does have a static registry that can be used, the recommended way is to create a registry and inject it either manually or via a framework into the classes that need it. This also makes it much easier to <a href="testing">test in isolation</a>.</p>
+<h2><a href="#migration" name="migration" class="anchor"><span class="anchor-link"></span></a>Migration</h2>
+<p>If you want to migrate from the servo API to the spectator API, then this section provides some guides on how servo constructs can be ported over. The sub-sections are the class names of monitor types supported by servo.</p>
+<p>For users at Netflix, note we are not actively pushing teams to migrate or do any additional work. Servo is still supported and if it works for your use-cases feel free to continue using it. </p>
+<h3><a href="#registration" name="registration" class="anchor"><span class="anchor-link"></span></a>Registration</h3>
+<p>First read through the <a href="https://github.com/Netflix/servo/wiki/Getting-Started#registration-of-metrics">servo docs on registration</a>. In servo if you have a class like:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+
+  private AtomicInteger gauge;
+  private Counter counter;
+
+  public Foo(String id) {
+    gauge = new AtomicInteger();
+    counter = new BasicCounter(MonitorConfig.builder(&quot;counter&quot;).build());
+    Monitors.registerObject(id, this);
+  }
+
+  @Monitor(name = &quot;gauge&quot;, type = DataSourceType.GAUGE)
+  private int gauge() {
+    return gauge.get();
+  }
+
+  public void doSomething() {
+    ...
+  }
+}
+</code></pre>
+<p>The state of the class is in the member variables of an instance of <code>Foo</code>. If multiple instances of class <code>Foo</code> are created with the same value for <code>id</code>, then the last one will overwrite the others for the registration. So the values getting reported will only be from the last instance registered. Also the registry has a reference to the instance of <code>Foo</code> so it will never go away.</p>
+<p>For counters and timers one way to get around this is to use <a href="#dynamiccounter">DynamicCounter</a> and <a href="#dynamictimer">DynamicTimer</a> respectively. Those classes will automatically handle the registration and expire if there is no activity. They also get used for cases where the set of dimensions is not known up front.</p>
+<p>Gauges need to sample the state of something so they need to have a reference to an object that contains the state. So the user would need to ensure that only a single copy was registered leading to patterns like:</p>
+<pre class="prettyprint"><code class="language-java">class Foo {
+
+  private static class FooStats {
+
+    private AtomicInteger gauge;
+    private Counter counter;
+
+    public FooStats(String id) {
+      gauge = new AtomicInteger();
+      counter = new BasicCounter(MonitorConfig.builder(&quot;counter&quot;).build());
+      Monitors.registerObject(id, this);
+    }
+
+    @Monitor(name = &quot;gauge&quot;, type = DataSourceType.GAUGE)
+    private int gauge() {
+      return gauge.get();
+    }
+  }
+
+  private static ConcurrentHashMap&lt;String, FooStats&gt; STATS =
+    new ConcurrentHashMap&lt;&gt;();
+
+  private final FooStats stats;
+
+  public Foo(String id) {
+    stats = STATS.computeIfAbsent(id, (i) -&gt; new FooStats(i));
+  }
+
+  public void doSomething() {
+    ...
+    stats.update();
+  }
+}
+</code></pre>
+<p>This ensures that there is a single copy for a given id. In spectator this example would look like: </p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+
+  private AtomicInteger gauge;
+  private Counter counter;
+
+  public Foo(Registry registry, String id) {
+    Id gaugeId = registry.createId(&quot;gauge&quot;).withTag(&quot;id&quot;, id);
+    gauge = registry.gauge(gaugeId, new AtomicInteger());
+    counter = registry.counter(&quot;counter&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething() {
+    ...
+  }
+}
+</code></pre>
+<p>Everything using the same registry will get the same counter instance if the same id is used. For the gauge the registry will keep a weak reference and will sum the values if multiple instances are present. Since it is a weak reference, nothing will prevent an instance of <code>Foo</code> from getting garbage collected.</p>
+<h3><a href="#annotations" name="annotations" class="anchor"><span class="anchor-link"></span></a>Annotations</h3>
+<p>Annotations are not supported, use the appropriate meter type:</p>
+<table>
+  <thead>
+    <tr>
+      <th>DataSourceType </th>
+      <th>Spectator Alternative </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNTER </td>
+      <td><a href="counter.md">Counter Usage</a> </td>
+    </tr>
+    <tr>
+      <td>GAUGE </td>
+      <td><a href="gauge.md">Gauge Usage</a> </td>
+    </tr>
+    <tr>
+      <td>INFORMATIONAL </td>
+      <td>Not supported </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#basiccounter" name="basiccounter" class="anchor"><span class="anchor-link"></span></a>BasicCounter</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="counter.md">counter usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Counter c =
+    new BasicCounter(MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+
+  public void doSomething() {
+    c.increment();
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Counter c;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    c = registry.counter(&quot;name&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething() {
+    c.increment();
+  }
+}
+</code></pre>
+<h3><a href="#basicgauge" name="basicgauge" class="anchor"><span class="anchor-link"></span></a>BasicGauge</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="gauge.md">gauge usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final BasicGauge g = new BasicGauge(
+    MonitorConfig.builder(&quot;name&quot;).build(),
+    this::getCurrentValue);
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  @Inject
+  public Foo(Registry registry, String id) {
+    Id gaugeId = registry.createId(&quot;name&quot;).withTag(&quot;id&quot;, id);
+    registry.gauge(gaugeId, this, Foo::getCurrentValue);
+  }
+}
+</code></pre>
+<h3><a href="#basictimer" name="basictimer" class="anchor"><span class="anchor-link"></span></a>BasicTimer</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="timer.md">timer usage</a>. Note in spectator the reported unit for timers is always seconds and cannot be changed. Seconds is the base unit and other units should only be used as a presentation detail. Servo allows the unit to be customized and defaults to milliseconds.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Timer t = new BasicTimer(
+    MonitorConfig.builder(&quot;name&quot;).build(), TimeUnit.SECONDS);
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+
+  public void doSomething() {
+    Stopwatch s = t.start();
+    try {
+      ...
+    } finally {
+      s.stop();
+    }
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Timer t;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    t = registry.timer(&quot;name&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething() {
+    t.record(() -&gt; {
+      ...
+    });
+  }
+}
+</code></pre>
+<h3><a href="#basicdistributionsummary" name="basicdistributionsummary" class="anchor"><span class="anchor-link"></span></a>BasicDistributionSummary</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="dist-summary.md">distribution summary usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final BasicDistributionSummary s = new BasicDistributionSummary(
+    MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+
+  public void doSomething() {
+    ...
+    s.record(getValue());
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final DistributionSummary s;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    s = registry.distributionSummary(&quot;name&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething() {
+    ...
+    s.record(getValue());
+  }
+}
+</code></pre>
+<h3><a href="#basicinformational" name="basicinformational" class="anchor"><span class="anchor-link"></span></a>BasicInformational</h3>
+<p>Not supported, see <a href="#differences">overview of differences</a>.</p>
+<h3><a href="#basicstopwatch" name="basicstopwatch" class="anchor"><span class="anchor-link"></span></a>BasicStopwatch</h3>
+<p>There isn&rsquo;t an explicit stopwatch class in spectator. Just use a timing call directly. </p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">  public void doSomething() {
+    Stopwatch s = timer.start();
+    try {
+      ...
+    } finally {
+      s.stop();
+    }
+  }
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">  public void doSomething() {
+    final long s = System.nanoTime();
+    try {
+      ...
+    } finally {
+      timer.record(System.nanoTime() - s, TimeUnit.NANOSECONDS);
+    }
+  }
+</code></pre>
+<h3><a href="#buckettimer" name="buckettimer" class="anchor"><span class="anchor-link"></span></a>BucketTimer</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="Sandbox">sandbox documentation</a>. Note in spectator BucketTimer is provided in the sandbox extension library and may change in future as we gain more experience using it.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Timer t = new BucketTimer(
+    MonitorConfig.builder(&quot;name&quot;).build(),
+    new BucketConfig.Builder()
+      .withTimeUnit(TimeUnit.MILLISECONDS)
+      .withBuckets(new long[] { 500, 2500, 5000, 10000 })
+      .build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+
+  public void doSomething() {
+    Stopwatch s = t.start();
+    try {
+      ...
+    } finally {
+      s.stop();
+    }
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Timer t;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    Id timerId = registry.createId(&quot;name&quot;, &quot;id&quot;, id);
+    BucketFunction f = BucketFunctions.latency(10, TimeUnit.SECONDS);
+    t = BucketTimer.get(registry, timerId, f);
+  }
+
+  public void doSomething() {
+    t.record(() -&gt; {
+      ...
+    });
+  }
+}
+</code></pre>
+<h3><a href="#contextualcounter" name="contextualcounter" class="anchor"><span class="anchor-link"></span></a>ContextualCounter</h3>
+<p>Not supported. A fixed tag list for the context is too rigid and this class was never used much at Netflix. Future work being looked at in <a href="https://github.com/Netflix/spectator/issues/180">issue-180</a>.</p>
+<h3><a href="#contextualtimer" name="contextualtimer" class="anchor"><span class="anchor-link"></span></a>ContextualTimer</h3>
+<p>Not supported. A fixed tag list for the context is too rigid and this class was never used much at Netflix. Future work being looked at in <a href="https://github.com/Netflix/spectator/issues/180">issue-180</a>.</p>
+<h3><a href="#doublegauge" name="doublegauge" class="anchor"><span class="anchor-link"></span></a>DoubleGauge</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="gauge.md">gauge usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final DoubleGauge g = new DoubleGauge(
+    MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">import com.google.common.util.concurrent.AtomicDouble;
+
+public class Foo {
+  private final AtomicDouble v;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    Id gaugeId = registry.createId(&quot;name&quot;).withTag(&quot;id&quot;, id);
+    v = registry.gauge(gaugeId, new AtomicDouble());
+  }
+}
+</code></pre>
+<h3><a href="#durationtimer" name="durationtimer" class="anchor"><span class="anchor-link"></span></a>DurationTimer</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="timer.md#longtasktimer">timer usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final DurationTimer t = new DurationTimer(
+    MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final LongTaskTimer t;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    t = registry.longTaskTimer(&quot;name&quot;, &quot;id&quot;, id);
+  }
+}
+</code></pre>
+<h3><a href="#dynamiccounter" name="dynamiccounter" class="anchor"><span class="anchor-link"></span></a>DynamicCounter</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="counter.md">counter usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+
+  private final String id;
+
+  public Foo(String id) {
+    this.id = id;
+  }
+
+  public void doSomething(Context ctxt) {
+    DynamicCounter.increment(&quot;staticId&quot;, &quot;id&quot;, id);
+    DynamicCounter.increment(&quot;dynamicId&quot;, &quot;id&quot;, id, &quot;foo&quot;, ctxt.getFoo());
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Registry registry;
+  private final String id;
+  private final Counter staticCounter;
+  private final Id dynamicId;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    this.registry = registry;
+    this.id = id;
+    staticCounter = registry.counter(&quot;staticId&quot;, &quot;id&quot;, id);
+    dynamicId = registry.createId(&quot;dynamicId&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething(Context ctxt) {
+    // Keeping the reference to the counter avoids additional allocations
+    // to create the id object and the lookup cost
+    staticCounter.increment();
+
+    // If the id is dynamic it must be looked up
+    registry.counter(&quot;dynamicId&quot;, &quot;id&quot;, id, &quot;foo&quot;, ctxt.getFoo()).increment();
+
+    // This will update the same counter as the line above, but the base part
+    // of the id is precomputed to make it cheaper to construct the id.
+    registry.counter(dynamicId.withTag(&quot;foo&quot;, ctxt.getFoo())).increment();
+  }
+}
+</code></pre>
+<h3><a href="#dynamictimer" name="dynamictimer" class="anchor"><span class="anchor-link"></span></a>DynamicTimer</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="timer.md">timer usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+
+  private final String id;
+  private final MonitorConfig staticId;
+
+  public Foo(String id) {
+    this.id = id;
+    staticId = MonitorConfig.builder(&quot;staticId&quot;).withTag(&quot;id&quot;, id).build();
+  }
+
+  public void doSomething(Context ctxt) {
+    final long d = ctxt.getDurationMillis();
+    DynamicTimer.record(staticId, TimeUnit.SECONDS, d, TimeUnit.MILLISECONDS);
+
+    MonitorConfig dynamicId = MonitorConfig.builder(&quot;dynamicId&quot;)
+      .withTag(&quot;id&quot;, id)
+      .withTag(&quot;foo&quot;, ctxt.getFoo())
+      .build();
+    DynamicTimer.record(dynamicId, TimeUnit.SECONDS, d, TimeUnit.MILLISECONDS);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Registry registry;
+  private final String id;
+  private final Timer staticTimer;
+  private final Id dynamicId;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    this.registry = registry;
+    this.id = id;
+    staticTimer = registry.timer(&quot;staticId&quot;, &quot;id&quot;, id);
+    dynamicId = registry.createId(&quot;dynamicId&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething(Context ctxt) {
+    final long d = ctxt.getDurationMillis();
+
+    // Keeping the reference to the timer avoids additional allocations
+    // to create the id object and the lookup cost
+    staticTimer.record(d, TimeUnit.MILLISECONDS);
+
+    // If the id is dynamic it must be looked up
+    registry.timer(&quot;dynamicId&quot;, &quot;id&quot;, id, &quot;foo&quot;, ctxt.getFoo())
+      .record(d, TimeUnit.MILLISECONDS);
+
+    // This will update the same timer as the line above, but the base part
+    // of the id is precomputed to make it cheaper to construct the id.
+    registry.timer(dynamicId.withTag(&quot;foo&quot;, ctxt.getFoo()))
+      .record(d, TimeUnit.MILLISECONDS);
+  }
+}
+</code></pre>
+<h3><a href="#longgauge" name="longgauge" class="anchor"><span class="anchor-link"></span></a>LongGauge</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="gauge.md">gauge usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final LongGauge g = new LongGauge(
+    MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final AtomicLong v;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    Id gaugeId = registry.createId(&quot;name&quot;).withTag(&quot;id&quot;, id);
+    v = registry.gauge(gaugeId, new AtomicLong());
+  }
+}
+</code></pre>
+<h3><a href="#monitorconfig" name="monitorconfig" class="anchor"><span class="anchor-link"></span></a>MonitorConfig</h3>
+<p>See the documentation on <a href="conventions.md">naming</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">MonitorConfig id = MonitorConfig.builder(&quot;name&quot;)
+  .withTag(&quot;country&quot;, &quot;US&quot;)
+  .withTag(&quot;device&quot;,  &quot;xbox&quot;)
+  .build();
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">Id id = registry.createId(&quot;name&quot;)
+  .withTag(&quot;country&quot;, &quot;US&quot;)
+  .withTag(&quot;device&quot;,  &quot;xbox&quot;);
+
+// or
+
+Id id = registry.createId(&quot;name&quot;, &quot;country&quot;, &quot;US&quot;, &quot;device&quot;, &quot;xbox&quot;);
+</code></pre>
+<h3><a href="#monitoredcache" name="monitoredcache" class="anchor"><span class="anchor-link"></span></a>MonitoredCache</h3>
+<p>Not supported because spectator does not have a direct dependency on guava. If there is enough demand an extension can be created.</p>
+<h3><a href="#numbergauge" name="numbergauge" class="anchor"><span class="anchor-link"></span></a>NumberGauge</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="gauge.md">gauge usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final NumberGauge g = new NumberGauge(
+    MonitorConfig.builder(&quot;name&quot;).build(), new AtomicLong());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final AtomicLong v;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    Id gaugeId = registry.createId(&quot;name&quot;).withTag(&quot;id&quot;, id);
+    v = registry.gauge(gaugeId, new AtomicLong());
+  }
+}
+</code></pre>
+<h3><a href="#statstimer" name="statstimer" class="anchor"><span class="anchor-link"></span></a>StatsTimer</h3>
+<p>Not supported, see <a href="#differences">overview of differences</a>.</p>
+<h3><a href="#stepcounter" name="stepcounter" class="anchor"><span class="anchor-link"></span></a>StepCounter</h3>
+<p>See the general overview of <a href="#registration">registration differences</a> and summary of <a href="counter.md">counter usage</a>.</p>
+<p>Servo:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Counter c =
+    new StepCounter(MonitorConfig.builder(&quot;name&quot;).build());
+
+  public Foo(String id) {
+    Monitors.registerObject(id, this);
+  }
+
+  public void doSomething() {
+    c.increment();
+  }
+}
+</code></pre>
+<p>Spectator:</p>
+<pre class="prettyprint"><code class="language-java">public class Foo {
+  private final Counter c;
+
+  @Inject
+  public Foo(Registry registry, String id) {
+    c = registry.counter(&quot;name&quot;, &quot;id&quot;, id);
+  }
+
+  public void doSomething() {
+    c.increment();
+  }
+}
+</code></pre>
+</div>
+<div>
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/servo.md" title="Edit this page" class="md-source-file md-edit">
+Edit this page
+</a>
+</div>
+<div class="print-only">
+<span class="md-source-file md-version">
+0.1.0*
+</span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a href="../spectator/conventions.html" title="Names" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Previous
+</span>
+Names
+</span>
+</div>
+</a>
+<a href="../spectator-ext/index.html" title="Spectator Extensions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Next
+</span>
+Spectator Extensions
+</span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+Powered by
+<a href="https://github.com/lightbend/paradox">Paradox</a>
+and
+<a href="https://jonas.github.io/paradox-material-theme/">Paradox Material Theme</a>
+
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+<script src="../assets/javascripts/application.5165553b.js"></script>
+<script src="../assets/javascripts/paradox-material-theme.js"></script>
+<script>app.initialize({version:"0.17",url:{base:"../."}})</script>
+<script type="text/javascript" src="../lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+window.prettyPrint && prettyPrint();
+});
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Gauges · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Gauges
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -155,7 +155,7 @@ Netflix/atlas-docs
     <li><a href="../spectator/counters.html" class="page">Counters</a></li>
     <li><a href="../spectator/timers.html" class="page">Timers</a></li>
     <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
-    <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
+    <li><a href="../spectator/gauges.html" class="active page">Gauges</a></li>
     <li><a href="../spectator/clock.html" class="page">Clock</a></li>
     <li><a href="../spectator/testing.html" class="page">Testing</a></li>
     <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
@@ -180,6 +180,14 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/gauges.html#gauges" class="header">Gauges</a>
+  <ul>
+    <li><a href="../spectator/gauges.html#polled-gauges" class="header">Polled Gauges</a></li>
+    <li><a href="../spectator/gauges.html#active-gauges" class="header">Active Gauges</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +198,149 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/gauges.html#gauges" class="header">Gauges</a>
+  <ul>
+    <li><a href="../spectator/gauges.html#polled-gauges" class="header">Polled Gauges</a></li>
+    <li><a href="../spectator/gauges.html#active-gauges" class="header">Active Gauges</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#gauges" name="gauges" class="anchor"><span class="anchor-link"></span></a>Gauges</h1>
+<p>A gauge is a value that is sampled at some point in time. Typical examples for gauges would be the size of a queue or number of threads in the running state. Since gauges are not updated inline when a state change occurs, there is no information about what might have occurred between samples.</p>
+<p>Consider monitoring the behavior of a queue of tasks. If the data is being collected once a minute, then a gauge for the size will show the size when it was sampled. The size may have been much higher or lower at some point during interval, but that is not known.</p>
+<h2><a href="#polled-gauges" name="polled-gauges" class="anchor"><span class="anchor-link"></span></a>Polled Gauges</h2>
+<p>The most common use of gauges is by registering a hook with Spectator so that it will poll the values in the background. This is done by using the <a href="http://netflix.github.io/spectator/en/latest/javadoc/spectator-api/com/netflix/spectator/api/patterns/PolledMeter.html">PolledMeter</a> helper class.</p>
+<p>A polled gauge is registered by passing in an id, a reference to the object, and a function to get or compute a numeric value based on the object. Note that a gauge should only be registered once, not on each update. Consider this example of a web server tracking the number of connections:</p>
+<pre class="prettyprint"><code class="language-java">class HttpServer {
+  // Tracks the number of current connections to the server
+  private AtomicInteger numConnections;
+
+  public HttpServer(Registry registry) {
+    numConnections = PolledMeter.using(registry)
+      .withName(&quot;server.numConnections&quot;)
+      .monitorValue(new AtomicInteger(0));
+  }
+
+  public void onConnectionCreated() {
+    numConnections.incrementAndGet();
+    ...
+  }
+
+  public void onConnectionClosed() {
+    numConnections.decrementAndGet();
+    ...
+  }
+
+  ...
+}
+</code></pre>
+<p>The spectator registry will keep a weak reference to the object. If the object is garbage collected, then it will automatically drop the registration. In the example above, the registry will have a weak reference to <code>numConnections</code> and the server instance will have a strong reference to <code>numConnections</code>. If the server instance goes away, then the gauge will as well.</p>
+<p>When multiple gauges are registered with the same id the reported value will be the sum of the matches. For example, if multiple instances of the <code>HttpServer</code> class were created on different ports, then the value <code>server.numConnections</code> would be the total number of connections across all server instances. If a different behavior is desired, then ensure your usage does not perform multiple registrations.</p>
+<p>There are several different ways to register a gauge:</p>
+<h3><a href="#using-number" name="using-number" class="anchor"><span class="anchor-link"></span></a>Using Number</h3>
+<p>A gauge can also be created based on an implementation of Number. Note the number implementation should be thread safe. For example:</p>
+<pre class="prettyprint"><code class="language-java">AtomicInteger size = new AtomicInteger();
+PolledMeter.using(registry)
+  .withName(&quot;queue.size&quot;)
+  .monitorValue(size);
+</code></pre>
+<p>The call will return the Number so the registration can be inline on the assignment:</p>
+<pre class="prettyprint"><code class="language-java">AtomicInteger size = PolledMeter.using(registry)
+  .withName(&quot;queue.size&quot;)
+  .monitorValue(size);
+</code></pre>
+<p>Updates to the value are preformed by updating the number instance directly.</p>
+<h3><a href="#using-lambda" name="using-lambda" class="anchor"><span class="anchor-link"></span></a>Using Lambda</h3>
+<p>Specify a lambda that takes the object as parameter.</p>
+<pre class="prettyprint"><code class="language-java">public class Queue {
+
+  @Inject
+  public Queue(Registry registry) {
+    PolledMeter.using(registry)
+      .withName(&quot;queue.size&quot;)
+      .monitorValue(this, Queue::size);
+  }
+
+  ...
+}
+</code></pre>
+<p>!!! warning  Be careful to avoid creating a reference to the object in the  lambda. It will prevent garbage collection and can lead to a memory leak  in the application. For example, by calling size without using the passed  in object there will be a reference to <code>this</code>:</p>
+<pre><code>```
+PolledMeter.using(registry).withName(&quot;queue.size&quot;).monitorValue(this, obj -&gt; size());
+```
+</code></pre>
+<h3><a href="#collection-sizes" name="collection-sizes" class="anchor"><span class="anchor-link"></span></a>Collection Sizes</h3>
+<p>For classes that implement <code>Collection</code> or <code>Map</code> there are helpers:</p>
+<pre class="prettyprint"><code class="language-java">Queue queue = new LinkedBlockingQueue();
+PolledMeter.using(registry)
+  .withName(&quot;queue.size&quot;)
+  .monitorSize(queue);
+
+Map&lt;String, String&gt; cache = new ConcurrentMap&lt;&gt;();
+PolledMeter.using(registry)
+  .withName(&quot;cache.size&quot;)
+  .monitorSize(cache);
+</code></pre>
+<h3><a href="#monotonic-counters" name="monotonic-counters" class="anchor"><span class="anchor-link"></span></a>Monotonic Counters</h3>
+<p>A common technique used by some libraries is to expose a monotonically increasing counter that represents the number of events since the system was initialized. An example of that in the JDK is <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html#getCompletedTaskCount--">ThreadPoolExecutor.getCompletedTaskCount()</a> which returns the number of completed tasks on the thread pool.</p>
+<p>For sources like this the <code>monitorMonotonicCounter</code> method can be used:</p>
+<pre class="prettyprint"><code class="language-java">// For an implementation of Number
+LongAdder tasks = new LongAdder();
+PolledMeter.using(registry)
+  .withName(&quot;pool.completedTasks&quot;)
+  .monitorMonotonicCounter(tasks);
+
+// Or using a lambda
+ThreadPoolExecutor executor = ...
+PolledMeter.using(registry)
+  .withName(&quot;pool.completedTasks&quot;)
+  .monitorMonotonicCounter(executor, ThreadPoolExecutor::getCompletedTaskCount);
+</code></pre>
+<p>For thread pools specifically, there are better options for getting standard metrics. See the docs for the <a href="../ext/thread-pools.md">Thread Pools extension</a> for more information.</p>
+<h2><a href="#active-gauges" name="active-gauges" class="anchor"><span class="anchor-link"></span></a>Active Gauges</h2>
+<p>Gauges can also be set directly by the user. In this mode the user is responsible for regularly updating the value of the gauge by calling set. Looking at the HttpServer example, with an active gauge it would look like:</p>
+<pre class="prettyprint"><code class="language-java">class HttpServer {
+  // Tracks the number of current connections to the server
+  private AtomicInteger numConnections;
+  private Gauge gauge;
+
+  public HttpServer(Registry registry) {
+    numConnections = new AtomicInteger();
+    gauge = registry.gauge(&quot;server.numConnections&quot;);
+    gauge.set(numConnections.get());
+  }
+
+  public void onConnectionCreated() {
+    numConnections.incrementAndGet();
+    gauge.set(numConnections.get());
+    ...
+  }
+
+  public void onConnectionClosed() {
+    numConnections.decrementAndGet();
+    gauge.set(numConnections.get());
+    ...
+  }
+
+  ...
+}
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/gauges.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +356,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator/dist-summaries.html" title="Distribution Summaries" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +365,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Distribution Summaries
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator/clock.html" title="Clock" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Clock
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

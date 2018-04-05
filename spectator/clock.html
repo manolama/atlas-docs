@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Clock · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Clock
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -156,7 +156,7 @@ Netflix/atlas-docs
     <li><a href="../spectator/timers.html" class="page">Timers</a></li>
     <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
     <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
-    <li><a href="../spectator/clock.html" class="page">Clock</a></li>
+    <li><a href="../spectator/clock.html" class="active page">Clock</a></li>
     <li><a href="../spectator/testing.html" class="page">Testing</a></li>
     <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
     <li><a href="../spectator/conventions.html" class="page">Names</a></li>
@@ -180,6 +180,15 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/clock.html#clock" class="header">Clock</a>
+  <ul>
+    <li><a href="../spectator/clock.html#wall-time" class="header">Wall Time</a></li>
+    <li><a href="../spectator/clock.html#monotonic-time" class="header">Monotonic Time</a></li>
+    <li><a href="../spectator/clock.html#manual-clock" class="header">Manual Clock</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +199,67 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/clock.html#clock" class="header">Clock</a>
+  <ul>
+    <li><a href="../spectator/clock.html#wall-time" class="header">Wall Time</a></li>
+    <li><a href="../spectator/clock.html#monotonic-time" class="header">Monotonic Time</a></li>
+    <li><a href="../spectator/clock.html#manual-clock" class="header">Manual Clock</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#clock" name="clock" class="anchor"><span class="anchor-link"></span></a>Clock</h1>
+<p>When taking measurements or working with timers it is recommended to use the <a href="http://netflix.github.io/spectator/en/latest/javadoc/spectator-api/com/netflix/spectator/api/Clock.html">clock</a> interface. It provides two methods for measuring time:</p>
+<h2><a href="#wall-time" name="wall-time" class="anchor"><span class="anchor-link"></span></a>Wall Time</h2>
+<p>This is what most users think of for time. It can be used to get the current time like what you would see on a wall clock. In most cases when not running in tests this will call <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#currentTimeMillis--">System.currentTimeMillis()</a>.</p>
+<p>Note that the values returned by this method may not be monontonically increasing. Just like a clock on your wall, this value can go back in time or jump forward at unpredictable intervals if someone sets the time. On many systems <a href="https://en.wikipedia.org/wiki/Ntpd">ntpd</a> will be constantly keeping the time synced up with an authoritative source.</p>
+<p>With spectator, the clock is typically accessed via the <a href="registry.md">regstry</a>. Example of usage:</p>
+<pre class="prettyprint"><code class="language-java">// Current time in milliseconds since the epoch
+long currentTime = registry.clock().wallTime();
+</code></pre>
+<h2><a href="#monotonic-time" name="monotonic-time" class="anchor"><span class="anchor-link"></span></a>Monotonic Time</h2>
+<p>While it is good in general for the wall clock to show the correct time, the unpredictable changes mean it is not a good choice for measuring how long an operation took. Consider a simple example of measuring request latency on a server:</p>
+<pre class="prettyprint"><code class="language-java">long start = registry.clock().wallTime();
+handleRequest(request, response);
+long end = registry.clock().wallTime();
+reqLatencyTimer.record(end - start, TimeUnit.MILLISECONDS);
+</code></pre>
+<p>If ntp fixes the server time between <code>start</code> and <code>end</code>, then the recorded latency will be wrong. Spectator will protect against obviously wrong measurements like negative latencies by dropping those values when they are recorded. However, the change could incorrectly shorten or lengthen the measured latency.</p>
+<p>The clock interface also provides access to a monotonic source that is only useful for measuring elapsed time, for example:</p>
+<pre class="prettyprint"><code class="language-java">long start = registry.clock().monotonicTime();
+handleRequest(request, response);
+long end = registry.clock().monotonicTime();
+reqLatencyTimer.record(end - start, TimeUnit.NANOSECONDS);
+</code></pre>
+<p>In most cases this will map to <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#nanoTime--">System.nanoTime()</a>. Note the actual value returned is not meaningful unless compared with another sample to get a delta.</p>
+<h2><a href="#manual-clock" name="manual-clock" class="anchor"><span class="anchor-link"></span></a>Manual Clock</h2>
+<p>If timing code is written to the clock interface, then alternative implemenations can be plugged in. For test cases it is common to use <a href="http://netflix.github.io/spectator/en/latest/javadoc/spectator-api/com/netflix/spectator/api/ManualClock.html">ManualClock</a> so that tests can be reliable and fast without having to rely on hacks like sleep or assuming something will run in less than a certain amount of time. </p>
+<pre class="prettyprint"><code class="language-java">ManualClock clock = new ManualClock();
+Registry registry = new DefaultRegistry(clock);
+
+Timer timer = registry.timer(&quot;test&quot;);
+timer.record(() -&gt; {
+  doSomething();
+  clock.setMonotonicTime(42L);
+});
+
+Assert.assertEquals(timer.totalTime(), 42L);
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/clock.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +275,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator/gauges.html" title="Gauges" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +284,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Gauges
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator/testing.html" title="Testing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Testing
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

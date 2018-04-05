@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Servo Registry · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Servo Registry
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -176,7 +176,7 @@ Netflix/atlas-docs
   <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
   <ul>
     <li><a href="../spectator-reg/metrics3.html" class="page">Metrics3 Registry</a></li>
-    <li><a href="../spectator-reg/servo.html" class="page">Servo Registry</a></li>
+    <li><a href="../spectator-reg/servo.html" class="active page">Servo Registry</a></li>
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -193,11 +193,26 @@ Netflix/atlas-docs
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#servo-registry" name="servo-registry" class="anchor"><span class="anchor-link"></span></a>Servo Registry</h1>
+<p>Registry that uses <a href="https://github.com/Netflix/servo">servo</a> as the underlying implementation. To use the servo registry, add a dependency on the <code>spectator-reg-servo</code> library. For gradle:</p>
+<pre><code>com.netflix.spectator:spectator-reg-servo:0.62.0
+</code></pre>
+<p>Then when initializing the application, use the <code>ServoRegistry</code>. If using guice then that would look like:</p>
+<pre class="prettyprint"><code class="language-java">Injector injector = Guice.createInjector(new AbstractModule() {
+    @Override protected void configure() {
+    }
+
+    @Provides
+    @Singleton
+    private Registry providesRegistry() {
+      return new ServoRegistry();
+    }
+  });
+</code></pre>
+<p>For more information see the <a href="https://github.com/brharrington/spectator-examples/tree/master/servo">servo example</a>. Note if running internally at Netflix see the <a href="../intro/netflix.md">Netflix Integration</a> docs instead.</p>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator-reg/servo.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +228,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator-reg/metrics3.html" title="Metrics3 Registry" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,21 +237,8 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Metrics3 Registry
 </span>
-</div>
-</a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Next
-</span>
-Stack Language Reference
-</span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
 </div>
 </a>
 </nav>

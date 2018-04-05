@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="description" content="Atlas Docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.4.0, mkdocs-material=2.2.2">
+
+<meta name="lang:clipboard.copy" content="Copy to clipboard">
+<meta name="lang:clipboard.copied" content="Copied to clipboard">
+<meta name="lang:search.result.none" content="No matching documents">
+<meta name="lang:search.result.one" content="1 matching document">
+<meta name="lang:search.result.other" content="# matching documents">
+<meta name="lang:search.language" content="">
+<meta name="lang:search.tokenizer" content="[\s\-]+">
+
+
+<meta name="description" content="Atlas Docs">
+<link rel="shortcut icon" href="../images/atlas_logo_small.png">
+<title>GC Causes · Atlas</title>
+<link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
+<link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
+<link rel="stylesheet" href="../lib/prettify/prettify.css">
+<script src="../lib/modernizr/modernizr.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+<style>
+body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}
+code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/stylesheets/paradox-material-theme.css">
+</head>
+<body
+>
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+<label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a href="../index.html" title="Atlas" class="md-header-nav__button md-logo">
+<img src="../images/atlas_logo_small.png" width="24" height="24">
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
+Atlas
+</span>
+<span class="md-header-nav__topic">
+GC Causes
+</span>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="search"></label>
+<div class="md-search__inner">
+<form class="md-search__form" name="search">
+<input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+<label class="md-icon md-search__icon" for="search"></label>
+<button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix>
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
+Type to start searching
+</div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<div class="md-header-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+</div>
+</div>
+</nav>
+</header>
+
+<div class="md-container">
+<main class="md-main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
+<label class="md-nav__title md-nav__title--site" for="drawer">
+<span class="md-nav__button md-logo">
+<img src="../images/atlas_logo_small.png" width="24" height="24">
+</span>
+<a href="../index.html" title="Atlas">
+Atlas
+</a>
+</label>
+<div class="md-nav__source">
+<a href="https://github.com/Netflix/atlas-docs"
+title="Go to repository"
+class="md-source"
+data-md-source="github">
+<div class="md-source__icon">
+<i class="fa fa-github"></i>
+</div>
+<div class="md-source__repository">
+Netflix/atlas-docs
+</div>
+</a>
+
+</div>
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<ul>
+  <li><a href="../overview.html" class="page">Overview</a></li>
+  <li><a href="../getting-started.html" class="page">Getting Started</a></li>
+  <li><a href="../concepts.html" class="page">Concepts</a></li>
+  <li><a href="../presentations.html" class="page">Presentations</a></li>
+  <li><a href="../asl/index.html" class="page">Stack Language</a>
+  <ul>
+    <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
+    <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
+  </ul></li>
+  <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="../asl-reference/and.html" class="page">and</a></li>
+    <li><a href="../asl-reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="../asl-reference/eq.html" class="page">eq</a></li>
+  </ul></li>
+  <li><a href="../spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="../spectator/registry.html" class="page">Registry</a></li>
+    <li><a href="../spectator/counters.html" class="page">Counters</a></li>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
+    <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
+    <li><a href="../spectator/clock.html" class="page">Clock</a></li>
+    <li><a href="../spectator/testing.html" class="page">Testing</a></li>
+    <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
+    <li><a href="../spectator/conventions.html" class="page">Names</a></li>
+    <li><a href="../spectator/servo.html" class="page">Servo Comparison</a></li>
+  </ul></li>
+  <li><a href="../spectator-ext/index.html" class="page">Spectator Extensions</a>
+  <ul>
+    <li><a href="../spectator-ext/jvm-buffer-pools.html" class="page">Buffer Pools</a></li>
+    <li><a href="../spectator-ext/jvm-gc.html" class="page">Garbage Collection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html" class="active page">GC Causes</a></li>
+    <li><a href="../spectator-ext/jvm-memory-pools.html" class="page">Memory Pools</a></li>
+    <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
+    <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
+    <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
+    <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
+  </ul></li>
+  <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
+  <ul>
+    <li><a href="../spectator-reg/metrics3.html" class="page">Metrics3 Registry</a></li>
+    <li><a href="../spectator-reg/servo.html" class="page">Servo Registry</a></li>
+  </ul></li>
+</ul>
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/jvm-gc-causes.html#gc-causes" class="header">GC Causes</a>
+  <ul>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#system-gc-" class="header">System.gc__</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#fullgcalot" class="header">FullGCAlot</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#scavengealot" class="header">ScavengeAlot</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#allocation-profiler" class="header">Allocation_Profiler</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#jvmtienv-forcegarbagecollection" class="header">JvmtiEnv_ForceGarbageCollection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#gclocker-initiated-gc" class="header">GCLocker_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#heap-inspection-initiated-gc" class="header">Heap_Inspection_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#heap-dump-initiated-gc" class="header">Heap_Dump_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#whitebox-initiated-young-gc" class="header">WhiteBox_Initiated_Young_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#no-gc" class="header">No_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#allocation-failure" class="header">Allocation_Failure</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#tenured-generation-full" class="header">Tenured_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#permanent-generation-full" class="header">Permanent_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#metadata-gc-threshold" class="header">Metadata_GC_Threshold</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-generation-full" class="header">CMS_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-initial-mark" class="header">CMS_Initial_Mark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-final-remark" class="header">CMS_Final_Remark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-concurrent-mark" class="header">CMS_Concurrent_Mark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#old-generation-expanded-on-last-scavenge" class="header">Old_Generation_Expanded_On_Last_Scavenge</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#old-generation-too-full-to-scavenge" class="header">Old_Generation_Too_Full_To_Scavenge</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#ergonomics" class="header">Ergonomics</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#g1-evacuation-pause" class="header">G1_Evacuation_Pause</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#g1-humongous-allocation" class="header">G1_Humongous_Allocation</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#last-ditch-collection" class="header">Last_ditch_collection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#illegal-value-last-gc-cause-illegal-value" class="header">ILLEGAL_VALUE_-_last_gc_cause_-_ILLEGAL_VALUE</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#unknown-gccause" class="header">unknown_GCCause</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+<div class="md-nav__title--site md-version" title="Version">
+<i class="md-icon">label_outline</i> 0.1.0*
+</div>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/jvm-gc-causes.html#gc-causes" class="header">GC Causes</a>
+  <ul>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#system-gc-" class="header">System.gc__</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#fullgcalot" class="header">FullGCAlot</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#scavengealot" class="header">ScavengeAlot</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#allocation-profiler" class="header">Allocation_Profiler</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#jvmtienv-forcegarbagecollection" class="header">JvmtiEnv_ForceGarbageCollection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#gclocker-initiated-gc" class="header">GCLocker_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#heap-inspection-initiated-gc" class="header">Heap_Inspection_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#heap-dump-initiated-gc" class="header">Heap_Dump_Initiated_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#whitebox-initiated-young-gc" class="header">WhiteBox_Initiated_Young_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#no-gc" class="header">No_GC</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#allocation-failure" class="header">Allocation_Failure</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#tenured-generation-full" class="header">Tenured_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#permanent-generation-full" class="header">Permanent_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#metadata-gc-threshold" class="header">Metadata_GC_Threshold</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-generation-full" class="header">CMS_Generation_Full</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-initial-mark" class="header">CMS_Initial_Mark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-final-remark" class="header">CMS_Final_Remark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#cms-concurrent-mark" class="header">CMS_Concurrent_Mark</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#old-generation-expanded-on-last-scavenge" class="header">Old_Generation_Expanded_On_Last_Scavenge</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#old-generation-too-full-to-scavenge" class="header">Old_Generation_Too_Full_To_Scavenge</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#ergonomics" class="header">Ergonomics</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#g1-evacuation-pause" class="header">G1_Evacuation_Pause</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#g1-humongous-allocation" class="header">G1_Humongous_Allocation</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#last-ditch-collection" class="header">Last_ditch_collection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#illegal-value-last-gc-cause-illegal-value" class="header">ILLEGAL_VALUE_-_last_gc_cause_-_ILLEGAL_VALUE</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html#unknown-gccause" class="header">unknown_GCCause</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<div class="md-content__searchable">
+<h1><a href="#gc-causes" name="gc-causes" class="anchor"><span class="anchor-link"></span></a>GC Causes</h1>
+<p>The various GC causes aren&rsquo;t well documented. The list provided here comes from the <a href="http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/file/tip/src/share/vm/gc_interface/gcCause.cpp">gcCause.cpp</a> file in the jdk and we include some information on what these mean for the application.</p>
+<h3><a href="#system-gc-" name="system-gc-" class="anchor"><span class="anchor-link"></span></a>System.gc__</h3>
+<p>Something called [System.gc()](<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/System.html#gc())">http://docs.oracle.com/javase/7/docs/api/java/lang/System.html#gc())</a>. If you are seeing this once an hour it is likely related to the RMI GC interval. For more details see:</p>
+<ul>
+  <li><a href="http://www-01.ibm.com/support/docview.wss?uid=swg21173431">Unexplained System.gc() calls due to Remote Method Invocation (RMI) or explict garbage collections</a></li>
+  <li><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/rmi/sunrmiproperties.html">sun.rmi.dgc.client.gcInterval</a></li>
+</ul>
+<h3><a href="#fullgcalot" name="fullgcalot" class="anchor"><span class="anchor-link"></span></a>FullGCAlot</h3>
+<p>Most likely you&rsquo;ll never see this value. In debug builds of the jdk there is an option, <code>-XX:+FullGCALot</code>, that will trigger a full GC at a regular interval for testing purposes.</p>
+<h3><a href="#scavengealot" name="scavengealot" class="anchor"><span class="anchor-link"></span></a>ScavengeAlot</h3>
+<p>Most likely you&rsquo;ll never see this value. In debug builds of the jdk there is an option, <code>-XX:+ScavengeALot</code>, that will trigger a minor GC at a regular interval for testing purposes.</p>
+<h3><a href="#allocation-profiler" name="allocation-profiler" class="anchor"><span class="anchor-link"></span></a>Allocation_Profiler</h3>
+<p>Prior to java 8 you would see this if running with the <code>-Xaprof</code> setting. It would be triggered just before the jvm exits. The <code>-Xaprof</code> option was removed in java 8.</p>
+<h3><a href="#jvmtienv-forcegarbagecollection" name="jvmtienv-forcegarbagecollection" class="anchor"><span class="anchor-link"></span></a>JvmtiEnv_ForceGarbageCollection</h3>
+<p>Something called the JVM tool interface function <a href="https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html#ForceGarbageCollection">ForceGarbageCollection</a>. Look at the <code>-agentlib</code> param to java to see what agents are configured.</p>
+<h3><a href="#gclocker-initiated-gc" name="gclocker-initiated-gc" class="anchor"><span class="anchor-link"></span></a>GCLocker_Initiated_GC</h3>
+<p>The GC locker prevents GC from occurring when JNI code is in a <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/functions.html#GetPrimitiveArrayCritical_ReleasePrimitiveArrayCritical">critical region</a>. If GC is needed while a thread is in a critical region, then it will allow them to complete, i.e. call the corresponding release function. Other threads will not be permitted to enter a critical region. Once all threads are out of critical regions a GC event will be triggered. </p>
+<h3><a href="#heap-inspection-initiated-gc" name="heap-inspection-initiated-gc" class="anchor"><span class="anchor-link"></span></a>Heap_Inspection_Initiated_GC</h3>
+<p>GC was initiated by an inspection operation on the heap. For example you can trigger this with <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/share/jmap.html">jmap</a>:</p>
+<p><code>$ jmap -histo:live &lt;pid&gt;</code></p>
+<h3><a href="#heap-dump-initiated-gc" name="heap-dump-initiated-gc" class="anchor"><span class="anchor-link"></span></a>Heap_Dump_Initiated_GC</h3>
+<p>GC was initiated before dumping the heap. For example you can trigger this with <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/share/jmap.html">jmap</a>:</p>
+<p><code>$ jmap -dump:live,format=b,file=heap.out &lt;pid&gt;</code></p>
+<p>Another common example would be clicking the Heap Dump button on the Monitor tab in <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/share/jvisualvm.html">jvisualvm</a>.</p>
+<h3><a href="#whitebox-initiated-young-gc" name="whitebox-initiated-young-gc" class="anchor"><span class="anchor-link"></span></a>WhiteBox_Initiated_Young_GC</h3>
+<p>Most likely you&rsquo;ll never see this value. Used for testing hotspot, it indicates something called <code>sun.hotspot.WhiteBox.youngGC()</code>. </p>
+<h3><a href="#no-gc" name="no-gc" class="anchor"><span class="anchor-link"></span></a>No_GC</h3>
+<p>Used for CMS to indicate concurrent phases.</p>
+<h3><a href="#allocation-failure" name="allocation-failure" class="anchor"><span class="anchor-link"></span></a>Allocation_Failure</h3>
+<p>Usually this means that there is an allocation request that is bigger than the available space in young generation and will typically be associated with a minor GC. For G1 this will likely be a major GC and it is more common to see <a href="#g1_evacuation_pause">G1_Evacuation_Pause</a> for routine minor collections.</p>
+<p>On linux the jvm will trigger a GC if the kernel indicates there isn&rsquo;t much memory left via <a href="http://lwn.net/Articles/267013/">mem_notify</a>.</p>
+<h3><a href="#tenured-generation-full" name="tenured-generation-full" class="anchor"><span class="anchor-link"></span></a>Tenured_Generation_Full</h3>
+<p>Not used?</p>
+<h3><a href="#permanent-generation-full" name="permanent-generation-full" class="anchor"><span class="anchor-link"></span></a>Permanent_Generation_Full</h3>
+<p>Triggered as a result of an allocation failure in <a href="https://blogs.oracle.com/poonam/entry/about_g1_garbage_collector_permanent">PermGen</a>. Pre java 8.</p>
+<h3><a href="#metadata-gc-threshold" name="metadata-gc-threshold" class="anchor"><span class="anchor-link"></span></a>Metadata_GC_Threshold</h3>
+<p>Triggered as a result of an allocation failure in <a href="https://blogs.oracle.com/poonam/entry/about_g1_garbage_collector_permanent">Metaspace</a>. Metaspace replaced PermGen was added in java 8.</p>
+<h3><a href="#cms-generation-full" name="cms-generation-full" class="anchor"><span class="anchor-link"></span></a>CMS_Generation_Full</h3>
+<p>Not used?</p>
+<h3><a href="#cms-initial-mark" name="cms-initial-mark" class="anchor"><span class="anchor-link"></span></a>CMS_Initial_Mark</h3>
+<p>Initial mark phase of CMS, for more details see <a href="https://blogs.oracle.com/jonthecollector/entry/hey_joe_phases_of_cms">Phases of CMS</a>. Unfortunately it doesn&rsquo;t appear to be reported via the mbeans and we just get <a href="#no_gc">No_GC</a>.</p>
+<h3><a href="#cms-final-remark" name="cms-final-remark" class="anchor"><span class="anchor-link"></span></a>CMS_Final_Remark</h3>
+<p>Remark phase of CMS, for more details see <a href="https://blogs.oracle.com/jonthecollector/entry/hey_joe_phases_of_cms">Phases of CMS</a>. Unfortunately it doesn&rsquo;t appear to be reported via the mbeans and we just get <a href="#no_gc">No_GC</a>.</p>
+<h3><a href="#cms-concurrent-mark" name="cms-concurrent-mark" class="anchor"><span class="anchor-link"></span></a>CMS_Concurrent_Mark</h3>
+<p>Concurrent mark phase of CMS, for more details see <a href="https://blogs.oracle.com/jonthecollector/entry/hey_joe_phases_of_cms">Phases of CMS</a>. Unfortunately it doesn&rsquo;t appear to be reported via the mbeans and we just get <a href="#no_gc">No_GC</a>.</p>
+<h3><a href="#old-generation-expanded-on-last-scavenge" name="old-generation-expanded-on-last-scavenge" class="anchor"><span class="anchor-link"></span></a>Old_Generation_Expanded_On_Last_Scavenge</h3>
+<p>Not used?</p>
+<h3><a href="#old-generation-too-full-to-scavenge" name="old-generation-too-full-to-scavenge" class="anchor"><span class="anchor-link"></span></a>Old_Generation_Too_Full_To_Scavenge</h3>
+<p>Not used?</p>
+<h3><a href="#ergonomics" name="ergonomics" class="anchor"><span class="anchor-link"></span></a>Ergonomics</h3>
+<p>This indicates you are using the adaptive size policy, <code>-XX:+UseAdaptiveSizePolicy</code> and is on by default for recent versions, with the parallel collector (<code>-XX:+UseParallelGC</code>). For more details see <a href="https://blogs.oracle.com/jonthecollector/entry/the_unspoken_the_why_of">The Why of GC Ergonomics</a>.</p>
+<h3><a href="#g1-evacuation-pause" name="g1-evacuation-pause" class="anchor"><span class="anchor-link"></span></a>G1_Evacuation_Pause</h3>
+<p>An evacuation pause is the most common young gen cause for G1 and indicates that it is copying live objects from one set of regions, young and sometimes young + old, to another set of regions. For more details see <a href="https://blogs.oracle.com/poonam/entry/understanding_g1_gc_logs">Understanding G1 GC Logs</a>.</p>
+<h3><a href="#g1-humongous-allocation" name="g1-humongous-allocation" class="anchor"><span class="anchor-link"></span></a>G1_Humongous_Allocation</h3>
+<p>A humongous allocation is one where the size is greater than 50% of the G1 region size. Before a humongous allocation the jvm checks if it should do a routine <a href="#g1_evacuation_pause">evacuation pause</a> without regard to the actual allocation size, but if triggered due to this check the cause will be listed as humongous allocation. This cause is also used for any collections used to free up enough space for the allocation. </p>
+<h3><a href="#last-ditch-collection" name="last-ditch-collection" class="anchor"><span class="anchor-link"></span></a>Last_ditch_collection</h3>
+<p>For perm gen (java 7 or earlier) and metaspace (java 8+) a last ditch collection will be triggered if an allocation fails and the memory pool cannot be expanded.</p>
+<h3><a href="#illegal-value-last-gc-cause-illegal-value" name="illegal-value-last-gc-cause-illegal-value" class="anchor"><span class="anchor-link"></span></a>ILLEGAL_VALUE_-_last_gc_cause_-_ILLEGAL_VALUE</h3>
+<p>Included for completeness, but you should never see this value.</p>
+<h3><a href="#unknown-gccause" name="unknown-gccause" class="anchor"><span class="anchor-link"></span></a>unknown_GCCause</h3>
+<p>Included for completeness, but you should never see this value.</p>
+</div>
+<div>
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator-ext/jvm-gc-causes.md" title="Edit this page" class="md-source-file md-edit">
+Edit this page
+</a>
+</div>
+<div class="print-only">
+<span class="md-source-file md-version">
+0.1.0*
+</span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a href="../spectator-ext/jvm-gc.html" title="Garbage Collection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Previous
+</span>
+Garbage Collection
+</span>
+</div>
+</a>
+<a href="../spectator-ext/jvm-memory-pools.html" title="Memory Pools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Next
+</span>
+Memory Pools
+</span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+Powered by
+<a href="https://github.com/lightbend/paradox">Paradox</a>
+and
+<a href="https://jonas.github.io/paradox-material-theme/">Paradox Material Theme</a>
+
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+<script src="../assets/javascripts/application.5165553b.js"></script>
+<script src="../assets/javascripts/paradox-material-theme.js"></script>
+<script>app.initialize({version:"0.17",url:{base:"../."}})</script>
+<script type="text/javascript" src="../lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+window.prettyPrint && prettyPrint();
+});
+</script>
+</body>
+</html>

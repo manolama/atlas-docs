@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Names · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Names
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -159,7 +159,7 @@ Netflix/atlas-docs
     <li><a href="../spectator/clock.html" class="page">Clock</a></li>
     <li><a href="../spectator/testing.html" class="page">Testing</a></li>
     <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
-    <li><a href="../spectator/conventions.html" class="page">Names</a></li>
+    <li><a href="../spectator/conventions.html" class="active page">Names</a></li>
     <li><a href="../spectator/servo.html" class="page">Servo Comparison</a></li>
   </ul></li>
   <li><a href="../spectator-ext/index.html" class="page">Spectator Extensions</a>
@@ -180,6 +180,18 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/conventions.html#names" class="header">Names</a>
+  <ul>
+    <li><a href="../spectator/conventions.html#describe-the-measurement" class="header">Describe the measurement</a></li>
+    <li><a href="../spectator/conventions.html#use-camel-case" class="header">Use camel case</a></li>
+    <li><a href="../spectator/conventions.html#static" class="header">Static</a></li>
+    <li><a href="../spectator/conventions.html#succinct" class="header">Succinct</a></li>
+    <li><a href="../spectator/conventions.html#tags" class="header">Tags</a></li>
+    <li><a href="../spectator/conventions.html#use-base-units" class="header">Use base units</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +202,99 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator/conventions.html#names" class="header">Names</a>
+  <ul>
+    <li><a href="../spectator/conventions.html#describe-the-measurement" class="header">Describe the measurement</a></li>
+    <li><a href="../spectator/conventions.html#use-camel-case" class="header">Use camel case</a></li>
+    <li><a href="../spectator/conventions.html#static" class="header">Static</a></li>
+    <li><a href="../spectator/conventions.html#succinct" class="header">Succinct</a></li>
+    <li><a href="../spectator/conventions.html#tags" class="header">Tags</a></li>
+    <li><a href="../spectator/conventions.html#use-base-units" class="header">Use base units</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<p>Quick summary:</p>
+<ol>
+  <li>Names
+    <ul>
+      <li>Describe the measurement being collected</li>
+      <li>Use camel case</li>
+      <li>Static</li>
+      <li>Succinct</li>
+    </ul>
+  </li>
+  <li>Tags
+    <ul>
+      <li>Should be used for dimensional drill-down</li>
+      <li>Be careful about combinatorial explosion</li>
+      <li>Tag keys should be static</li>
+      <li>Use <code>id</code> to distinguish between instances</li>
+    </ul>
+  </li>
+  <li>Use base units</li>
+</ol>
+<h2><a href="#names" name="names" class="anchor"><span class="anchor-link"></span></a>Names</h2>
+<h3><a href="#describe-the-measurement" name="describe-the-measurement" class="anchor"><span class="anchor-link"></span></a>Describe the measurement</h3>
+<h3><a href="#use-camel-case" name="use-camel-case" class="anchor"><span class="anchor-link"></span></a>Use camel case</h3>
+<p>The main goal here is to promote consistency which makes it easier for users. The choice of style is somewhat arbitrary, camel case was chosen because:</p>
+<ul>
+  <li>Used by snmp</li>
+  <li>Used by java</li>
+  <li>It was the most common in use at Netflix when this guideline was added</li>
+</ul>
+<p>The exception to this rule is where there is an established common case. For example with Amazon regions it is preferred to use us-east-1 rather than usEast1 as it is the more common form.</p>
+<h3><a href="#static" name="static" class="anchor"><span class="anchor-link"></span></a>Static</h3>
+<p>There shouldn&rsquo;t be any dynamic content that goes into a metric name. Metric names and associated tag keys are how users will interact with the data being produced. </p>
+<h3><a href="#succinct" name="succinct" class="anchor"><span class="anchor-link"></span></a>Succinct</h3>
+<p>Long names should be avoided. </p>
+<h2><a href="#tags" name="tags" class="anchor"><span class="anchor-link"></span></a>Tags</h2>
+<p>Historically tags have been used to play one of two roles:</p>
+<ul>
+  <li><em>Dimensions</em>: dimensions are the primary use and it allows the data to be sliced and diced so  it is possible to drill down into the data.</li>
+  <li><em>Namespace</em>: similar to packages in Java in this mode it would be used to group related data.  This type of usage is discouraged.</li>
+</ul>
+<p>As a general rule it should be possible to use the name as a pivot. This means that if just the name is selected, then the user can drill down using other dimensions and be able to reason about the value being shown. </p>
+<p>As a concrete example, suppose we have two metrics:</p>
+<ol>
+  <li>The number of threads currently in a thread pool.</li>
+  <li>The number of rows in a database table.</li>
+</ol>
+<h3><a href="#bad-approach" name="bad-approach" class="anchor"><span class="anchor-link"></span></a>Bad approach</h3>
+<pre class="prettyprint"><code class="language-java">Id poolSize = registry.createId(&quot;size&quot;)
+  .withTag(&quot;class&quot;, &quot;ThreadPool&quot;)
+  .withTag(&quot;id&quot;, &quot;server-requests&quot;);
+  
+Id poolSize = registry.createId(&quot;size&quot;)
+  .withTag(&quot;class&quot;, &quot;Database&quot;)
+  .withTag(&quot;table&quot;, &quot;users&quot;);  
+</code></pre>
+<p>In this approach, if I select the name, <code>size</code>, it will match both the version for ThreadPool and Database classes. So you would get a value that is the an aggregate of the number of threads and the number of items in a database. </p>
+<h3><a href="#recommended" name="recommended" class="anchor"><span class="anchor-link"></span></a>Recommended</h3>
+<pre class="prettyprint"><code class="language-java">Id poolSize = registry.createId(&quot;threadpool.size&quot;)
+  .withTag(&quot;id&quot;, &quot;server-requests&quot;);
+  
+Id poolSize = registry.createId(&quot;db.size&quot;)
+  .withTag(&quot;table&quot;, &quot;users&quot;);  
+</code></pre>
+<p>This variant provides enough context so that if just the name is selected the value can be reasoned about and is at least potentially meaningful. For example if I select <code>threadpool.size</code> I can see the total number of threads in all pools. Then I can group by or select an <code>id</code> to drill down further.</p>
+<h2><a href="#use-base-units" name="use-base-units" class="anchor"><span class="anchor-link"></span></a>Use base units</h2>
+<p>Keep measurements in base units where possible. For example I would rather have all timers in seconds, disk sizes should be bytes, or network rates should be bytes/second. The reason is that for my uses this usually means the unit is obvious from the name. It also means the SI prefix shown on the graph images make more sense, e.g. 1k is 1 kilobyte not 1 kilo-megabyte.</p>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/conventions.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +310,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator/netflix.html" title="Netflix Integration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +319,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Netflix Integration
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator/servo.html" title="Servo Comparison" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Servo Comparison
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

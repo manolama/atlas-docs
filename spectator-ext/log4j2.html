@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Log4j2 Appender · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Log4j2 Appender
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -170,7 +170,7 @@ Netflix/atlas-docs
     <li><a href="../spectator-ext/jvm-memory-pools.html" class="page">Memory Pools</a></li>
     <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
     <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
-    <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
+    <li><a href="../spectator-ext/log4j2.html" class="active page">Log4j2 Appender</a></li>
     <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
   </ul></li>
   <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
@@ -180,6 +180,14 @@ Netflix/atlas-docs
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/log4j2.html#log4j2-appender" class="header">Log4j2 Appender</a>
+  <ul>
+    <li><a href="../spectator-ext/log4j2.html#getting-started" class="header">Getting Started</a></li>
+    <li><a href="../spectator-ext/log4j2.html#metrics" class="header">Metrics</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -190,14 +198,74 @@ Netflix/atlas-docs
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="toc">Table of contents</label>
+<ul>
+  <li><a href="../spectator-ext/log4j2.html#log4j2-appender" class="header">Log4j2 Appender</a>
+  <ul>
+    <li><a href="../spectator-ext/log4j2.html#getting-started" class="header">Getting Started</a></li>
+    <li><a href="../spectator-ext/log4j2.html#metrics" class="header">Metrics</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#log4j2-appender" name="log4j2-appender" class="anchor"><span class="anchor-link"></span></a>Log4j2 Appender</h1>
+<p>Custom appender for <a href="http://logging.apache.org/log4j/2.x/">log4j2</a> to track the number of log messages reported. </p>
+<h2><a href="#getting-started" name="getting-started" class="anchor"><span class="anchor-link"></span></a>Getting Started</h2>
+<p>To use it simply add a dependency:</p>
+<pre><code>com.netflix.spectator:spectator-ext-log4j2:0.62.0
+</code></pre>
+<p>Then in your application initialization:</p>
+<pre class="prettyprint"><code class="language-java">Registry registry = ...
+SpectatorAppender.addToRootLogger(
+    registry,             // Registry to use
+    &quot;spectator&quot;,          // Name for the appender
+    false);               // Should stack traces be ignored?
+</code></pre>
+<p>This will add the appender to the root logger and register a listener so it will get re-added if the configuration changes. You can also use the appender by specifying it in the log4j2 configuration, but this will cause some of the loggers in Spectator to get created before log4j is properly initialized and result in some lost log messages. With that caveat in mind, if you need the additional flexibility of using the configuration then specify the <code>Spectator</code> appender:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Configuration monitorInterval=&quot;5&quot; status=&quot;warn&quot;&gt;
+  &lt;Appenders&gt;
+    &lt;Spectator name=&quot;root&quot;/&gt;
+  &lt;/Appenders&gt;
+  &lt;Loggers&gt;
+    &lt;Root level=&quot;debug&quot;&gt;
+      &lt;AppenderRef ref=&quot;root&quot;/&gt;
+    &lt;/Root&gt;
+  &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+</code></pre>
+<h2><a href="#metrics" name="metrics" class="anchor"><span class="anchor-link"></span></a>Metrics</h2>
+<h3><a href="#log4j-nummessages" name="log4j-nummessages" class="anchor"><span class="anchor-link"></span></a>log4j.numMessages</h3>
+<p>Counters showing the number of messages that have been passed to the appender.</p>
+<p><strong>Unit:</strong> messages/second</p>
+<p><strong>Dimensions:</strong></p>
+<ul>
+  <li><code>appender</code>: name of the spectator appender.</li>
+  <li><code>loglevel</code>: standard log level of the events.</li>
+</ul>
+<h3><a href="#log4j-numstacktraces" name="log4j-numstacktraces" class="anchor"><span class="anchor-link"></span></a>log4j.numStackTraces</h3>
+<p>Counter for the number of messages with stack traces written to the logs. This will only be collected if the <code>ignoreExceptions</code> flag is set to false for the appender.</p>
+<p><strong>Unit:</strong> messages/second</p>
+<p><strong>Dimensions:</strong></p>
+<ul>
+  <li><code>appender</code>: name of the spectator appender.</li>
+  <li><code>loglevel</code>: standard log level of the events.</li>
+  <li><code>exception</code>: simple class name for the exception that was thrown.</li>
+  <li><code>file</code>: file name for where the exception was thrown.</li>
+</ul>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator-ext/log4j2.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +281,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator-ext/log4j1.html" title="Log4j1 Appender" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +290,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Log4j1 Appender
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator-ext/placeholders.html" title="Placeholders" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Placeholders
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

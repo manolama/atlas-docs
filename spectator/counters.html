@@ -18,7 +18,7 @@
 
 <meta name="description" content="Atlas Docs">
 <link rel="shortcut icon" href="../images/atlas_logo_small.png">
-<title>Double Exponential Smoothing · Atlas</title>
+<title>Counters · Atlas</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 Atlas
 </span>
 <span class="md-header-nav__topic">
-Double Exponential Smoothing
+Counters
 </span>
 </div>
 </div>
@@ -141,7 +141,7 @@ Netflix/atlas-docs
   <ul>
     <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
     <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
-    <li><a href="../asl/des.html" class="active page">Double Exponential Smoothing</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
   </ul></li>
   <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
   <ul>
@@ -152,7 +152,7 @@ Netflix/atlas-docs
   <li><a href="../spectator/index.html" class="page">Spectator</a>
   <ul>
     <li><a href="../spectator/registry.html" class="page">Registry</a></li>
-    <li><a href="../spectator/counters.html" class="page">Counters</a></li>
+    <li><a href="../spectator/counters.html" class="active page">Counters</a></li>
     <li><a href="../spectator/timers.html" class="page">Timers</a></li>
     <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
     <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
@@ -193,11 +193,47 @@ Netflix/atlas-docs
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
-<p>TODO</p>
+<h1><a href="#counters" name="counters" class="anchor"><span class="anchor-link"></span></a>Counters</h1>
+<p>A counter is used to measure the rate at which some event is occurring. Consider a simple queue, counters would be used to measure things like the rate at which items are being inserted and removed. </p>
+<p>Counters are created using the registry which will be setup as part of application initialization. For example:</p>
+<pre class="prettyprint"><code class="language-java">public class Queue {
+
+  private final Counter insertCounter;
+  private final Counter removeCounter;
+  private final QueueImpl impl;
+
+  @Inject
+  public Queue(Registry registry) {
+    insertCounter = registry.counter(&quot;queue.insert&quot;);
+    removeCounter = registry.counter(&quot;queue.remove&quot;);
+    impl = new QueueImpl();
+  }
+</code></pre>
+<p>Then call increment when an event occurs:</p>
+<pre class="prettyprint"><code class="language-java">  public void insert(Object obj) {
+    insertCounter.increment();
+    impl.insert(obj);
+  }
+
+  public Object remove() {
+    if (impl.nonEmpty()) {
+      removeCounter.increment();
+      return impl.remove();
+    } else {
+      return null;
+    }
+  }
+</code></pre>
+<p>Optionally an amount can be passed in when calling increment. This is useful when a collection of events happens together. </p>
+<pre class="prettyprint"><code class="language-java">  public void insertAll(Collection&lt;Object&gt; objs) {
+    insertCounter.increment(objs.size());
+    impl.insertAll(objs);
+  }
+}
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/asl/des.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/Netflix/atlas-docs/tree/master/src/main/paradox/spectator/counters.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -213,7 +249,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../asl/alerting-philosophy.html" title="Alerting Philosophy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../spectator/registry.html" title="Registry" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -222,17 +258,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Alerting Philosophy
+Registry
 </span>
 </div>
 </a>
-<a href="../asl-reference/index.html" title="Stack Language Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../spectator/timers.html" title="Timers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Stack Language Reference
+Timers
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
