@@ -244,32 +244,32 @@ aria-label="Toggle navigation">
      :rot,prediction,:legend,
      :rot,:vspan,60,:alpha,alert+triggered,:legend
 </code></pre>
-<p>Adding some comments to the stack expression to explain a bit what is going on:</p>
-<pre><code># Query to generate the input line
-nf.cluster,alerttest,:eq,
-name,requestsPerSecond,:eq,:and,
-:sum,
+<p>Adding some comments to the stack expression to explain a bit what is going on:</p><pre>
+# Query to generate the input line
+nf.cluster,alerttest,<a href="asl-reference/eq.html">:eq</a>,
+name,requestsPerSecond,<a href="asl-reference/eq.html">:eq</a>,<a href="asl-reference/and.html">:and</a>,
+<a href="asl-reference/sum.html">:sum</a>,
 
 # Create a copy on the stack
-:dup,
+<a href="asl-reference/dup.html">:dup</a>,
 
 # Apply a DES function to generate a prediction
 # using the copy on the top of the stack. For
 # a description of the parameters see the DES
 # reference page.
-10,0.1,0.02,:des,
+10,0.1,0.02,<a href="asl-reference/des.html">:des</a>,
 
 # Used to set a threshold. The prediction should
 # be roughly equal to the line, in this case the
 # threshold would be 85% of the prediction.
-0.85,:mul,
+0.85,<a href="asl-reference/mul.html">:mul</a>,
 
 # Before              After
 # 4.                  4. actual
 # 3.                  3. prediction
 # 2. actual           2. actual
 # 1. prediction       1. prediction
-:2over,
+<a href="asl-reference/2over.html">:2over</a>,
 
 # Create a boolean signal line that is 1
 # for datapoints where the actual value is
@@ -277,22 +277,32 @@ name,requestsPerSecond,:eq,:and,
 # is greater than or equal the prediction.
 # The 1 values are where the alert should
 # trigger.
-:lt,
+<a href="asl-reference/lt.html">:lt</a>,
 
 # Apply presentation details.
-:rot,$name,:legend,
-:rot,prediction,:legend,
-:rot,:vspan,60,:alpha,alert+triggered,:legend
-</code></pre>
+<a href="asl-reference/rot.html">:rot</a>,$name,<a href="asl-reference/legend.html">:legend</a>,
+<a href="asl-reference/rot.html">:rot</a>,prediction,<a href="asl-reference/legend.html">:legend</a>,
+<a href="asl-reference/rot.html">:rot</a>,<a href="asl-reference/vspan.html">:vspan</a>,60,<a href="asl-reference/alpha.html">:alpha</a>,alert+triggered,<a href="asl-reference/legend.html">:legend</a>
+</pre>
+
 <p>See the [stack language](Stack Language) page for more information.</p>
+
 <h1><a href="#memory-storage" name="memory-storage" class="anchor"><span class="anchor-link"></span></a>Memory Storage</h1>
+
 <p>Storage for Atlas has been a bit of a sore point. We have tried many backends and ended up moving more and more to a model where pretty much all data is stored in memory either in or off the java heap.</p>
+
 <h2><a href="#speed" name="speed" class="anchor"><span class="anchor-link"></span></a>Speed</h2>
+
 <p>The primary goal for Atlas is to support queries over dimensional time series data so we can slice and dice to drill down into problems. This means we frequently have a need to perform a large aggregations that involve many data points even though the final result set might be small.</p>
+
 <p>As an example consider a simple graph showing the number of requests per second hitting a service for the last 3 hours. Assuming minute resolution that is 180 datapoints for the final output. On a typical service we would get one time series per node showing the number of requests so if we have 100 nodes the intermediate result set is around 18k datapoints. For one service users went hog wild with dimensions breaking down requests by device (~1000s) and country (~50) leading to about 50k time series per node. If we still assume 100 nodes that is about 900M datapoints for the same 3h line.</p>
+
 <p>Though obviously we have to be mindful about the explosion of dimensions, we also want that where possible to be a decision based on cost and business value rather than a technical limitation.</p>
+
 <h2><a href="#resilience" name="resilience" class="anchor"><span class="anchor-link"></span></a>Resilience</h2>
+
 <p>What all has to be working in order for the monitoring system to work? If it falls over what is involved in getting it back up? Our focus is primarily operational insight so the top priority is to be able to determine what is going on right now. This leads to the following rules of thumb:</p>
+
 <ul>
   <li>Data becomes exponentially less important as it gets older</li>
   <li>Restoring service is more important than preventing data loss</li>
@@ -408,6 +418,27 @@ name,requestsPerSecond,:eq,:and,
       <li><a href="overview.html#stack-language" class="header">Stack Language</a></li>
       <li><a href="overview.html#graph-example" class="header">Graph Example</a></li>
     </ul></li>
+    <li><a href="overview.html#query-to-generate-the-input-line" class="header">Query to generate the input line</a></li>
+    <li><a href="overview.html#create-a-copy-on-the-stack" class="header">Create a copy on the stack</a></li>
+    <li><a href="overview.html#apply-a-des-function-to-generate-a-prediction" class="header">Apply a DES function to generate a prediction</a></li>
+    <li><a href="overview.html#using-the-copy-on-the-top-of-the-stack-for" class="header">using the copy on the top of the stack. For</a></li>
+    <li><a href="overview.html#a-description-of-the-parameters-see-the-des" class="header">a description of the parameters see the DES</a></li>
+    <li><a href="overview.html#reference-page-" class="header">reference page.</a></li>
+    <li><a href="overview.html#used-to-set-a-threshold-the-prediction-should" class="header">Used to set a threshold. The prediction should</a></li>
+    <li><a href="overview.html#be-roughly-equal-to-the-line-in-this-case-the" class="header">be roughly equal to the line, in this case the</a></li>
+    <li><a href="overview.html#threshold-would-be-85-of-the-prediction-" class="header">threshold would be 85% of the prediction.</a></li>
+    <li><a href="overview.html#before-after" class="header">Before After</a></li>
+    <li><a href="overview.html#4-4-actual" class="header">4. 4. actual</a></li>
+    <li><a href="overview.html#3-3-prediction" class="header">3. 3. prediction</a></li>
+    <li><a href="overview.html#2-actual-2-actual" class="header">2. actual 2. actual</a></li>
+    <li><a href="overview.html#1-prediction-1-prediction" class="header">1. prediction 1. prediction</a></li>
+    <li><a href="overview.html#create-a-boolean-signal-line-that-is-1" class="header">Create a boolean signal line that is 1</a></li>
+    <li><a href="overview.html#for-datapoints-where-the-actual-value-is" class="header">for datapoints where the actual value is</a></li>
+    <li><a href="overview.html#less-than-the-prediction-and-0-where-it" class="header">less than the prediction and 0 where it</a></li>
+    <li><a href="overview.html#is-greater-than-or-equal-the-prediction-" class="header">is greater than or equal the prediction.</a></li>
+    <li><a href="overview.html#the-1-values-are-where-the-alert-should" class="header">The 1 values are where the alert should</a></li>
+    <li><a href="overview.html#trigger-" class="header">trigger.</a></li>
+    <li><a href="overview.html#apply-presentation-details-" class="header">Apply presentation details.</a></li>
     <li><a href="overview.html#memory-storage" class="header">Memory Storage</a>
     <ul>
       <li><a href="overview.html#speed" class="header">Speed</a></li>

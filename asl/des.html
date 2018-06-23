@@ -177,20 +177,20 @@ aria-label="Toggle navigation">
 <h2><a href="#alerting" name="alerting" class="anchor"><span class="anchor-link"></span></a>Alerting</h2>
 <p>For alerting purposes the DES line will typically get multiplied by a fraction and then checked to see whether the input line drops below the DES value for a given interval.</p><pre>
 // Query to generate the input line
-nf.cluster,alerttest,<a href="../../asl-reference/eq.html">:eq</a>,
-name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,<a href="../../asl-reference/and.html">:and</a>,
-<a href="../../asl-reference/sum.html">:sum</a>,
+nf.cluster,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+name,requestsPerSecond,<a href="../asl-reference/eq.html">:eq</a>,<a href="../asl-reference/and.html">:and</a>,
+<a href="../asl-reference/sum.html">:sum</a>,
 
 // Create a copy on the stack
-<a href="../../asl-reference/dup.html">:dup</a>,
+<a href="../asl-reference/dup.html">:dup</a>,
 
 // Apply a DES function to generate a prediction
-<a href="../../asl-reference/des-fast.html">:des-fast</a>,
+<a href="../asl-reference/des-fast.html">:des-fast</a>,
 
 // Used to set a threshold. The prediction should
 // be roughly equal to the line, in this case the
 // threshold would be 85% of the prediction.
-0.85,<a href="../../asl-reference/mul.html">:mul</a>,
+0.85,<a href="../asl-reference/mul.html">:mul</a>,
 
 // Create a boolean signal line that is 1
 // for datapoints where the actual value is
@@ -198,10 +198,10 @@ name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,<a href="..
 // is greater than or equal the prediction.
 // The 1 values are where the alert should
 // trigger.
-<a href="../../asl-reference/lt.html">:lt</a>,
+<a href="../asl-reference/lt.html">:lt</a>,
 
 // Apply presentation details.
-<a href="../../asl-reference/rot.html">:rot</a>,$name,<a href="../../asl-reference/legend.html">:legend</a>,
+<a href="../asl-reference/rot.html">:rot</a>,$name,<a href="../asl-reference/legend.html">:legend</a>,
 </pre>
 
 <p>The vertical spans show when the expression would have triggered with due to the input dropping below the DES line at 85%:</p>
@@ -223,11 +223,11 @@ name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,<a href="..
   &h=150
   &l=0
   &q=
-    nf.cluster,alerttest,<a href="../../asl-reference/eq.html">:eq</a>,
-    name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,
-    <a href="../../asl-reference/and.html">:and</a>,
-    <a href="../../asl-reference/sum.html">:sum</a>,
-    10,0.1,0.02,0.15,0.15,10,<a href="../../asl-reference/des-epic-viz.html">:des-epic-viz</a>
+    nf.cluster,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+    name,requestsPerSecond,<a href="../asl-reference/eq.html">:eq</a>,
+    <a href="../asl-reference/and.html">:and</a>,
+    <a href="../asl-reference/sum.html">:sum</a>,
+    10,0.1,0.02,0.15,0.15,10,<a href="../asl-reference/des-epic-viz.html">:des-epic-viz</a>
   &s=e-6h
   &tz=UTC
   &w=750
@@ -239,11 +239,11 @@ name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,<a href="..
   &h=150
   &l=0
   &q=
-    nf.cluster,alerttest,<a href="../../asl-reference/eq.html">:eq</a>,
-    name,requestsPerSecond,<a href="../../asl-reference/eq.html">:eq</a>,
-    <a href="../../asl-reference/and.html">:and</a>,
-    <a href="../../asl-reference/sum.html">:sum</a>,
-    10,0.1,0.02,0.15,NaN,10,<a href="../../asl-reference/des-epic-viz.html">:des-epic-viz</a>
+    nf.cluster,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+    name,requestsPerSecond,<a href="../asl-reference/eq.html">:eq</a>,
+    <a href="../asl-reference/and.html">:and</a>,
+    <a href="../asl-reference/sum.html">:sum</a>,
+    10,0.1,0.02,0.15,NaN,10,<a href="../asl-reference/des-epic-viz.html">:des-epic-viz</a>
   &s=e-6h
   &tz=UTC
   &w=750
