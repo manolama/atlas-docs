@@ -135,49 +135,52 @@ aria-label="Toggle navigation">
 <p>The result is a <em>signal line</em> that is non-zero, typically 1, when in a triggering state and zero when everything is fine.</p>
 <h2><a href="#dampening" name="dampening" class="anchor"><span class="anchor-link"></span></a>Dampening</h2>
 <p>Our threshold alert above will trigger if the CPU usage is ever recorded to be above the threshold. Alert conditions are often combined with a check for the number of occurences. This is done by using the <a href="stateful-rolling-count">:rolling-count</a> operator to get a line showing how many times the input signal has been true withing a specified window and then applying a second threshold to the rolling count.</p>
-<table>
-<tr>
-<td>Input</td>
-<td>Rolling count</td>
-<td>Dampened signal</td>
-</tr>
-<tr>
-<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt" /></td>
-<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count" /></td>
-<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count,4,:gt" /></td>
-</tr>
-<tr>
-<td><pre>
-nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
-<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
-80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>
+      <table>
+        <thead>
+          <tr>
+            <th>Input</th><th>Rolling-count</th><th>Dampened signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><pre>
+nf.app,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+name,ssCpuUser,<a href="../asl-reference/eq.html">:eq</a>,
+<a href="../asl-reference/and.html">:and</a>,
+<a href="../asl-reference/sum.html">:sum</a>,
+80,<a href="../asl-reference/gt.html">:gt</a>
+</pre></td><td><pre>
+nf.app,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+name,ssCpuUser,<a href="../asl-reference/eq.html">:eq</a>,
+<a href="../asl-reference/and.html">:and</a>,
+<a href="../asl-reference/sum.html">:sum</a>,
+80,<a href="../asl-reference/gt.html">:gt</a>,
+5,<a href="../asl-reference/rolling-count.html">:rolling-count</a>
+</pre></td><td><pre>
+nf.app,alerttest,<a href="../asl-reference/eq.html">:eq</a>,
+name,ssCpuUser,<a href="../asl-reference/eq.html">:eq</a>,
+<a href="../asl-reference/and.html">:and</a>,
+<a href="../asl-reference/sum.html">:sum</a>,
+80,<a href="../asl-reference/gt.html">:gt</a>,
+5,<a href="../asl-reference/rolling-count.html">:rolling-count</a>,
+4,<a href="../asl-reference/gt.html">:gt</a>
 </pre></td>
-<td><pre>
-nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
-<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
-80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
-<b>5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a></b>
-</pre></td>
-<td><pre>
-nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
-<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
-<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
-80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
-5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a>,
-<b>4,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a></b>
-</pre></td>
-</tr>
-</table>
+          </tr><tr>
+            <td><image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAB0CAYAAABgzxV+AAAE+0lEQVR42u3csY7TMBjA8T4PD8LKDjtvwIbEwnBiYuQkBiRGXoStQ1emewC2m49zdT75TOzESdMm6S/Sp1ziNImN//z71ZZ39/f3D0KI5cZukS+12zVdG8M/qADpmQAdClx+HVAFSBdmUpAKkIJUCJCeA9I0b43Rt93d3S26/Ljd3j7/ufvw50WE7e23/X/n0+gqT+8XytMtvza8Y+v902eE7f3rz9VnjKlD+pz0HbueEz/f9ewhzw8bSGcw6RBI17blgKWdLu+AeVnpHn3lpY5dg3LMcend0+O+9mipS2t7gfRCkK7RpPnfJUvUTNln0vTvoSatQdhl0nTLTZbXJb5DCdKaSdPyEqSxDUA6cEildK51CIZJmZRJl56IMymTMun6IWVSJmVSJmVSJgUpkzIpkzIpkzIpSOeCNEKwlX3sTLHTxX08Hzt7fpzeJz0eUp7ft7QvvefQ4/R+ab3S4772qD1nanuBlEmZlElBKieVk8pJmZRJmRSkTMqkTMqkTMqkIGVSJmVSkDIpkzIpkzIpk4L0LJMZDofDosuP+0eT1gbnw7na4HyI2mSFvvL4jNIkhvT5pckKXz/9qJZ/+fW7OpkhtFNtMkMsL71H+vmuyQvh+SYzMCmTMilI5aRyUjkpkzIpk4KUSZmUSUHKpEzKpEzKpEwKUiZlUiZlUiZlUpBameHBygxWZgApkzIpk8pJ5aRyUpAyKZMyKZMyKZMyKZMyKZOClEmZlEmZlEmZFKRMyqRMajKDlRmszGBlBiZlUiYFqZxUTionZVImZVKQPkEUo/X6IZ9hUiZl0omA1o6HfIZJmZRJrwBSJmVSJj0xpK1fj5mUSZn0jJD2XZ/nrEdIo4UK+783N4suP+5jpEZ6PD52nsd9sEA8H/bhfHp8tERyv/i5oeXBQul98336/K73DNvPV2+q5d/ffXxx3/ge8Ti0U/pe+X1ieek90s/n7ROOw/PT4672AOkJIGVSJmXSDUIqJ5WTyklH5ph9X2flpEzKpGYcMSmTgtSMIyZlUpAyKZMyKZMyKZOClEmZlEmtYG8FeyvYW8GeSZmUSUEqJ5WTykmZlEmZFKRMyqRMClImZVImZVImZVKQMimTMimTMimTgtQK9oPKrWBvBXsmZVImZVI5qZxUTgpSJmVSJmVSJmVSkDIpkzIpSJmUSZmUSZmUSUHKpEzKpFZmWPTeygxWZmBSJmVSJpWTyknlpCBlUiZlUiZlUiYFKZMyKZOClEmZlEmZlEmZFKRMyqRMamWGi5ZbmcHKDEzKpEzKpHJSOamcFKRMyqRMOg9AMea4nkmZlEknAlo7nno9kzIpk24IUiZlUiZlUiZlUpB25a3PMaBzrS1aO3YfEC3PaIF0yvUtkJ6rvUA6g0njtfv9ftWhDsupA0hngnQLQ0nqsP06rGoIpnSudQhG51AHkGpYdVAHkOoc6gBSIcQy/hPQCEKAVAhx7ZD2/cI7dbL+2F+QT1GHfBLGGuvQ+vyl1aFrMsw567DbWtJeapSx95kyFnuKOkwZ+1WHecbpx47fj57GumVIS40zFO6ld/A11GHqhJSlQXqJvnS1kK7JQmv+NjDma+LaIGXSEzTIFjrHJb5mzWHSNdZhzG8bIB3xP/iaOwdIQbrpH46YFKRr//HraodgWoYJljIEow6XrUPLtEBDMEKYzCCEAKkQAqRCgFQIAVIhrj3+AU4157/MD8L6AAAAAElFTkSuQmCC" alt="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt" width="233" height="116"/></td><td><image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAB0CAYAAABgzxV+AAAE4ElEQVR42u3dPW7bMBgGYJ+uh2gz9wbdOnYIeoIG6A2ag3Tz4LWTD9Atc1oJYaAoJCXqX/Jj4INg64ehotePaQny6enp6Vkptd062QlKCalSSkiVElKllJAu2OnT6bnrcb1eNz2/fjw8TNbG6cufuubsQ6yNKfsQa2eu/0OzDSFdKaS39ogGaIdtrNEXISUpSUkqpB4kJSlJSUpSISUpSUlKUpKSVEhJSlKSCilJSUpSkpKUpEJKUpKSVEhJSlKSkpSkJBVSkpKUpCQlKUmFlKQkJamQkpSkJCUpSUkqpANCGt4hU9PL5bLp+fX0v0Lt1z/+ONcHTzWtXsutX1Vz+TBtzk+tXy0X2shtv6r29qvp63KPj8n1q+W+//rdaz+l+tG1H6vtt/ud+z/E2hFSkha/wzenfZdPPZ9Cq623MXZ/CakxadGYtHnQ9Wkjd3Dn1m/q09WHbIAyY9Ip2ujaB2H7qZDGxtVCSlKSklRISUpSkpKUpCQVUpKSlKQkJSlJSUpSkpJUSElKUpKSlKQkFVKSkpSkQkpSkpKUpCQl6VFCWgWoWaXrkJSkJF0htCXz+wSVpCQl6QFCSlKSknSij68kJSlJDyBpe5xbhzS8gyemf+/vNz2/noZ6eV4dMJ8/fKufVtNaicbr7Wk1PywfthPmv971IdJue/2u7Yftxf7O57u7aP/Cej8/fX3Xr2Y77fnt9XP7Mazf7ndq+6l2hNSYtFjRoUr0VSjWzhJtlPZliTaqh5Aak/Yek7YPrtLxVt/xXHt+KqRdY9rcmDTWRqwvXW2UzI+10ef/4BRMj9DOcQqGpCQlqSuOSEpSISUpSUlKUpKSVEhJSlKSCilJSUpSkpKUpEJKUpKSlKQkJamQkpSkJBVSkpKUpCQlKUmFlKQkJamQkpSkJF0/pNmfud/p9M3P3L88Dz8bP2Y7zWlse7mfsy/ZTm57YfmSdrqWn2p/CSlJB0s6tI2cpCXKdM1/c8eGmdrI3SOp732gSGpMOtuYdI7tTNVGbltLtDFlO0JKUpKSVEhJSlKSkpSkJBVSkpKUpCQlKUmFlKQkJamQkpSkJCUpSUkqpCQlKUmFlKQkJSlJSUpSISUpSUlKUpKSVEhJSlKSCilJSUpSd2ZYYjrkjgKpafMOBbHpVH93rp2p98uc7QgpSXtJWnqPodL5sfsYbfnTQG5+sy8kNSbd3Xg0t/2521iiH3P0RUhJSlKSCilJSUpSkpKUpEJKUpKSlKQkJamQkpSkJBVSkpKUpCQlKUmFlKQkJamQkpSkJM0GKNQcy5OUpCQdGdDc87HLk5SkJD1QSElKUpKSlKQkFdLYuPW1Xv5RRyohFdLDSBqWPZ/Puy592E4fhHSmkB7hVJI+HL8PuzoFk3qt9BSMg0MfhNSO1Qd9EFIHhz4IqVJqG28CdoJSQqqUuvWQdn3DO/Zi/aHfIE/Rh/ZFGHvsQ2n7W+tD7GKYJftwOtqgPbVThm5nzLnYKfow5tyvPsxznn7o+fvBl7EeOaSpndM33Fs/wPfQh7EXpGwtpGscSzcb0j0ptOdPA0M+Ju4tpCSdYIcc4eBY42PWHJLusQ9DvtsQ0gHv4Hs+OIRUSA/9xRFJhXTvX37d7CmYktMEWzkFow/r9qHkskCnYJRyMYNSSkiVUkKqlJAqpYRUqVuvfwrNjKKHS7JFAAAAAElFTkSuQmCC" alt="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count" width="233" height="116"/></td><td><image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAB0CAYAAABgzxV+AAAEI0lEQVR42u3cQXKbMBQGYE7XQ3Sy7g16gy5yhOYOuYsX3nblA3TndVuTqkM9YAsJgQSfZ954UnCoMH8+P4tRd71efyml6q2uyv9U183aN5Q3VAnpSgGNDdz9foKqhLQySYVUCamQKiWka4R02LeGeva4XC5Vb+8fb2+LHaP7+qOvkmMYO8aSYxg7Tqn3YXgMIS0gaUxIj/YYDVCDx9hiLEK6UUhJSlKSJkypTP3b3CkYkpKUpLU34iQlKUnbDylJSUpSkpKUpEJKUpKSlKQkJamQlgppOPmeP54/fz/1F13J49x+/+04pcezxnGG50tISUpSkgqph55UT0pSkpJUSElKUpKSlKQkFVKSkpSkQkpSkpKUpCQlqZCucjPD+Xyuenv//EehR9tDxWwfu5lhzutjto/eZPD+vvh5Gh6n1PvgZgaSkpSkQqon1ZPqSUlKUpIKKUlJSlKSkpSkQkpSkpJUSElKUpKSlKQkFVIrM1iZoarjuJmBpCQlqZB66En1pCQlKUmFlKQkJSlJSUpSISUpSUkqpCQlKUlJSlKSCqmVGazMEL3dygwkJSlJSaon1ZPqSYUUnSQlaW6IQs3dP+Y1JCUpSTMD+ujnmNeQlKQkPUBISUpSki4c0rkfjz1IStIVQ/ps//uetQ9p+As+8fzz9bXq7f1zqIntYS41ZvuXT98+LrrE18dsv/3+23H+2+/lZfHzNDxOqfdheL6EdIGQkpSkJN1hSPWkelI9aWKP+ezjrJ6UpCR1xxFJSSqk7jgiKUmFlKQkJSlJSUpSISUpSUlqBXsr2FvB3gr2JCUpSYVUT6on1ZOSlKQkFVKSkpSkQkpSkpKUpCQlqZCSlKQkJSlJSSqkVrCP2m4FeyvYk5SkJCWpnlRPqicVUpKSlKQkJSlJhZSkJCWpkJKUpCQlKUlJKqQkJSlJrcyw62crM1iZgaQkJamQ6kn1pHpSkpKUpEJKUpKSVEhJSlKSkpSkJBVSkpKUpEJKUpKS1MoMWdutzGBlBpKSlKQk1ZPqSfWkQkpSkpK0TIBCldifpCQlaWZAH/2cuz9JSUrSHYWUpCQlKUlJSlIhHetb/9Xfk6xUbglpAUnDvqfTqekyhnrGIKSFQrqHqSRj2P8YmpqCmfq3uVMwLg5jEFIn1hiMQUhdHMYgpEqpOv4IOAlKCalS6ughffYNb+7N+qnfIC8xhvubMFocw9zj1zaGsZth1hxDt7emfeqkpP6enLnYJcaQM/drDGXm6VPn75NvY91zSKdOTmy4a7/AWxhD7g0ptYV0i2vpsCFtSaGWPw2kfExsLaQkXeCE7OHi2OJjVglJWxxDyncbQprwF7zli0NIhXTXXxyRVEhb//LrsFMwc6YJapmCMYZtxzDntkBTMEq5mUEpJaRKKSFVSkiVUkKq1NHrN7pH2yzqUJV8AAAAAElFTkSuQmCC" alt="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count,4,:gt" width="233" height="116"/></td>
+          </tr>
+        </tbody>
+      </table>
+    
 <h2><a href="#visualization" name="visualization" class="anchor"><span class="anchor-link"></span></a>Visualization</h2>
+
 <p>A signal line is useful to tell whether or not something is in a triggered state, but can be difficult for a person to follow. Alert expressions can be visualized by showing the input, threshold, and triggering state on the same graph.</p>
+
 <p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:2over,:gt,:vspan,40,:alpha,triggered,:legend,:rot,input,:legend,:rot,threshold,:legend,:rot</p>
+
 <h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+
 <p>You should now know the basics of crafting an alert expression using the stack language. Other topics that may be of interest:</p>
+
 <ul>
   <li><a href="Alerting-Philosophy">Alerting Philosophy</a>: overview of best practices associated with alerts.</li>
   <li><a href="Stack-Language-Reference">Stack Language Reference</a>: comprehensive list of avialable operators.</li>
