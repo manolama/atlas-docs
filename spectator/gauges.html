@@ -64,7 +64,7 @@ aria-label="Toggle navigation">
 
 <div class="container-fluid">
 <div class="row flex-xl-nowrap justify-content-md-center">
-<div class="col-12 col-md-3 col-xl-2" id="nav-left">
+<div class="d-none d-lg-block col-lg-2 col-xl-2" id="nav-left">
 <select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
 <ul>
   <li><a href="../overview.html" class="page">Overview</a></li>
@@ -124,7 +124,7 @@ aria-label="Toggle navigation">
   </ul></li>
 </ul>
 </div>
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5" id="content">
+<div class="col-12 col-md-9 col-xl-8" id="content">
 <h1><a href="#gauges" name="gauges" class="anchor"><span class="anchor-link"></span></a>Gauges</h1>
 <p>A gauge is a value that is sampled at some point in time. Typical examples for gauges would be the size of a queue or number of threads in the running state. Since gauges are not updated inline when a state change occurs, there is no information about what might have occurred between samples.</p>
 <p>Consider monitoring the behavior of a queue of tasks. If the data is being collected once a minute, then a gauge for the size will show the size when it was sampled. The size may have been much higher or lower at some point during interval, but that is not known.</p>

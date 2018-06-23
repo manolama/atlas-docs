@@ -64,7 +64,7 @@ aria-label="Toggle navigation">
 
 <div class="container-fluid">
 <div class="row flex-xl-nowrap justify-content-md-center">
-<div class="col-12 col-md-3 col-xl-2" id="nav-left">
+<div class="d-none d-lg-block col-lg-2 col-xl-2" id="nav-left">
 <select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
 <ul>
   <li><a href="../overview.html" class="page">Overview</a></li>
@@ -124,7 +124,7 @@ aria-label="Toggle navigation">
   </ul></li>
 </ul>
 </div>
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5" id="content">
+<div class="col-12 col-md-9 col-xl-8" id="content">
 <h1><a href="#double-exponential-smoothing" name="double-exponential-smoothing" class="anchor"><span class="anchor-link"></span></a>Double Exponential Smoothing</h1>
 <p><a href="http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc433.htm">Double exponential smoothing</a> (DES) is a simple technique for generating a smooth trend line from another time series. This technique is often used to generate a dynamic threshold for alerting.</p><div class="callout warning "><div class="callout-title">Warning</div>
 <p>Alerts on dynamic thresholds should be expected to be noisy. They are looking for strange behavior rather than an actual problem causing impact. Make sure you will actually spend the time to tune and investigate the alarms before using this approach. See the <a href="alerting-philosophy.html">alerting philosophy</a> guide for more information on best practices.</p></div>

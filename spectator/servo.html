@@ -64,7 +64,7 @@ aria-label="Toggle navigation">
 
 <div class="container-fluid">
 <div class="row flex-xl-nowrap justify-content-md-center">
-<div class="col-12 col-md-3 col-xl-2" id="nav-left">
+<div class="d-none d-lg-block col-lg-2 col-xl-2" id="nav-left">
 <select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
 <ul>
   <li><a href="../overview.html" class="page">Overview</a></li>
@@ -124,7 +124,7 @@ aria-label="Toggle navigation">
   </ul></li>
 </ul>
 </div>
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5" id="content">
+<div class="col-12 col-md-9 col-xl-8" id="content">
 <h1><a href="#servo-comparison" name="servo-comparison" class="anchor"><span class="anchor-link"></span></a>Servo Comparison</h1>
 <p><a href="https://github.com/Netflix/servo">Servo</a> is an alternative client monitoring library that is also developed by Netflix. Originally spectator was an experiment for a simpler API that wrapped servo. It was done as a separate project to avoid breaking backwards compatibility for servo.</p>
 <p>From a user perspective, both will be supported for a long time, but most of our efforts for future improvement will go to spectator. For new code it is recommended to use the spectator API. If running [at Netflix](Netflix Integration) the correct bindings will be in place for both servo and spectator.</p>

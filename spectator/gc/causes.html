@@ -64,14 +64,14 @@ aria-label="Toggle navigation">
 
 <div class="container-fluid">
 <div class="row flex-xl-nowrap justify-content-md-center">
-<div class="col-12 col-md-3 col-xl-2" id="nav-left">
+<div class="d-none d-lg-block col-lg-2 col-xl-2" id="nav-left">
 <select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
 <ul>
   <li><a href="../../spectator/gc/causes.html" class="active page">Causes</a></li>
   <li><a href="../../spectator/gc/foo.html" class="page">Foo</a></li>
 </ul>
 </div>
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5" id="content">
+<div class="col-12 col-md-9 col-xl-8" id="content">
 <h1><a href="#causes" name="causes" class="anchor"><span class="anchor-link"></span></a>Causes</h1>
 <p>In May of 2011, Netflix was using a home-grown solution called Epic to manage time-series data. Epic was a combination of perl CGI scripts, RRDTool logging, and MySQL. We were tracking around 2M distinct time series and the monitoring system was regularly failing to keep up with the volume of data. In addition there were a number of trends in the company which presaged a drastic increase in metric volume:</p>
 
