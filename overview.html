@@ -233,46 +233,44 @@ crossorigin="anonymous">
      :rot,prediction,:legend,
      :rot,:vspan,60,:alpha,alert+triggered,:legend
 </code></pre>
-<p>Adding some comments to the stack expression to explain a bit what is going on:</p><pre>
-# Query to generate the input line
-nf.cluster,alerttest,<a href="asl-reference/eq.html">:eq</a>,
-name,requestsPerSecond,<a href="asl-reference/eq.html">:eq</a>,<a href="asl-reference/and.html">:and</a>,
-<a href="asl-reference/sum.html">:sum</a>,
+<p>Adding some comments to the stack expression to explain a bit what is going on:</p><pre class="prettyprint prettyprinted"><code><span class="com">-- Query to generate the input line</span>
+nf.cluster<span class="pun">,</span>alerttest<span class="pun">,</span><span class="kwd"><a href="asl-reference/eq.html">:eq</a></span><span class="pun">,</span>
+name<span class="pun">,</span>requestsPerSecond<span class="pun">,</span><span class="kwd"><a href="asl-reference/eq.html">:eq</a></span><span class="pun">,</span><span class="kwd"><a href="asl-reference/and.html">:and</a></span><span class="pun">,</span>
+<span class="kwd"><a href="asl-reference/sum.html">:sum</a></span><span class="pun">,</span>
 
-# Create a copy on the stack
-<a href="asl-reference/dup.html">:dup</a>,
+<span class="com">-- Create a copy on the stack</span>
+<span class="kwd"><a href="asl-reference/dup.html">:dup</a></span><span class="pun">,</span>
 
-# Apply a DES function to generate a prediction
-# using the copy on the top of the stack. For
-# a description of the parameters see the DES
-# reference page.
-10,0.1,0.02,<a href="asl-reference/des.html">:des</a>,
+<span class="com">-- Apply a DES function to generate a prediction</span>
+<span class="com">-- using the copy on the top of the stack. For</span>
+<span class="com">-- a description of the parameters see the DES</span>
+<span class="com">-- reference page.</span>
+10<span class="pun">,</span>0.1<span class="pun">,</span>0.02<span class="pun">,</span><span class="kwd"><a href="asl-reference/des.html">:des</a></span><span class="pun">,</span>
 
-# Used to set a threshold. The prediction should
-# be roughly equal to the line, in this case the
-# threshold would be 85% of the prediction.
-0.85,<a href="asl-reference/mul.html">:mul</a>,
+<span class="com">-- Used to set a threshold. The prediction should</span>
+<span class="com">-- be roughly equal to the line. In this case the</span>
+<span class="com">-- threshold would be 85% of the prediction.</span>
+0.85<span class="pun">,</span><span class="kwd"><a href="asl-reference/mul.html">:mul</a></span><span class="pun">,</span>
 
-# Before              After
-# 4.                  4. actual
-# 3.                  3. prediction
-# 2. actual           2. actual
-# 1. prediction       1. prediction
-<a href="asl-reference/2over.html">:2over</a>,
+<span class="com">-- Before              After</span>
+<span class="com">-- 4.                  4. actual</span>
+<span class="com">-- 3.                  3. prediction</span>
+<span class="com">-- 2. actual           2. actual</span>
+<span class="com">-- 1. prediction       1. prediction</span>
+<span class="kwd"><a href="asl-reference/2over.html">:2over</a></span><span class="pun">,</span>
 
-# Create a boolean signal line that is 1
-# for datapoints where the actual value is
-# less than the prediction and 0 where it
-# is greater than or equal the prediction.
-# The 1 values are where the alert should
-# trigger.
-<a href="asl-reference/lt.html">:lt</a>,
+<span class="com">-- Create a boolean signal line that is 1</span>
+<span class="com">-- for datapoints where the actual value is</span>
+<span class="com">-- less than the prediction and 0 where it</span>
+<span class="com">-- is greater than or equal the prediction.</span>
+<span class="com">-- The 1 values are where the alert should</span>
+<span class="com">-- trigger.</span>
+<span class="kwd"><a href="asl-reference/lt.html">:lt</a></span><span class="pun">,</span>
 
-# Apply presentation details.
-<a href="asl-reference/rot.html">:rot</a>,$name,<a href="asl-reference/legend.html">:legend</a>,
-<a href="asl-reference/rot.html">:rot</a>,prediction,<a href="asl-reference/legend.html">:legend</a>,
-<a href="asl-reference/rot.html">:rot</a>,<a href="asl-reference/vspan.html">:vspan</a>,60,<a href="asl-reference/alpha.html">:alpha</a>,alert+triggered,<a href="asl-reference/legend.html">:legend</a>
-</pre>
+<span class="com">-- Apply presentation details.</span>
+<span class="kwd"><a href="asl-reference/rot.html">:rot</a></span><span class="pun">,</span>$name<span class="pun">,</span><span class="kwd"><a href="asl-reference/legend.html">:legend</a></span><span class="pun">,</span>
+<span class="kwd"><a href="asl-reference/rot.html">:rot</a></span><span class="pun">,</span>prediction<span class="pun">,</span><span class="kwd"><a href="asl-reference/legend.html">:legend</a></span><span class="pun">,</span>
+<span class="kwd"><a href="asl-reference/rot.html">:rot</a></span><span class="pun">,</span><span class="kwd"><a href="asl-reference/vspan.html">:vspan</a></span><span class="pun">,</span>60<span class="pun">,</span><span class="kwd"><a href="asl-reference/alpha.html">:alpha</a></span><span class="pun">,</span>alert+triggered<span class="pun">,</span><span class="kwd"><a href="asl-reference/legend.html">:legend</a></span></code></pre>
 
 <p>See the [stack language](Stack Language) page for more information.</p>
 
@@ -407,27 +405,6 @@ name,requestsPerSecond,<a href="asl-reference/eq.html">:eq</a>,<a href="asl-refe
       <li><a href="overview.html#stack-language" class="header">Stack Language</a></li>
       <li><a href="overview.html#graph-example" class="header">Graph Example</a></li>
     </ul></li>
-    <li><a href="overview.html#query-to-generate-the-input-line" class="header">Query to generate the input line</a></li>
-    <li><a href="overview.html#create-a-copy-on-the-stack" class="header">Create a copy on the stack</a></li>
-    <li><a href="overview.html#apply-a-des-function-to-generate-a-prediction" class="header">Apply a DES function to generate a prediction</a></li>
-    <li><a href="overview.html#using-the-copy-on-the-top-of-the-stack-for" class="header">using the copy on the top of the stack. For</a></li>
-    <li><a href="overview.html#a-description-of-the-parameters-see-the-des" class="header">a description of the parameters see the DES</a></li>
-    <li><a href="overview.html#reference-page-" class="header">reference page.</a></li>
-    <li><a href="overview.html#used-to-set-a-threshold-the-prediction-should" class="header">Used to set a threshold. The prediction should</a></li>
-    <li><a href="overview.html#be-roughly-equal-to-the-line-in-this-case-the" class="header">be roughly equal to the line, in this case the</a></li>
-    <li><a href="overview.html#threshold-would-be-85-of-the-prediction-" class="header">threshold would be 85% of the prediction.</a></li>
-    <li><a href="overview.html#before-after" class="header">Before After</a></li>
-    <li><a href="overview.html#4-4-actual" class="header">4. 4. actual</a></li>
-    <li><a href="overview.html#3-3-prediction" class="header">3. 3. prediction</a></li>
-    <li><a href="overview.html#2-actual-2-actual" class="header">2. actual 2. actual</a></li>
-    <li><a href="overview.html#1-prediction-1-prediction" class="header">1. prediction 1. prediction</a></li>
-    <li><a href="overview.html#create-a-boolean-signal-line-that-is-1" class="header">Create a boolean signal line that is 1</a></li>
-    <li><a href="overview.html#for-datapoints-where-the-actual-value-is" class="header">for datapoints where the actual value is</a></li>
-    <li><a href="overview.html#less-than-the-prediction-and-0-where-it" class="header">less than the prediction and 0 where it</a></li>
-    <li><a href="overview.html#is-greater-than-or-equal-the-prediction-" class="header">is greater than or equal the prediction.</a></li>
-    <li><a href="overview.html#the-1-values-are-where-the-alert-should" class="header">The 1 values are where the alert should</a></li>
-    <li><a href="overview.html#trigger-" class="header">trigger.</a></li>
-    <li><a href="overview.html#apply-presentation-details-" class="header">Apply presentation details.</a></li>
     <li><a href="overview.html#memory-storage" class="header">Memory Storage</a>
     <ul>
       <li><a href="overview.html#speed" class="header">Speed</a></li>
