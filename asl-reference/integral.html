@@ -90,7 +90,7 @@ crossorigin="anonymous">
     <li><a href="../asl-reference/format.html" class="page">format</a></li>
     <li><a href="../asl-reference/freeze.html" class="page">freeze</a></li>
     <li><a href="../asl-reference/get.html" class="page">get</a></li>
-    <li><a href="../asl-reference/integral.html" class="page">integral</a></li>
+    <li><a href="../asl-reference/integral.html" class="active page">integral</a></li>
     <li><a href="../asl-reference/list.html" class="page">list</a></li>
     <li><a href="../asl-reference/map.html" class="page">map</a></li>
     <li><a href="../asl-reference/ndrop.html" class="page">ndrop</a></li>
@@ -115,7 +115,7 @@ crossorigin="anonymous">
   <li><a href="../spectator/index.html" class="page">Spectator</a>
   <ul>
     <li><a href="../spectator/registry.html" class="page">Registry</a></li>
-    <li><a href="../spectator/counters.html" class="active page">Counters</a></li>
+    <li><a href="../spectator/counters.html" class="page">Counters</a></li>
     <li><a href="../spectator/timers.html" class="page">Timers</a></li>
     <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
     <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
@@ -144,52 +144,95 @@ crossorigin="anonymous">
 </ul>
 </div>
 <div class="col-12 col-md-9 col-xl-8 py-md-3" id="content">
-<h1><a href="#counters" name="counters" class="anchor"><span class="anchor-link"></span></a>Counters</h1>
-<p>A counter is used to measure the rate at which some event is occurring. Consider a simple queue, counters would be used to measure things like the rate at which items are being inserted and removed. </p>
-<p>Counters are created using the registry which will be setup as part of application initialization. For example:</p>
-<pre class="prettyprint"><code class="language-java">public class Queue {
-
-  private final Counter insertCounter;
-  private final Counter removeCounter;
-  private final QueueImpl impl;
-
-  @Inject
-  public Queue(Registry registry) {
-    insertCounter = registry.counter(&quot;queue.insert&quot;);
-    removeCounter = registry.counter(&quot;queue.remove&quot;);
-    impl = new QueueImpl();
-  }
+<h1><a href="#integral" name="integral" class="anchor"><span class="anchor-link"></span></a>integral</h1>
+<h2><a href="#signature" name="signature" class="anchor"><span class="anchor-link"></span></a>Signature</h2>
+<pre><code>TimeSeriesExpr -- TimeSeriesExpr
 </code></pre>
-<p>Then call increment when an event occurs:</p>
-<pre class="prettyprint"><code class="language-java">  public void insert(Object obj) {
-    insertCounter.increment();
-    impl.insert(obj);
-  }
-
-  public Object remove() {
-    if (impl.nonEmpty()) {
-      removeCounter.increment();
-      return impl.remove();
-    } else {
-      return null;
-    }
-  }
-</code></pre>
-<p>Optionally an amount can be passed in when calling increment. This is useful when a collection of events happens together. </p>
-<pre class="prettyprint"><code class="language-java">  public void insertAll(Collection&lt;Object&gt; objs) {
-    insertCounter.increment(objs.size());
-    impl.insertAll(objs);
-  }
-}
-</code></pre>
+<h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+<p>Sum the values across the evaluation context. This is typically used to approximate the distinct number of events that occurred. If the input is non-negative, then each datapoint for the output line will represent the area under the input line from the start of the graph to the time for that datapoint. Missing values, <code>NaN</code>, will be treated as zeroes. For example:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Input </th>
+      <th>:integral </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 </td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>1 </td>
+    </tr>
+    <tr>
+      <td>-1 </td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>NaN </td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>0 </td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>1 </td>
+    </tr>
+    <tr>
+      <td>2 </td>
+      <td>3 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>4 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>5 </td>
+    </tr>
+    <tr>
+      <td>0 </td>
+      <td>5 </td>
+    </tr>
+  </tbody>
+</table>
+<p>For a <a href="../spectator/counters.html">counter</a>, each data point represents the average rate per second over the step interval. To compute the total amount incremented, the value first needs to be converted to a rate per step interval. This conversion can be performed using the <a href="per-step.html">:per-step</a> operation.</p>
+<p>See also <a href="derivative.html">:derivative</a>.</p>
+<h2><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Before</th><th>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><pre class="prettyprint prettyprinted"><code>1</code></pre>
+</td><td><pre class="prettyprint prettyprinted"><code>1<span class="pun">,</span><span class="kwd"><a href="../asl-reference/integral.html">:integral</a></span></code></pre>
+</td>
+          </tr><tr>
+            <td><image src="data:image/png;base64,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" alt="/api/v1/graph?q=1" width="350" height="175"/></td><td><image src="data:image/png;base64,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" alt="/api/v1/graph?q=1,:integral" width="350" height="175"/></td>
+          </tr>
+        </tbody>
+      </table>
+    
 
 <div class="nav-next">
-<p><strong>Next:</strong> <a href="../spectator/timers.html">Timers</a></p>
+<p><strong>Next:</strong> <a href="../asl-reference/list.html">list</a></p>
 </div>
 </div>
 <div class="d-none d-xl-block col-xl-2" id="nav-right">
 <ul>
-  <li><a href="../spectator/counters.html#counters" class="header">Counters</a></li>
+  <li><a href="../asl-reference/integral.html#integral" class="header">integral</a>
+  <ul>
+    <li><a href="../asl-reference/integral.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/integral.html#summary" class="header">Summary</a></li>
+    <li><a href="../asl-reference/integral.html#example" class="header">Example</a></li>
+  </ul></li>
 </ul>
 </div>
 </div>

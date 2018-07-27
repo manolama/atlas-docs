@@ -74,7 +74,7 @@ crossorigin="anonymous">
     <li><a href="../asl-reference/call.html" class="page">call</a></li>
     <li><a href="../asl-reference/clear.html" class="page">clear</a></li>
     <li><a href="../asl-reference/cq.html" class="page">cq</a></li>
-    <li><a href="../asl-reference/derivative.html" class="page">derivative</a></li>
+    <li><a href="../asl-reference/derivative.html" class="active page">derivative</a></li>
     <li><a href="../asl-reference/des.html" class="page">des</a></li>
     <li><a href="../asl-reference/des-epic-signal.html" class="page">des-epic-signal</a></li>
     <li><a href="../asl-reference/des-epic-viz.html" class="page">des-epic-viz</a></li>
@@ -93,7 +93,7 @@ crossorigin="anonymous">
     <li><a href="../asl-reference/integral.html" class="page">integral</a></li>
     <li><a href="../asl-reference/list.html" class="page">list</a></li>
     <li><a href="../asl-reference/map.html" class="page">map</a></li>
-    <li><a href="../asl-reference/ndrop.html" class="active page">ndrop</a></li>
+    <li><a href="../asl-reference/ndrop.html" class="page">ndrop</a></li>
     <li><a href="../asl-reference/nip.html" class="page">nip</a></li>
     <li><a href="../asl-reference/nlist.html" class="page">nlist</a></li>
     <li><a href="../asl-reference/over.html" class="page">over</a></li>
@@ -144,51 +144,44 @@ crossorigin="anonymous">
 </ul>
 </div>
 <div class="col-12 col-md-9 col-xl-8 py-md-3" id="content">
-<h1><a href="#ndrop" name="ndrop" class="anchor"><span class="anchor-link"></span></a>ndrop</h1>
+<h1><a href="#derivative" name="derivative" class="anchor"><span class="anchor-link"></span></a>derivative</h1>
 <h2><a href="#signature" name="signature" class="anchor"><span class="anchor-link"></span></a>Signature</h2>
-<p><code>aN ... a0 N -- aN</code></p>
+<pre><code>TimeSeriesExpr -- TimeSeriesExpr
+</code></pre>
 <h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
-<p>Remove the top N items from the stack. See also: <a href="drop.html">drop</a> and <a href="clear.html">clear</a>.</p>
-<p>Since 1.5.0</p>
+<p>Computes the amount of change per step of the input time series. The most common use-case is to convert a monotonically increasing input time series into a time series showing the rate of change over time.</p>
+<p>See also <a href="integral.html">:integral</a>.</p>
 <h2><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h2>
-<table>
-  <thead>
-    <tr>
-      <th><strong>Before</strong> </th>
-      <th><strong>After</strong> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2 </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>c </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>b </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>a </td>
-      <td>a </td>
-    </tr>
-  </tbody>
-</table>
+      <table>
+        <thead>
+          <tr>
+            <th>Before</th><th>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><pre class="prettyprint prettyprinted"><code>minuteOfHour<span class="pun">,</span><span class="kwd"><a href="../asl-reference/time.html">:time</a></span></code></pre>
+</td><td><pre class="prettyprint prettyprinted"><code>minuteOfHour<span class="pun">,</span><span class="kwd"><a href="../asl-reference/time.html">:time</a></span><span class="pun">,</span>
+<span class="kwd"><a href="../asl-reference/derivative.html">:derivative</a></span></code></pre>
+</td>
+          </tr><tr>
+            <td><image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACvCAYAAAC1krYSAAALL0lEQVR42u3dS3LbOBRGYa8ui+jMs4OeZZiBl9Cpyp4y0LRHWUBmGatbqqJLlvUASADEBT5W3WJsmRJ4cv3rCHz45c+fP0ellFLt6gUEpZQSvEopJXiVUkoJXqWUEryhdvrl5Xi9vPz977nOy/fvx7XLr1+/mm4XZbwl+G5hhO94/VuzHwTvHsFrKb7gi2+kRfAyXkbGeBkv4x0reJeGZQx1TQxffBmv4H3XuB/+zXiLbVeSL+Oty5fxCt4mwXttCYyh7rwjvvgyXsH7oVEZb9ntSvNlvHX5Ml7Bu2/wWooZGb74Ml7B+xa8tw5GMN5y29Xgy3jr8mW8grf56WSMoa6N4Ysv4xW8b+94l+tT456//v8d+NbjKevD4dB0u97G+9c/P88cT+vSfJfCtw7faP1box8WvoKX8YY3MXzxjcZX8O4RvOZ4V2+XFAzmeLvka45X8DLeoLbAyPAdga/gZbxhjOzZLz7j7Zvv7MZ7yVfwMt4wppAcDBZ8O+creBlv90aW+gvPePvmO6vx3uIreBlvCGMo+XMWfPfmK3gZb9dGlnM7QsbbN98ZjfceX8HLeIewMXzxjcRX8DLeLo1sucJnVTAw3i75zmS8z/gKXsYb3sTwxTcaX8HLeLs1stXNzni75Dub8Qre3m6SczxaP1jfu0lLynb44RuBr+BlvN0Z2eUvOOMdh+8sxpvCV/Ca4+1qXmzLX7PFF98ofAUv4+3GyC4blvGOx3d0483hK3gZb1fGsOf2+OLbio/gZbxdGNn1RzTGOx7fkY03l6/gZbxD2Bi++EbiK3gZ765Gdu+ABOMdj++IxruWr+BlvOFNDF98o/EVvIx3dyMrNV7G2zffUY13zbaCl/HuaguMDN8Z+QpexrubkT1qWsY7Ht/RjHcLX8HrXg3N18u17KV54ItvFL6Cl/E2N7KUj2eMdzy+oxhvCb6C1xzvLnNjkZ4XX3xLcxC8jLepkaUekGC84/EdwXhL8RW8jHcIG8MX30h8BS/jbWJkubckZLzj8Y1svKX5Cl7GG97E8MU32r4LXsbbzMhqj3d24+2db3TjLTlewct4m9gCI8MX34mC9xSC118vlbp9zs8z3o+vu6ZpGe94fKMabw2+QwfvdWDeCuHc0Ga8fdoYvvjWYltjv4cN3iUkuwzeiYx3+TPXjBffaP27lu3Uxtt18E5mDSO+Fr7YMt4HgdkieC/ngZd6e5e9WJ//I09fL3X1eMr69+tr0+3WjvfLp2/n/f3x+Wuz8W7le7aUxv8vM/GN1r9n4620n8MG73Ux3nFNDF98o+3rVGc1mONtM0d2eUCi5XhnmeONyjda/9bsB6eTPQnWKqeTsQVGhu/UfF1A4cq1Ksawx3hnMt6IfKP1L+N15VoYU2h5Xim++EblK3gZbzFjuNWwjBffqP3LeBlvGFuYce4TX3wZL+PdxRjuNS3jxTdq/zJexhvCGIwBX3wZL+NtYAzPDkgwXnyj9i/jZbxMYVIjw3fMfRK8lYJ3ece7XL9dDbPcF+Dq8ZT14XBout2j8Z72Z7mDUw/j3cp3KXyP+rdyPwhexjuMAeGLb5T9EbzmeFfPkaU0rjlefKP2rzlextudKfRwXim++EblK3gZb7Yx5DQs48U3av8yXsbbnS2Ys8MXX8bLeBsZQ27TMl58o/Yv42W8rGciIzO28fdB8DLeJGNYe0CC8eIbtX8ZL+NlCoMbGb5zjV3wMt6ny/IXbXsfb1TjnYVvtP5lvIyXLQxsZPjON27By3iTjCHCeCMb7wx8o/Uv4x3tJjnHY4j1chORKOPGF98ofAUv4x3GcKIZr36Ytx8Erzneu2ONNqeHL75R+Apexvv8l4zh4Dth/zJexstuBjQyfOcdq+BlvDc/ojFefGfvX8bLeJnCIGPH1xgFL+O9aQsfFsaL74T9y3gZL1sYYPz44it4GW964zJefCfsX8bLeJvYAiPDNyLfXv9GneBlvE+3e9i0jBffjvv3aeAyXvdq6O2a8eVa9tO6p3GNci8BfNvwjcZT8E5uvEkfzxgvvhP2L+M1xzvlvOgI+4IvvoKX8a474MN48Z2wfxkv42ULAfcHX3wFL+P9YArJjct48Z2wfxkv42UKgfYLX3wZL+O9aQxZC+PFd8L+ZbyMt6gtMDJ88WW8VYLvsu49lvtcIxjvqqZlvPhO2L+Mt0AQX66vv/9su9Sf79l4I17PHsnI8MXXHG/vwbuDMSyXrK5aGC++E/Yv4y0Quox3XBPDF1/G21HwPgvOUsF7Pad8Dt7lXfZifW6e09dLXT2esv79+pq93el1f3z+uur19hjvlv3cMt6zpazYDt8x+3dtP6Ts57DBeyskZzXeGWwMX3wZbwdnNZQI0uhzvJcHJLbMV5njxXfG/jXHu/F0sut53nunh937XvHTyZjCEPuLL76M15VrDxuXkdUxXnzH7V/G68q1Vb8kjAxffBmv4G1oDNdNy8jq2Ri+Y/Yv42W82aYwm43hiy/jFby7GcO9hmVkZV4T33n6l/Ey3i7n4WY1MnzxZbyM98PHNEZWx3Dwnat/GS/jZQsd7D+++DLezoN3ece7XL9dgbNcB371eMr6cDjcfN7T3Zsur/BJ2S55XXi8tbbbyncpfI/690E/lOAreAcw3tlNDF98Ga/gbT7Hm9K45iDXvya+c/avOV7Gu+qABCPDF1/GK3grGENq0zKyejaG75j9y3gZ711TYGP44st4BW8j481tWEaW95r46l/Gy3ibzLcxMnzxZbyM98476ZqPaIwsz8bw1b+Ml/GyhYZc8MWX8TLed8tyhU/Ld+9ZjGxhi+9R/zJexssW2rDBtj4fjAVvWONt/e49k/G23s8ZjTcKX8Y72k1yjvk33Vg+oi2Nu/Z5Rl6X4ItjXb76101yQhnvsm1Lw5nJyC5DBd+j/mW85nhdQVV3/hBffM3xMt6HDc94yxvZVhvDd8z+ZbyMlyJUNjILvoyX8b77iMZ46xjZNV/GW5cv4xW8IYyXKdQ1K3zxZbyM96Yt7Gk4IxvZLb6Mty5fxit4uzdetlDXyPDFl/Ey3uTGZbzljKyl4eDLeAVvx8brLx/UNTJ88WW8jDe7uRnvNiN7xJfx1uXLeAVvl/dqcC173XsJ4IuvezUw3lUf5RjveiOrZWP4jtm/jHeSOV7zYnXnIPHF1xwv4111QILx5htZKl/GW5cv4xW8XRkvU6hrZPjiy3gF77t34NxTbxhvnpHl8GW8dfkyXsHbjfGyhbpGhi++jFfw3jSGXg1nFCPrwXDwZbxTB+8pFJeq8fOpxusKn7pGhi++jLej0H309dafzzHetQ3LeNOMbA1fxluXL+MVvLsGL1Ooa2T44st4Be+Hxv3y6VsIw4lqZGv5Mt66fBmv4C0avJfzwEvda1y2UNfI8MWX8U5qvKf6+fPn3To9z6PHeyvjNV7jLV+Ct0Lw5jxvhNPjjNd4jTfQPkc6neze93JPJ9O4xmu8xit4NYLxGq/xCl7Ba7zGa7zGK3iVUkrwKqWUErxKKSV4+z1L4vqCihLP08t4H/1sq/Hmvlak8e7N99YFQT3zzR1vS76Ct/F5wbl3M7v1denziEuN997z9jpefLdfmdk73y2vU2u8grez4H32H9xbMKT+4rUa79YLX3ofb0/Bm/K9noI39XuCd+DgzfmY1kPwbr1Pccsgi8Q3d7x78819jd6Ddy++gnfnS5B9VKtrkL3z3fo6e/VDTohFGi/jFbyCV/AKXsEreAWv4BW8Dl4K3gFOJ0s9ANDL6WQpDR9pvPiuG2/OwcBI43U6mVJKKcGrlFKCVymllOBVSinBq5RSSvAqpdRe9R8FEUcaIKjswgAAAABJRU5ErkJggg==" alt="/api/v1/graph?q=minuteOfHour,:time" width="350" height="175"/></td><td><image src="data:image/png;base64,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" alt="/api/v1/graph?q=minuteOfHour,:time,:derivative" width="350" height="175"/></td>
+          </tr>
+        </tbody>
+      </table>
+    
 
 <div class="nav-next">
-<p><strong>Next:</strong> <a href="../asl-reference/nip.html">nip</a></p>
+<p><strong>Next:</strong> <a href="../asl-reference/des.html">des</a></p>
 </div>
 </div>
 <div class="d-none d-xl-block col-xl-2" id="nav-right">
 <ul>
-  <li><a href="../asl-reference/ndrop.html#ndrop" class="header">ndrop</a>
+  <li><a href="../asl-reference/derivative.html#derivative" class="header">derivative</a>
   <ul>
-    <li><a href="../asl-reference/ndrop.html#signature" class="header">Signature</a></li>
-    <li><a href="../asl-reference/ndrop.html#summary" class="header">Summary</a></li>
-    <li><a href="../asl-reference/ndrop.html#example" class="header">Example</a></li>
+    <li><a href="../asl-reference/derivative.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/derivative.html#summary" class="header">Summary</a></li>
+    <li><a href="../asl-reference/derivative.html#example" class="header">Example</a></li>
   </ul></li>
 </ul>
 </div>
