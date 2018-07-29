@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+crossorigin="anonymous">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
+integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+crossorigin="anonymous">
+<link rel="stylesheet" href="../css/page.css">
+
+<title>Atlas</title>
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-dark" id="nav-top">
+<a class="navbar-brand" href="../index.html">
+<img src="../images/atlas_logo_small.png" width="40px" height="40px"/>
+</a>
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+<a class="nav-link" href="../index.html">
+<span style="font-size: 1.8em;">Atlas</span>
+</a>
+</li>
+</ul>
+
+<button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#search-modal">
+<span class="fa fa-search"></span>
+</button>
+</header>
+
+<div id="search-modal" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<form style="min-width: 100%">
+<input class="form-control form-control-sm" id="search" type="text" autocomplete="off">
+</form>
+</div>
+<div class="modal-body">
+<div id="search-results"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-fluid">
+<div class="row flex-xl-nowrap justify-content-md-center">
+<div class="d-none d-lg-block col-lg-2 col-xl-2" id="nav-left">
+<select class="supergroup" name="Language"><option class="group" value="group-java">Java</option><option class="group" value="group-python">Python</option></select>
+<ul>
+  <li><a href="../overview.html" class="page">Overview</a></li>
+  <li><a href="../getting-started.html" class="page">Getting Started</a></li>
+  <li><a href="../concepts.html" class="page">Concepts</a></li>
+  <li><a href="../presentations.html" class="page">Presentations</a></li>
+  <li><a href="../asl/index.html" class="page">Stack Language</a>
+  <ul>
+    <li><a href="../asl/alerting.html" class="page">Alerting Expressions</a></li>
+    <li><a href="../asl/alerting-philosophy.html" class="page">Alerting Philosophy</a></li>
+    <li><a href="../asl/des.html" class="page">Double Exponential Smoothing</a></li>
+  </ul></li>
+  <li><a href="../asl-reference/index.html" class="page">Stack Language Reference</a>
+  <ul>
+    <li><a href="../asl-reference/2over.html" class="page">2over</a></li>
+    <li><a href="../asl-reference/-rot.html" class="page">-rot</a></li>
+    <li><a href="../asl-reference/and.html" class="page">and</a></li>
+    <li><a href="../asl-reference/call.html" class="page">call</a></li>
+    <li><a href="../asl-reference/clear.html" class="page">clear</a></li>
+    <li><a href="../asl-reference/cq.html" class="page">cq</a></li>
+    <li><a href="../asl-reference/derivative.html" class="page">derivative</a></li>
+    <li><a href="../asl-reference/des.html" class="page">des</a></li>
+    <li><a href="../asl-reference/des-epic-signal.html" class="page">des-epic-signal</a></li>
+    <li><a href="../asl-reference/des-epic-viz.html" class="page">des-epic-viz</a></li>
+    <li><a href="../asl-reference/des-fast.html" class="page">des-fast</a></li>
+    <li><a href="../asl-reference/des-slow.html" class="page">des-slow</a></li>
+    <li><a href="../asl-reference/des-slower.html" class="page">des-slower</a></li>
+    <li><a href="../asl-reference/dist-avg.html" class="page">dist-avg</a></li>
+    <li><a href="../asl-reference/drop.html" class="page">drop</a></li>
+    <li><a href="../asl-reference/dup.html" class="page">dup</a></li>
+    <li><a href="../asl-reference/each.html" class="page">each</a></li>
+    <li><a href="../asl-reference/eq.html" class="page">eq</a></li>
+    <li><a href="../asl-reference/fcall.html" class="page">fcall</a></li>
+    <li><a href="../asl-reference/format.html" class="page">format</a></li>
+    <li><a href="../asl-reference/freeze.html" class="page">freeze</a></li>
+    <li><a href="../asl-reference/get.html" class="page">get</a></li>
+    <li><a href="../asl-reference/integral.html" class="page">integral</a></li>
+    <li><a href="../asl-reference/list.html" class="page">list</a></li>
+    <li><a href="../asl-reference/map.html" class="page">map</a></li>
+    <li><a href="../asl-reference/ndrop.html" class="page">ndrop</a></li>
+    <li><a href="../asl-reference/nip.html" class="page">nip</a></li>
+    <li><a href="../asl-reference/nlist.html" class="page">nlist</a></li>
+    <li><a href="../asl-reference/over.html" class="page">over</a></li>
+    <li><a href="../asl-reference/per-step.html" class="page">per-step</a></li>
+    <li><a href="../asl-reference/pick.html" class="page">pick</a></li>
+    <li><a href="../asl-reference/random.html" class="page">random</a></li>
+    <li><a href="../asl-reference/roll.html" class="page">roll</a></li>
+    <li><a href="../asl-reference/rolling-count.html" class="active page">rolling-count</a></li>
+    <li><a href="../asl-reference/rot.html" class="page">rot</a></li>
+    <li><a href="../asl-reference/sdes.html" class="page">sdes</a></li>
+    <li><a href="../asl-reference/sdes-fast.html" class="page">sdes-fast</a></li>
+    <li><a href="../asl-reference/sdes-slow.html" class="page">sdes-slow</a></li>
+    <li><a href="../asl-reference/sdes-slower.html" class="page">sdes-slower</a></li>
+    <li><a href="../asl-reference/set.html" class="page">set</a></li>
+    <li><a href="../asl-reference/srandom.html" class="page">srandom</a></li>
+    <li><a href="../asl-reference/sset.html" class="page">sset</a></li>
+    <li><a href="../asl-reference/swap.html" class="page">swap</a></li>
+    <li><a href="../asl-reference/trend.html" class="page">trend</a></li>
+    <li><a href="../asl-reference/tuck.html" class="page">tuck</a></li>
+  </ul></li>
+  <li><a href="../spectator/index.html" class="page">Spectator</a>
+  <ul>
+    <li><a href="../spectator/registry.html" class="page">Registry</a></li>
+    <li><a href="../spectator/counters.html" class="page">Counters</a></li>
+    <li><a href="../spectator/timers.html" class="page">Timers</a></li>
+    <li><a href="../spectator/dist-summaries.html" class="page">Distribution Summaries</a></li>
+    <li><a href="../spectator/gauges.html" class="page">Gauges</a></li>
+    <li><a href="../spectator/clock.html" class="page">Clock</a></li>
+    <li><a href="../spectator/testing.html" class="page">Testing</a></li>
+    <li><a href="../spectator/netflix.html" class="page">Netflix Integration</a></li>
+    <li><a href="../spectator/conventions.html" class="page">Names</a></li>
+    <li><a href="../spectator/servo.html" class="page">Servo Comparison</a></li>
+  </ul></li>
+  <li><a href="../spectator-ext/index.html" class="page">Spectator Extensions</a>
+  <ul>
+    <li><a href="../spectator-ext/jvm-buffer-pools.html" class="page">Buffer Pools</a></li>
+    <li><a href="../spectator-ext/jvm-gc.html" class="page">Garbage Collection</a></li>
+    <li><a href="../spectator-ext/jvm-gc-causes.html" class="page">GC Causes</a></li>
+    <li><a href="../spectator-ext/jvm-memory-pools.html" class="page">Memory Pools</a></li>
+    <li><a href="../spectator-ext/thread-pools.html" class="page">Thread Pools</a></li>
+    <li><a href="../spectator-ext/log4j1.html" class="page">Log4j1 Appender</a></li>
+    <li><a href="../spectator-ext/log4j2.html" class="page">Log4j2 Appender</a></li>
+    <li><a href="../spectator-ext/placeholders.html" class="page">Placeholders</a></li>
+  </ul></li>
+  <li><a href="../spectator-reg/index.html" class="page">Spectator Registries</a>
+  <ul>
+    <li><a href="../spectator-reg/metrics3.html" class="page">Metrics3 Registry</a></li>
+    <li><a href="../spectator-reg/servo.html" class="page">Servo Registry</a></li>
+  </ul></li>
+</ul>
+</div>
+<div class="col-12 col-md-9 col-xl-8 py-md-3" id="content">
+<h1><a href="#rolling-count" name="rolling-count" class="anchor"><span class="anchor-link"></span></a>rolling-count</h1>
+<h2><a href="#signature" name="signature" class="anchor"><span class="anchor-link"></span></a>Signature</h2>
+<pre><code>TimeSeriesExpr n:Int -- TimeSeriesExpr
+</code></pre>
+<h2><a href="#summary" name="summary" class="anchor"><span class="anchor-link"></span></a>Summary</h2>
+<p>Number of occurrences within a specified window. This operation is frequently used in alerting expressions to reduce noise. For example:</p><pre class="prettyprint prettyprinted"><code><span class="com">-- Check to see if average cpu usage is > 80%</span>
+name<span class="pun">,</span>cpuUser<span class="pun">,</span><span class="kwd"><a href="../asl-reference/eq.html">:eq</a></span><span class="pun">,</span><span class="kwd"><a href="../asl-reference/avg.html">:avg</a></span><span class="pun">,</span>80<span class="pun">,</span><span class="kwd"><a href="../asl-reference/gt.html">:gt</a></span><span class="pun">,</span>
+
+<span class="com">-- Only alert if that is true for more than 3 of the last 5</span>
+<span class="com">-- datapoints</span>
+5<span class="pun">,</span><span class="kwd"><a href="../asl-reference/rolling-count.html">:rolling-count</a></span><span class="pun">,</span>3<span class="pun">,</span><span class="kwd"><a href="../asl-reference/gt.html">:gt</a></span></code></pre>
+
+<p>A value is counted if it is non-zero. Missing values, <code>NaN</code>, will be treated as zeroes. For example:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Input </th>
+      <th>3,:rolling-count </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 </td>
+      <td>0 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>1 </td>
+    </tr>
+    <tr>
+      <td>-1 </td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td>NaN </td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td>0 </td>
+      <td>1 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>1 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>3 </td>
+    </tr>
+    <tr>
+      <td>1 </td>
+      <td>3 </td>
+    </tr>
+    <tr>
+      <td>0 </td>
+      <td>2 </td>
+    </tr>
+  </tbody>
+</table>
+<p>The window size, <code>n</code>, is the number of datapoints to consider including the current value. Note that it is based on datapoints not a specific amount of time. As a result the number of occurrences will be reduced when transitioning to a larger time frame that causes consolidation.</p>
+<p>For more information see the <a href="../asl/alerting.html">Alerting Expressions</a> page.</p>
+<h2><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Before</th><th>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><pre class="prettyprint prettyprinted"><code><span class="kwd"><a href="../asl-reference/random.html">:random</a></span><span class="pun">,</span>
+0.4<span class="pun">,</span><span class="kwd"><a href="../asl-reference/gt.html">:gt</a></span></code></pre>
+</td><td><pre class="prettyprint prettyprinted"><code><span class="kwd"><a href="../asl-reference/random.html">:random</a></span><span class="pun">,</span>
+0.4<span class="pun">,</span><span class="kwd"><a href="../asl-reference/gt.html">:gt</a></span><span class="pun">,</span>
+5<span class="pun">,</span><span class="kwd"><a href="../asl-reference/rolling-count.html">:rolling-count</a></span></code></pre>
+</td>
+          </tr><tr>
+            <td><image src="data:image/png;base64,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" alt="/api/v1/graph?q=:random,0.4,:gt" width="350" height="175"/></td><td><image src="data:image/png;base64,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" alt="/api/v1/graph?q=:random,0.4,:gt,5,:rolling-count" width="350" height="175"/></td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="../asl-reference/rot.html">rot</a></p>
+</div>
+</div>
+<div class="d-none d-xl-block col-xl-2" id="nav-right">
+<ul>
+  <li><a href="../asl-reference/rolling-count.html#rolling-count" class="header">rolling-count</a>
+  <ul>
+    <li><a href="../asl-reference/rolling-count.html#signature" class="header">Signature</a></li>
+    <li><a href="../asl-reference/rolling-count.html#summary" class="header">Summary</a></li>
+    <li><a href="../asl-reference/rolling-count.html#example" class="header">Example</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.1.6/lunr.js"
+integrity="sha256-U3smMZ6uKxtHEAX38FWHzhjlVgfcm5Xvs0Gp8t3unQk="
+crossorigin="anonymous"></script>
+<script src="../js/page.js"></script>
+<script>initialize("../")</script>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=scala"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+</body>
+</html>
