@@ -166,7 +166,7 @@ crossorigin="anonymous">
 <dl>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-java">public class TimerExample {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/java/examples/TimerExample.java#L11-L20" target="_blank" title="Go to snippet source"></a><code class="language-java">public class TimerExample {
 
   private final Registry registry;
   private final Timer requestLatency;
@@ -178,7 +178,7 @@ crossorigin="anonymous">
   }</code></pre></dd>
   <dt>Python</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-py">class TimerExample:
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/python/timer-example.py#L5-L9" target="_blank" title="Go to snippet source"></a><code class="language-py">class TimerExample:
 
     def __init__(self, registry=GlobalRegistry):
         self._registry = registry
@@ -188,12 +188,12 @@ crossorigin="anonymous">
 <dl>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-java">public Response handleUsingLambda(Request request) throws Exception {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/java/examples/TimerExample.java#L24-L26" target="_blank" title="Go to snippet source"></a><code class="language-java">public Response handleUsingLambda(Request request) throws Exception {
   return requestLatency.record(() -&gt; handleImpl(request));
 }</code></pre></dd>
   <dt>Python</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-py">def handle_using_with(self, request):
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/python/timer-example.py#L13-L15" target="_blank" title="Go to snippet source"></a><code class="language-py">def handle_using_with(self, request):
     with self._requestLatency.stopwatch():
         return self._handle_impl(request)</code></pre></dd>
 </dl>
@@ -201,7 +201,7 @@ crossorigin="anonymous">
 <dl>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-java">public Response handleExplicitly(Request request) {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/java/examples/TimerExample.java#L30-L38" target="_blank" title="Go to snippet source"></a><code class="language-java">public Response handleExplicitly(Request request) {
   final long start = registry.clock().monotonicTime();
   try {
     return handleImpl(request);
@@ -212,7 +212,7 @@ crossorigin="anonymous">
 }</code></pre></dd>
   <dt>Python</dt>
   <dd>
-  <pre class="prettyprint"><code class="language-py">def handle_explicitly(self, request):
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/Netflix/atlas-docs/tree/master/src/main/python/timer-example.py#L19-L25" target="_blank" title="Go to snippet source"></a><code class="language-py">def handle_explicitly(self, request):
     start = self._registry.clock().monotonic_time()
     try:
         return self._handle_impl(request)
