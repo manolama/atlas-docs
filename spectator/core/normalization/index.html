@@ -1,0 +1,2295 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://netflix.github.io/atlas-docs/spectator/core/normalization/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Normalization - Atlas Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-82153845-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#normalization" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/atlas_logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Atlas Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Normalization
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." title="Home" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../api/fetch/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../asl/tutorial/" title="Stack Language" class="md-tabs__link">
+          Stack Language
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" title="Spectator" class="md-tabs__link md-tabs__link--active">
+          Spectator
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-nav__button md-logo">
+      
+        <img src="../../../images/atlas_logo.svg" width="48" height="48">
+      
+    </a>
+    Atlas Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/fetch/" title="Fetch" class="md-nav__link">
+      Fetch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/graph/" title="Graph" class="md-nav__link">
+      Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/tags/" title="Tags" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Stack Language
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Stack Language
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../asl/tutorial/" title="Tutorial" class="md-nav__link">
+      Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../asl/alerting-expressions/" title="Alerting Expressions" class="md-nav__link">
+      Alerting Expressions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Choosing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Choosing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../asl/ref/and/" title="and" class="md-nav__link">
+      and
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../asl/ref/eq/" title="eq" class="md-nav__link">
+      eq
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      Math
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        Math
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../asl/ref/and/" title="and" class="md-nav__link">
+      and
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Spectator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Spectator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Core Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Core Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../time-series/" title="Time Series" class="md-nav__link">
+      Time Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Normalization
+      </label>
+    
+    <a href="./" title="Normalization" class="md-nav__link md-nav__link--active">
+      Normalization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gauge" title="Gauge" class="md-nav__link">
+    Gauge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate" title="Rate" class="md-nav__link">
+    Rate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counter" title="Counter" class="md-nav__link">
+    Counter
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../naming/" title="Naming" class="md-nav__link">
+      Naming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../clock/" title="Clock" class="md-nav__link">
+      Clock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-5" type="checkbox" id="nav-4-2-5">
+    
+    <label class="md-nav__link" for="nav-4-2-5">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-2-5">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Languages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2" type="checkbox" id="nav-4-3-2">
+    
+    <label class="md-nav__link" for="nav-4-3-2">
+      C++
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-2">
+        C++
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2-2" type="checkbox" id="nav-4-3-2-2">
+    
+    <label class="md-nav__link" for="nav-4-3-2-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-2-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/cpp/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-3" type="checkbox" id="nav-4-3-3">
+    
+    <label class="md-nav__link" for="nav-4-3-3">
+      Go
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-3">
+        Go
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-3-2" type="checkbox" id="nav-4-3-3-2">
+    
+    <label class="md-nav__link" for="nav-4-3-3-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-3-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/go/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4" type="checkbox" id="nav-4-3-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-4">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-2" type="checkbox" id="nav-4-3-4-2">
+    
+    <label class="md-nav__link" for="nav-4-3-4-2">
+      Registry
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-2">
+        Registry
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/registry/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/registry/metrics3/" title="Metrics3" class="md-nav__link">
+      Metrics3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-3" type="checkbox" id="nav-4-3-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3-4-3">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-3">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-4" type="checkbox" id="nav-4-3-4-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4-4">
+      Extensions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-4">
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-4-1" type="checkbox" id="nav-4-3-4-4-1">
+    
+    <label class="md-nav__link" for="nav-4-3-4-4-1">
+      JVM Stats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-4-3-4-4-1">
+        JVM Stats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/jvm-buffer-pools/" title="Buffer Pools" class="md-nav__link">
+      Buffer Pools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/jvm-gc/" title="Garbage Collection" class="md-nav__link">
+      Garbage Collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/jvm-gc-causes/" title="GC Causes" class="md-nav__link">
+      GC Causes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/jvm-memory-pools/" title="Memory Pools" class="md-nav__link">
+      Memory Pools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/thread-pools/" title="Thread Pools" class="md-nav__link">
+      Thread Pools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/log4j2/" title="Log4j2 Appender" class="md-nav__link">
+      Log4j2 Appender
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/log4j1/" title="Log4j1 Appender" class="md-nav__link">
+      Log4j1 Appender
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/ext/placeholders/" title="Placeholders" class="md-nav__link">
+      Placeholders
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/testing/" title="Testing" class="md-nav__link">
+      Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/java/servo-migration/" title="Servo Migration" class="md-nav__link">
+      Servo Migration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5" type="checkbox" id="nav-4-3-5">
+    
+    <label class="md-nav__link" for="nav-4-3-5">
+      Node.js
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-5">
+        Node.js
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-2" type="checkbox" id="nav-4-3-5-2">
+    
+    <label class="md-nav__link" for="nav-4-3-5-2">
+      Extensions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-5-2">
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-2-1" type="checkbox" id="nav-4-3-5-2-1">
+    
+    <label class="md-nav__link" for="nav-4-3-5-2-1">
+      Node.js Stats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-4-3-5-2-1">
+        Node.js Stats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-cpu/" title="CPU" class="md-nav__link">
+      CPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-eventloop/" title="Event Loop" class="md-nav__link">
+      Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-filedescriptor/" title="File Descriptor" class="md-nav__link">
+      File Descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-gc/" title="Garbarge Collection" class="md-nav__link">
+      Garbarge Collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-heap/" title="Heap" class="md-nav__link">
+      Heap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-heapspace/" title="Heap Space" class="md-nav__link">
+      Heap Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/ext/nodejs-memory/" title="Memory" class="md-nav__link">
+      Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-3" type="checkbox" id="nav-4-3-5-3">
+    
+    <label class="md-nav__link" for="nav-4-3-5-3">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-5-3">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/nodejs/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-6" type="checkbox" id="nav-4-3-6">
+    
+    <label class="md-nav__link" for="nav-4-3-6">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-6">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-6-2" type="checkbox" id="nav-4-3-6-2">
+    
+    <label class="md-nav__link" for="nav-4-3-6-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-6-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/py/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-7" type="checkbox" id="nav-4-3-7">
+    
+    <label class="md-nav__link" for="nav-4-3-7">
+      Ruby
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-7">
+        Ruby
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-7-2" type="checkbox" id="nav-4-3-7-2">
+    
+    <label class="md-nav__link" for="nav-4-3-7-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-7-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lang/rb/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/cardinality-limiter/" title="Cardinality Limiter" class="md-nav__link">
+      Cardinality Limiter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/gauge-poller/" title="Gauge Poller" class="md-nav__link">
+      Gauge Poller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/interval-counter/" title="Interval Counter" class="md-nav__link">
+      Interval Counter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/long-task-timer/" title="Long Task Timer" class="md-nav__link">
+      Long Task Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/percentile-timer/" title="Percentile Timer" class="md-nav__link">
+      Percentile Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../patterns/polled-meter/" title="Polled Meter" class="md-nav__link">
+      Polled Meter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Specifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Specifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../specs/ipc/" title="IPC" class="md-nav__link">
+      IPC
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gauge" title="Gauge" class="md-nav__link">
+    Gauge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate" title="Rate" class="md-nav__link">
+    Rate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counter" title="Counter" class="md-nav__link">
+    Counter
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Netflix/atlas-docs/edit/master/docs/spectator/core/normalization.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="normalization">Normalization<a class="headerlink" href="#normalization" title="Permanent link">&para;</a></h1>
+<p>In Atlas, this usually refers to normalizing <a href="../time-series/#data-point">data points</a> to step
+boundaries. Suppose that values are actually getting reported at 30 seconds after the minute,
+instead of exactly on the minute. The values will get normalized to the minute boundary, so
+that all time series in the system are consistent.</p>
+<p>How a normalized value is computed depends on the data source type. Atlas supports three types
+indicated by the value of the <code>atlas.dstype</code> tag. In general, you should not need to worry about
+that, client libraries like <a href="../../">Spectator</a> will automatically handle tagging based on
+the data source type.</p>
+<p>It is recommended to at least skim through the normalization for <a href="#gauge">gauges</a> and
+<a href="#rates">rates</a> to better understand how the values you see actually relate to measured
+data.</p>
+<h2 id="gauge">Gauge<a class="headerlink" href="#gauge" title="Permanent link">&para;</a></h2>
+<p>A value that is sampled from some source and the value is used as is. The last value received will
+be the value used for the interval. For example:</p>
+<div class="codehilite"><pre><span></span>                <span class="err">┌─────────┐</span>                                    <span class="err">┌─────────┐</span>
+                <span class="err">│</span>    <span class="mi">8</span>    <span class="err">│</span>                                    <span class="err">│</span>    <span class="mi">8</span>    <span class="err">│</span>
+                <span class="err">│</span>         <span class="err">├───────</span>                             <span class="err">│</span>         <span class="err">│</span>
+                <span class="err">│</span>         <span class="err">│</span>    <span class="mi">6</span>                               <span class="err">│</span>         <span class="err">│</span>
+<span class="err">──────┐</span>         <span class="err">│</span>         <span class="err">│</span>                <span class="err">┌─────────┐</span>         <span class="err">│</span>         <span class="err">│</span>
+ <span class="mi">4</span>    <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>                <span class="err">│</span>    <span class="mi">4</span>    <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>
+      <span class="err">├─────────┤</span>         <span class="err">│</span>           <span class="k">to</span>   <span class="err">│</span>         <span class="err">├─────────┤</span>         <span class="err">│</span>
+      <span class="err">│</span>    <span class="mi">2</span>    <span class="err">│</span>         <span class="err">│</span>                <span class="err">│</span>         <span class="err">│</span>    <span class="mi">2</span>    <span class="err">│</span>         <span class="err">│</span>
+ <span class="err">├─────────┼─────────┼─────────┤</span>           <span class="err">├─────────┼─────────┼─────────┤</span>
+<span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>        <span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>
+</pre></div>
+
+<h2 id="rate">Rate<a class="headerlink" href="#rate" title="Permanent link">&para;</a></h2>
+<p>A rate is a value representing the rate per second since the last reported value. Rate values
+are normalized using a weighted average. For example:</p>
+<div class="codehilite"><pre><span></span>                <span class="err">┌─────────┐</span>
+                <span class="err">│</span>    <span class="mi">8</span>    <span class="err">│</span>                                    <span class="err">┌─────────┐</span>
+                <span class="err">│</span>         <span class="err">├───────</span>                             <span class="err">│</span>    <span class="mi">7</span>    <span class="err">│</span>
+                <span class="err">│</span>         <span class="err">│</span>    <span class="mi">6</span>                     <span class="err">┌─────────┤</span>         <span class="err">│</span>
+<span class="err">──────┐</span>         <span class="err">│</span>         <span class="err">│</span>                          <span class="err">│</span>    <span class="mi">5</span>    <span class="err">│</span>         <span class="err">│</span>
+ <span class="mi">4</span>    <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>                <span class="err">┌─────────┤</span>         <span class="err">│</span>         <span class="err">│</span>
+      <span class="err">├─────────┤</span>         <span class="err">│</span>           <span class="k">to</span>   <span class="err">│</span>    <span class="mi">3</span>    <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>
+      <span class="err">│</span>    <span class="mi">2</span>    <span class="err">│</span>         <span class="err">│</span>                <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>
+ <span class="err">├─────────┼─────────┼─────────┤</span>           <span class="err">├─────────┼─────────┼─────────┤</span>
+<span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>        <span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>
+</pre></div>
+
+<p>Here, the data is reported at exactly 30s after the minute boundary. So each value represents the
+average rate per second for 50% of the minute.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:01</td>
+<td>4 * 0.5 + 2 * 0.5 = 2 + 1 = 3</td>
+</tr>
+<tr>
+<td>1:02</td>
+<td>2 * 0.5 + 8 * 0.5 = 1 + 4 = 5</td>
+</tr>
+<tr>
+<td>1:03</td>
+<td>8 * 0.5 + 6 * 0.5 = 4 + 3 = 7</td>
+</tr>
+</tbody>
+</table>
+<p>If many samples are received for a given interval, then they will each be weighted based on the
+fraction of the interval they represent. When no previous sample exists, the value will be treated
+as the average rate per second over the previous step. This behavior is important to avoid
+under-counting the contribution from a previous interval. The example below shows what happens
+if there is no previous or next sample:</p>
+<div class="codehilite"><pre><span></span>                <span class="err">┌─────────┐</span>
+                <span class="err">│</span>    <span class="mi">8</span>    <span class="err">│</span>
+                <span class="err">│</span>         <span class="err">│</span>
+                <span class="err">│</span>         <span class="err">│</span>                          <span class="err">┌─────────┐</span>
+                <span class="err">│</span>         <span class="err">│</span>                          <span class="err">│</span>    <span class="mi">5</span>    <span class="err">├─────────┐</span>
+                <span class="err">│</span>         <span class="err">│</span>                          <span class="err">│</span>         <span class="err">│</span>    <span class="mi">4</span>    <span class="err">│</span>
+      <span class="err">┌─────────┤</span>         <span class="err">│</span>           <span class="k">to</span>        <span class="mi">1</span>    <span class="err">│</span>         <span class="err">│</span>         <span class="err">│</span>
+      <span class="err">│</span>    <span class="mi">2</span>    <span class="err">│</span>         <span class="err">│</span>                <span class="err">┌─────────┤</span>         <span class="err">│</span>         <span class="err">│</span>
+ <span class="err">├─────────┼─────────┼─────────┤</span>           <span class="err">├─────────┼─────────┼─────────┤</span>
+<span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>        <span class="mi">1</span><span class="p">:</span><span class="mi">00</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">01</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">02</span>      <span class="mi">1</span><span class="p">:</span><span class="mi">03</span>
+</pre></div>
+
+<p>Why perform weighted averaging for rates instead of the simpler last value approach used with
+gauges? Because it gives us a better summary of what we actually know from the measurements
+received. In practical terms:</p>
+<ul>
+<li><strong>Avoids dropping information if samples are more frequent than the step.</strong> Suppose we have
+  a 1 minute step, but data is actually getting reported every 10s. For this example, assume
+  we get 1, 5, 90, 5, 4, and 2. The last value normalization used with Gauges would end up
+  with a value of 2. The rate normalization will give 17.833. Each value is a rate per second,
+  so if you take the <code>(1 + 5 + 90 + 5 + 4 + 2) * 10 = 1070</code> actual events measured during the
+  interval. That is equivalent to <code>17.833 * 60</code> indicating we have an accurate average rate
+  for the step size.</li>
+<li><strong>Avoids skewing the data causing misleading spikes or drops in the aggregates.</strong> Using Atlas
+  you will typically be looking at an aggregate of time series rather than an individual time
+  series that was reported. With last value it can have the effect of skewing samples to a later
+  interval. Suppose the client is reporting once a minute at 5s after the minute. That value
+  indicates more about the previous interval than it does the current one. During traffic
+  transitions, such as moving traffic over to a new cluster or even some auto-scaling events,
+  differences in this skew can result in the appearance of a drop because there will be many
+  new time series getting reported with a delayed start. For existing time series it is still
+  skewed, but tends to be less noticeable. The weighted averaging avoids these problems for
+  the most part.</li>
+</ul>
+<h2 id="counter">Counter<a class="headerlink" href="#counter" title="Permanent link">&para;</a></h2>
+<p>Counter is similar to rate, except that the value reported is monotonically increasing and will
+be converted to a rate by the backend. The conversion is done by computing the delta between the
+current sample and the previous sample and dividing by the time between the samples. After that
+it is the same as a <a href="#rate">rate</a>.</p>
+<p>Note, that unless the input is a montonically increasing counter it is generally better to have
+the client perform rate conversion. Since, the starting value is unknown, at least two samples
+must be received before the first delta can be computed. This means that new time series relying
+on counter type will be delayed by one interval.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../time-series/" title="Time Series" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Time Series
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../naming/" title="Naming" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Naming
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
