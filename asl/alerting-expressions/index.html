@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://netflix.github.io/atlas-docs/api/graph/">
+        <link rel="canonical" href="https://netflix.github.io/atlas-docs/asl/alerting-expressions/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Graph - Atlas Docs</title>
+        <title>Alerting Expressions - Atlas Docs</title>
       
     
     
@@ -112,6 +112,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#threshold-alerts" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -134,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Graph
+                Alerting Expressions
               
             </span>
           
@@ -223,7 +227,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../fetch/" title="API" class="md-tabs__link md-tabs__link--active">
+        <a href="../../api/fetch/" title="API" class="md-tabs__link">
           API
         </a>
       
@@ -236,7 +240,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../asl/tutorial/" title="Stack Language" class="md-tabs__link">
+        <a href="../tutorial/" title="Stack Language" class="md-tabs__link md-tabs__link--active">
           Stack Language
         </a>
       
@@ -316,12 +320,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       API
@@ -339,7 +341,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../fetch/" title="Fetch" class="md-nav__link">
+    <a href="../../api/fetch/" title="Fetch" class="md-nav__link">
       Fetch
     </a>
   </li>
@@ -349,18 +351,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Graph" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../api/graph/" title="Graph" class="md-nav__link">
       Graph
     </a>
-    
   </li>
 
         
@@ -370,7 +365,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tags/" title="Tags" class="md-nav__link">
+    <a href="../../api/tags/" title="Tags" class="md-nav__link">
       Tags
     </a>
   </li>
@@ -385,10 +380,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Stack Language
@@ -406,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../asl/tutorial/" title="Tutorial" class="md-nav__link">
+    <a href="../tutorial/" title="Tutorial" class="md-nav__link">
       Tutorial
     </a>
   </li>
@@ -416,11 +413,66 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../asl/alerting-expressions/" title="Alerting Expressions" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Alerting Expressions
+      </label>
+    
+    <a href="./" title="Alerting Expressions" class="md-nav__link md-nav__link--active">
       Alerting Expressions
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#threshold-alerts" title="Threshold Alerts" class="md-nav__link">
+    Threshold Alerts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dampening" title="Dampening" class="md-nav__link">
+    Dampening
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" title="Visualization" class="md-nav__link">
+    Visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -468,7 +520,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../asl/eq/" title="eq" class="md-nav__link">
+    <a href="../eq/" title="eq" class="md-nav__link">
       eq
     </a>
   </li>
@@ -640,17 +692,138 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#threshold-alerts" title="Threshold Alerts" class="md-nav__link">
+    Threshold Alerts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dampening" title="Dampening" class="md-nav__link">
+    Dampening
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization" title="Visualization" class="md-nav__link">
+    Visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Netflix/atlas-docs/edit/master/docs/api/graph.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Netflix/atlas-docs/edit/master/docs/asl/alerting-expressions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Graph</h1>
+                  <h1>Alerting Expressions</h1>
                 
-                
+                <p>The stack language provides some basic techniques to convert an input line into a set of signals
+that can be used to trigger and visualize alert conditions. This section assumes a familiarity
+with the stack language and the <a href="Alerting-Philosophy">alerting philosophy</a></p>
+<h2 id="threshold-alerts">Threshold Alerts<a class="headerlink" href="#threshold-alerts" title="Permanent link">&para;</a></h2>
+<p>To start we need an input metric. For this example the input will be a sample metric showing
+high CPU usage for a period:</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum</p>
+<p>Lets say we want to trigger an alert when the CPU usage goes above 80%. To do that simply use the
+<a href="math-gt">:gt</a> operator and append <code>80,:gt</code> to the query:</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt</p>
+<p>The result is a <em>signal line</em> that is non-zero, typically 1, when in a triggering state and zero
+when everything is fine.</p>
+<h2 id="dampening">Dampening<a class="headerlink" href="#dampening" title="Permanent link">&para;</a></h2>
+<p>Our threshold alert above will trigger if the CPU usage is ever recorded to be above the
+threshold. Alert conditions are often combined with a check for the number of occurences. This
+is done by using the <a href="stateful-rolling-count">:rolling-count</a> operator to get a line showing
+how many times the input signal has been true withing a specified window and then applying a
+second threshold to the rolling count.</p>
+<table>
+<tr>
+<td>Input</td>
+<td>Rolling count</td>
+<td>Dampened signal</td>
+</tr>
+<tr>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt" /></td>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count" /></td>
+<td><img src="/api/v1/graph?s=e-3h&e=2012-01-01T07:00&tz=UTC&l=0&h=100&w=210&layout=image&q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:gt,5,:rolling-count,4,:gt" /></td>
+</tr>
+<tr>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>
+</pre></td>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
+<b>5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a></b>
+</pre></td>
+<td><pre>
+nf.app,alerttest,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+name,ssCpuUser,<a href="https://github.com/Netflix/atlas/wiki/query-eq">:eq</a>,
+<a href="https://github.com/Netflix/atlas/wiki/query-and">:and</a>,
+<a href="https://github.com/Netflix/atlas/wiki/data-sum">:sum</a>,
+80,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a>,
+5,<a href="https://github.com/Netflix/atlas/wiki/stateful-rolling‐count">:rolling-count</a>,
+<b>4,<a href="https://github.com/Netflix/atlas/wiki/math-gt">:gt</a></b>
+</pre></td>
+</tr>
+</table>
+
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
+<p>A signal line is useful to tell whether or not something is in a triggered state, but can
+be difficult for a person to follow. Alert expressions can be visualized by showing the
+input, threshold, and triggering state on the same graph.</p>
+<p>/api/v1/graph?s=e-3h&amp;e=2012-01-01T07:00&amp;tz=UTC&amp;l=0&amp;h=100&amp;q=nf.app,alerttest,:eq,name,ssCpuUser,:eq,:and,:sum,80,:2over,:gt,:vspan,40,:alpha,triggered,:legend,:rot,input,:legend,:rot,threshold,:legend,:rot</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>You should now know the basics of crafting an alert expression using the stack language. Other
+topics that may be of interest:</p>
+<ul>
+<li><a href="Alerting-Philosophy">Alerting Philosophy</a>: overview of best practices associated with alerts.</li>
+<li><a href="Stack-Language-Reference">Stack Language Reference</a>: comprehensive list of avialable operators.</li>
+<li><a href="DES">DES</a>: double exponential smoothing. A technique for detecting anomalies in normally clean
+  input signals where a precise threshold is unknown. For example, the requests per second hitting
+  a service.</li>
+</ul>
                 
                   
                 
@@ -671,7 +844,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../fetch/" title="Fetch" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../tutorial/" title="Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -680,19 +853,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Fetch
+                Tutorial
               </span>
             </div>
           </a>
         
         
-          <a href="../tags/" title="Tags" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../eq/" title="eq" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Tags
+                eq
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
