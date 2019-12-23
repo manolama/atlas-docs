@@ -114,7 +114,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#threshold-alerts" tabindex="1" class="md-skip">
+      <a href="#signal-line" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -477,6 +477,13 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-line" title="Signal Line" class="md-nav__link">
+    Signal Line
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#threshold-alerts" title="Threshold Alerts" class="md-nav__link">
@@ -2065,6 +2072,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#signal-line" title="Signal Line" class="md-nav__link">
+    Signal Line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#threshold-alerts" title="Threshold Alerts" class="md-nav__link">
     Threshold Alerts
   </a>
@@ -2116,6 +2130,11 @@
                 <p>The stack language provides some basic techniques to convert an input line into a set of signals
 that can be used to trigger and visualize alert conditions. This section assumes a familiarity
 with the stack language and the <a href="Alerting-Philosophy">alerting philosophy</a>.</p>
+<h2 id="signal-line">Signal Line<a class="headerlink" href="#signal-line" title="Permanent link">&para;</a></h2>
+<p>A signal line is a time series that indicates whether or not a condition is true for a particular
+interval. They are modelled by having zero indicate false and non-zero, typically 1, indicating
+true. Alerting expressions map some input time series to a set of signal lines that indicate true
+when in a triggering state.</p>
 <h2 id="threshold-alerts">Threshold Alerts<a class="headerlink" href="#threshold-alerts" title="Permanent link">&para;</a></h2>
 <p>To start we need an input metric. For this example the input will be a sample metric showing
 high CPU usage for a period:</p>
