@@ -46,6 +46,21 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/in/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/re/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/reic/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://netflix.github.io/atlas-docs/asl/ref/and/</loc>
      <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>

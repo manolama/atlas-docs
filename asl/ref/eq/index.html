@@ -531,6 +531,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../in/" title="in" class="md-nav__link">
+      in
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../re/" title="re" class="md-nav__link">
+      re
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reic/" title="reic" class="md-nav__link">
+      reic
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2015,19 +2051,70 @@
                 
                   <h1>eq</h1>
                 
-                <p>Query expression that matches time series where the value for a given key is an exact
-match for the provided value. Suppose you have three time series:</p>
-<ul>
-<li><code>name=http.requests, status=200, nf.app=server</code></li>
-<li><code>name=http.requests, status=400, nf.app=server</code></li>
-<li><code>name=sys.cpu, type=user, nf.app=server</code></li>
-</ul>
-<p>The query <code>name,http.requests,:eq</code> would be equivalent to an infix query like
-<code>name = http.requests</code> and would match:</p>
-<ul>
-<li><code>name=http.requests, status=200, nf.app=server</code></li>
-<li><code>name=http.requests, status=400, nf.app=server</code></li>
-</ul>
+                <table>
+  <tbody>
+  <tr>
+    <td>
+      <strong>Input Stack:</strong>
+      <table>
+        <tbody>
+        <tr><td>v: String</td></tr>
+        <tr><td>k: String</td></tr>
+        </tbody>
+      </table>
+    </td><td style="vertical-align: middle;">
+      &#8680;
+    </td><td>
+      <strong>Output Stack:</strong>
+      <table>
+        <tbody>
+        <tr><td>(k == v): Query</td></tr>
+        <tr><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<p>Select time series that have a specified value for a key. For example, consider the following
+query:</p>
+<pre>name,ssCpuUser,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/"><span class="atlas-hilite">:eq</span></a>
+</pre>
+<p>When matching against the sample data in the table below, the highlighted time series would be
+included in the result set:</p>
+<table>
+  <thead>
+  <th>Name</th><th>nf.app</th><th>nf.node</th>
+  </thead>
+  <tbody>
+  <tr class="atlas-hilite">
+    <td><strong>ssCpuUser</strong></td>
+    <td>alerttest</td>
+    <td>i-0123</td>
+  </tr><tr>
+    <td>ssCpuSystem</td>
+    <td>alerttest</td>
+    <td>i-0123</td>
+  </tr><tr class="atlas-hilite">
+    <td><strong>ssCpuUser</strong></td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr>
+    <td>ssCpuSystem</td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr>
+    <td>numRequests</td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr class="atlas-hilite">
+    <td><strong>ssCpuUser</strong></td>
+    <td>api</td>
+    <td>i-0456</td>
+  </tr>
+  </tbody>
+</table>
                 
                   
                 
@@ -2063,13 +2150,13 @@ match for the provided value. Suppose you have three time series:</p>
           </a>
         
         
-          <a href="../and/" title="and" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../in/" title="in" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                and
+                in
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
