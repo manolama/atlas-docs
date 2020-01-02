@@ -2166,32 +2166,11 @@
                 
                 <p>There are two variants of the <code>:and</code> operator.</p>
 <h2 id="choosing">Choosing<a class="headerlink" href="#choosing" title="Permanent link">&para;</a></h2>
-<table>
-  <tbody>
-  <tr>
-    <td>
-      <strong>Input Stack:</strong>
-      <table>
-        <tbody>
-        <tr><td>q2: Query</td></tr>
-        <tr><td>q1: Query</td></tr>
-        </tbody>
-      </table>
-    </td><td style="vertical-align: middle;">
-      &#8680;
-    </td><td>
-      <strong>Output Stack:</strong>
-      <table>
-        <tbody>
-        <tr><td>(q1 AND q2): Query</td></tr>
-        <tr><td>&nbsp;</td></tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
+<table><tbody><tr>
+<td><strong>Input Stack:</strong><table><tbody><tr><td>q2: Query</td></tr><tr><td>q1: Query</td></tr></tbody></table></td>
+<td style="vertical-align: middle;">&#8680;</td>
+<td><strong>Output Stack:</strong><table><tbody><tr><td>(q1 AND q2): Query</td></tr><tr><td>&nbsp;</td></tr></tbody></table></td>
+</tr></tbody></table>
 <p>This first variant is used for <a href="../../tutorial/#choosing">choosing</a> the set of time series to
 operate on. It is a binary operator that matches if both of the sub-queries match. For example,
 consider the following query:</p>
@@ -2235,32 +2214,11 @@ included in the result set:</p>
 </table>
 
 <h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
-<table>
-  <tbody>
-  <tr>
-    <td>
-      <strong>Input Stack:</strong>
-      <table>
-        <tbody>
-        <tr><td>ts2: TimeSeriesExpr</td></tr>
-        <tr><td>ts1: TimeSeriesExpr</td></tr>
-        </tbody>
-      </table>
-    </td><td style="vertical-align: middle;">
-      &#8680;
-    </td><td>
-      <strong>Output Stack:</strong>
-      <table>
-        <tbody>
-        <tr><td>(ts1 AND ts2): TimeSeriesExpr</td></tr>
-        <tr><td>&nbsp;</td></tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
+<table><tbody><tr>
+<td><strong>Input Stack:</strong><table><tbody><tr><td>ts2: TimeSeriesExpr</td></tr><tr><td>ts1: TimeSeriesExpr</td></tr></tbody></table></td>
+<td style="vertical-align: middle;">&#8680;</td>
+<td><strong>Output Stack:</strong><table><tbody><tr><td>(ts1 AND ts2): TimeSeriesExpr</td></tr><tr><td>&nbsp;</td></tr></tbody></table></td>
+</tr></tbody></table>
 <p>Compute a new time series where each interval has the value <code>(a AND b)</code> where <code>a</code>
 and <code>b</code> are the corresponding intervals in the input time series. For example:</p>
 <table>
