@@ -2202,7 +2202,7 @@
                 <h1 id="java-gauges">Java Gauges<a class="headerlink" href="#java-gauges" title="Permanent link">&para;</a></h1>
 <h2 id="polled-gauges">Polled Gauges<a class="headerlink" href="#polled-gauges" title="Permanent link">&para;</a></h2>
 <p>The most common use of Gauges is by registering a hook with Spectator, so that it will poll the
-values in the background. This is done by using the <a href="https://static.javadoc.io/com.netflix.spectator/spectator-api/0.92.0/com/netflix/spectator/api/patterns/PolledMeter.html">PolledMeter</a> helper class.</p>
+values in the background. This is done by using the <a href="https://static.javadoc.io/com.netflix.spectator/spectator-api/0.101.0/com/netflix/spectator/api/patterns/PolledMeter.html">PolledMeter</a> helper class.</p>
 <p>A Polled Gauge is registered by passing in an id, a reference to the object, and a function to get
 or compute a numeric value based on the object. Note that a Gauge should only be registered once,
 not on each update. Consider this example of a web server tracking the number of connections:</p>

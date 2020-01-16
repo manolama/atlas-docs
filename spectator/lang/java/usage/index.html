@@ -1158,13 +1158,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#auto-plugin" title="Auto Plugin" class="md-nav__link">
-    Auto Plugin
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2188,13 +2181,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#auto-plugin" title="Auto Plugin" class="md-nav__link">
-    Auto Plugin
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2232,10 +2218,10 @@
 <h2 id="install-library">Install Library<a class="headerlink" href="#install-library" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Depend on the API library, which is available in <a href="https://search.maven.org/artifact/com.netflix.spectator/spectator-api/0.92.0/jar">Maven Central</a>. The only transitive dependency
+<p>Depend on the API library, which is available in <a href="https://search.maven.org/artifact/com.netflix.spectator/spectator-api/0.101.0/jar">Maven Central</a>. The only transitive dependency
 is <code>slf4j</code>. For Gradle, the dependency is specified as follows:</p>
 <div class="codehilite"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">compile</span> <span class="s2">&quot;com.netflix.spectator:spectator-api:0.92.0&quot;</span>
+    <span class="n">compile</span> <span class="s2">&quot;com.netflix.spectator:spectator-api:0.101.0&quot;</span>
 <span class="o">}</span>
 </pre></div>
 
@@ -2336,7 +2322,7 @@ section for the type of project you are working on:</p>
 </ul>
 <h3 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link">&para;</a></h3>
 <p>For libraries, the only dependency that should be needed is:</p>
-<div class="codehilite"><pre><span></span><span class="n">com</span><span class="p">.</span><span class="n">netflix</span><span class="p">.</span><span class="n">spectator</span><span class="p">:</span><span class="n">spectator</span><span class="o">-</span><span class="n">api</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">92</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="n">com</span><span class="p">.</span><span class="n">netflix</span><span class="p">.</span><span class="n">spectator</span><span class="p">:</span><span class="n">spectator</span><span class="o">-</span><span class="n">api</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">101</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 
 <p>The bindings to integrate internally should be included with the application. In your code,
@@ -2426,19 +2412,6 @@ paved path.</li>
 </ol>
 <h3 id="base-server">Base Server<a class="headerlink" href="#base-server" title="Permanent link">&para;</a></h3>
 <p>If using <code>base-server</code>, then you will get the Spectator and Atlas bindings automatically.</p>
-<h3 id="auto-plugin">Auto Plugin<a class="headerlink" href="#auto-plugin" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Deprecated</strong>: Use of <code>AutoBindSingleton</code> is generally discouraged. It is recommended to
-use one of the other methods.</p>
-</div>
-<p>If you are only interested in getting the GC logging, then there is a library with an auto-bind
-singleton that can be used:</p>
-<div class="codehilite"><pre><span></span><span class="n">com</span><span class="p">.</span><span class="n">netflix</span><span class="p">.</span><span class="n">spectator</span><span class="p">:</span><span class="n">spectator</span><span class="o">-</span><span class="n">nflx</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">92</span><span class="p">.</span><span class="mi">0</span>
-</pre></div>
-
-<p>Assuming you are using karyon/base-server or Governator with <code>com.netflix</code> in the list of base
-packages, then the plugin should be automatically loaded.</p>
                 
                   
                 
