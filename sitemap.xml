@@ -46,7 +46,47 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/false/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/ge/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/gt/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/has/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://netflix.github.io/atlas-docs/asl/ref/in/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/le/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/lt/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/not/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/or/</loc>
      <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -61,7 +101,37 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/true/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://netflix.github.io/atlas-docs/asl/ref/and/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/ge/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/gt/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/le/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/lt/</loc>
+     <lastmod>2020-01-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/or/</loc>
      <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>

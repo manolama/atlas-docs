@@ -1,0 +1,2520 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://netflix.github.io/atlas-docs/asl/ref/le/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>le - Atlas Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-82153845-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#choosing" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/atlas_logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Atlas Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                le
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." title="Home" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../api/fetch/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorial/" title="Stack Language" class="md-tabs__link md-tabs__link--active">
+          Stack Language
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../spectator/" title="Spectator" class="md-tabs__link">
+          Spectator
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-nav__button md-logo">
+      
+        <img src="../../../images/atlas_logo.svg" width="48" height="48">
+      
+    </a>
+    Atlas Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/fetch/" title="Fetch" class="md-nav__link">
+      Fetch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/graph/" title="Graph" class="md-nav__link">
+      Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api/tags/" title="Tags" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Stack Language
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Stack Language
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial/" title="Tutorial" class="md-nav__link">
+      Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../alerting-expressions/" title="Alerting Expressions" class="md-nav__link">
+      Alerting Expressions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Choosing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Choosing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../and/" title="and" class="md-nav__link">
+      and
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eq/" title="eq" class="md-nav__link">
+      eq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../false/" title="false" class="md-nav__link">
+      false
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ge/" title="ge" class="md-nav__link">
+      ge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gt/" title="gt" class="md-nav__link">
+      gt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../has/" title="has" class="md-nav__link">
+      has
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../in/" title="in" class="md-nav__link">
+      in
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        le
+      </label>
+    
+    <a href="./" title="le" class="md-nav__link md-nav__link--active">
+      le
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choosing" title="Choosing" class="md-nav__link">
+    Choosing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" title="Math" class="md-nav__link">
+    Math
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lt/" title="lt" class="md-nav__link">
+      lt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../not/" title="not" class="md-nav__link">
+      not
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../or/" title="or" class="md-nav__link">
+      or
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../re/" title="re" class="md-nav__link">
+      re
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reic/" title="reic" class="md-nav__link">
+      reic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../true/" title="true" class="md-nav__link">
+      true
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      Math
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        Math
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../and/" title="and" class="md-nav__link">
+      and
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ge/" title="ge" class="md-nav__link">
+      ge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gt/" title="gt" class="md-nav__link">
+      gt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        le
+      </label>
+    
+    <a href="./" title="le" class="md-nav__link md-nav__link--active">
+      le
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choosing" title="Choosing" class="md-nav__link">
+    Choosing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" title="Math" class="md-nav__link">
+    Math
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lt/" title="lt" class="md-nav__link">
+      lt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../or/" title="or" class="md-nav__link">
+      or
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Spectator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Spectator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Core Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Core Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/time-series/" title="Time Series" class="md-nav__link">
+      Time Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/normalization/" title="Normalization" class="md-nav__link">
+      Normalization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/naming/" title="Naming" class="md-nav__link">
+      Naming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/clock/" title="Clock" class="md-nav__link">
+      Clock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-5" type="checkbox" id="nav-4-2-5">
+    
+    <label class="md-nav__link" for="nav-4-2-5">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-2-5">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/core/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Languages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2" type="checkbox" id="nav-4-3-2">
+    
+    <label class="md-nav__link" for="nav-4-3-2">
+      C++
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-2">
+        C++
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2-2" type="checkbox" id="nav-4-3-2-2">
+    
+    <label class="md-nav__link" for="nav-4-3-2-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-2-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/cpp/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-3" type="checkbox" id="nav-4-3-3">
+    
+    <label class="md-nav__link" for="nav-4-3-3">
+      Go
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-3">
+        Go
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-3-2" type="checkbox" id="nav-4-3-3-2">
+    
+    <label class="md-nav__link" for="nav-4-3-3-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-3-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/go/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4" type="checkbox" id="nav-4-3-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-4">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-2" type="checkbox" id="nav-4-3-4-2">
+    
+    <label class="md-nav__link" for="nav-4-3-4-2">
+      Registry
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-2">
+        Registry
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/registry/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/registry/metrics3/" title="Metrics3" class="md-nav__link">
+      Metrics3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-3" type="checkbox" id="nav-4-3-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3-4-3">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-3">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-4" type="checkbox" id="nav-4-3-4-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4-4">
+      Extensions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-4-4">
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4-4-1" type="checkbox" id="nav-4-3-4-4-1">
+    
+    <label class="md-nav__link" for="nav-4-3-4-4-1">
+      JVM Stats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-4-3-4-4-1">
+        JVM Stats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/jvm-buffer-pools/" title="Buffer Pools" class="md-nav__link">
+      Buffer Pools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/jvm-gc/" title="Garbage Collection" class="md-nav__link">
+      Garbage Collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/jvm-gc-causes/" title="GC Causes" class="md-nav__link">
+      GC Causes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/jvm-memory-pools/" title="Memory Pools" class="md-nav__link">
+      Memory Pools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/thread-pools/" title="Thread Pools" class="md-nav__link">
+      Thread Pools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/log4j2/" title="Log4j2 Appender" class="md-nav__link">
+      Log4j2 Appender
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/log4j1/" title="Log4j1 Appender" class="md-nav__link">
+      Log4j1 Appender
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/ext/placeholders/" title="Placeholders" class="md-nav__link">
+      Placeholders
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/testing/" title="Testing" class="md-nav__link">
+      Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/java/servo-migration/" title="Servo Migration" class="md-nav__link">
+      Servo Migration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5" type="checkbox" id="nav-4-3-5">
+    
+    <label class="md-nav__link" for="nav-4-3-5">
+      Node.js
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-5">
+        Node.js
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-2" type="checkbox" id="nav-4-3-5-2">
+    
+    <label class="md-nav__link" for="nav-4-3-5-2">
+      Extensions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-5-2">
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-2-1" type="checkbox" id="nav-4-3-5-2-1">
+    
+    <label class="md-nav__link" for="nav-4-3-5-2-1">
+      Node.js Stats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-4-3-5-2-1">
+        Node.js Stats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-cpu/" title="CPU" class="md-nav__link">
+      CPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-eventloop/" title="Event Loop" class="md-nav__link">
+      Event Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-filedescriptor/" title="File Descriptor" class="md-nav__link">
+      File Descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-gc/" title="Garbarge Collection" class="md-nav__link">
+      Garbarge Collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-heap/" title="Heap" class="md-nav__link">
+      Heap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-heapspace/" title="Heap Space" class="md-nav__link">
+      Heap Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/ext/nodejs-memory/" title="Memory" class="md-nav__link">
+      Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5-3" type="checkbox" id="nav-4-3-5-3">
+    
+    <label class="md-nav__link" for="nav-4-3-5-3">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-5-3">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/nodejs/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-6" type="checkbox" id="nav-4-3-6">
+    
+    <label class="md-nav__link" for="nav-4-3-6">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-6">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-6-2" type="checkbox" id="nav-4-3-6-2">
+    
+    <label class="md-nav__link" for="nav-4-3-6-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-6-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/py/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-7" type="checkbox" id="nav-4-3-7">
+    
+    <label class="md-nav__link" for="nav-4-3-7">
+      Ruby
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-7">
+        Ruby
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-7-2" type="checkbox" id="nav-4-3-7-2">
+    
+    <label class="md-nav__link" for="nav-4-3-7-2">
+      Meters
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-3-7-2">
+        Meters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/meters/counter/" title="Counters" class="md-nav__link">
+      Counters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/meters/dist-summary/" title="Distribution Summaries" class="md-nav__link">
+      Distribution Summaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/meters/gauge/" title="Gauges" class="md-nav__link">
+      Gauges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/meters/percentile-timer/" title="Percentile Timers" class="md-nav__link">
+      Percentile Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/lang/rb/meters/timer/" title="Timers" class="md-nav__link">
+      Timers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Patterns
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Patterns
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/cardinality-limiter/" title="Cardinality Limiter" class="md-nav__link">
+      Cardinality Limiter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/gauge-poller/" title="Gauge Poller" class="md-nav__link">
+      Gauge Poller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/interval-counter/" title="Interval Counter" class="md-nav__link">
+      Interval Counter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/long-task-timer/" title="Long Task Timer" class="md-nav__link">
+      Long Task Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/percentile-timer/" title="Percentile Timer" class="md-nav__link">
+      Percentile Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/patterns/polled-meter/" title="Polled Meter" class="md-nav__link">
+      Polled Meter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      Specifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        Specifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../spectator/specs/ipc/" title="IPC" class="md-nav__link">
+      IPC
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choosing" title="Choosing" class="md-nav__link">
+    Choosing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" title="Math" class="md-nav__link">
+    Math
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Netflix/atlas-docs/edit/master/docs/asl/ref/le.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>le</h1>
+                
+                <p>Less than or equal operator. There are two variants of the <code>:le</code> operator.</p>
+<h2 id="choosing">Choosing<a class="headerlink" href="#choosing" title="Permanent link">&para;</a></h2>
+<table><tbody><tr>
+<td><strong>Input Stack:</strong><table><tbody><tr><td>v: String</td></tr><tr><td>k: String</td></tr></tbody></table></td>
+<td style="vertical-align: middle;">&#8680;</td>
+<td><strong>Output Stack:</strong><table><tbody><tr><td>(k &lt;= v): Query</td></tr><tr><td>&nbsp;</td></tr></tbody></table></td>
+</tr></tbody></table>
+<p>This first variant is used for <a href="../../tutorial/#choosing">choosing</a> the set of time series to
+operate on. It selects time series that have a value for a key that is less than or equal
+to a specified value. For example, consider the following query:</p>
+<pre>name,ssCpuSystem,<a href="https://netflix.github.io/atlas-docs/asl/ref/le/"><span class="atlas-hilite">:le</span></a>
+</pre>
+<p>When matching against the sample data in the table below, the highlighted time series would be
+included in the result set:</p>
+<table>
+  <thead>
+  <th>Name</th><th>nf.app</th><th>nf.node</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>ssCpuUser</td>
+    <td>alerttest</td>
+    <td>i-0123</td>
+  </tr><tr class="atlas-hilite">
+    <td><strong>ssCpuSystem</strong></td>
+    <td>alerttest</td>
+    <td>i-0123</td>
+  </tr><tr>
+    <td>ssCpuUser</td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr class="atlas-hilite">
+    <td><strong>ssCpuSystem</strong></td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr class="atlas-hilite">
+    <td><strong>numRequests</strong></td>
+    <td>nccp</td>
+    <td>i-0abc</td>
+  </tr><tr>
+    <td>ssCpuUser</td>
+    <td>api</td>
+    <td>i-0456</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
+<table><tbody><tr>
+<td><strong>Input Stack:</strong><table><tbody><tr><td>ts2: TimeSeriesExpr</td></tr><tr><td>ts1: TimeSeriesExpr</td></tr></tbody></table></td>
+<td style="vertical-align: middle;">&#8680;</td>
+<td><strong>Output Stack:</strong><table><tbody><tr><td>(ts1 &lt;= ts2): TimeSeriesExpr</td></tr><tr><td>&nbsp;</td></tr></tbody></table></td>
+</tr></tbody></table>
+<p>Compute a new time series where each interval has the value <code>(a &lt;= b)</code> where <code>a</code>
+and <code>b</code> are the corresponding intervals in the input time series. For example:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Time</strong></th>
+<th><strong>a</strong></th>
+<th><strong>b</strong></th>
+<th><strong>a &lt;= b</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:01</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>00:01</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>00:02</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>00:03</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>00:04</td>
+<td>0.5</td>
+<td>1.7</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>The result will be a <a href="../../alerting-expressions/#signal-line">signal time series</a> that will
+be <code>1.0</code> for intervals where the condition is true and <code>0.0</code> for intervals where it is false.</p>
+<p>Example:</p>
+<table><tbody>
+<tr><td>Input</td><td>Output</td></tr>
+<tr><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACZCAYAAAD5C1UCAAAVaklEQVR4Xu1dz2tdRdjuHyC4KxSKIFpj00QoBBMLjV1Y7MJ1FtkE7aYS2o18dSGCu/C5ELpoQYSkJAutNttCYqrQlYTWHwiKmEUJEvPDKP5az+d78k3uyXtnznnfc897Zuac94GHSSbPzJ3z3DnPe+7Jvcmxf//91yiVSmWTPIY7lEqlUpoaPEqlsnFq8CiVysapwaNUKhtnJ4Pn2LFjhoPHjx/jLi9S0R77n42M5sED/CMvKPNacLQAjr5ubUxehNQe+vAf8DlTNzV4Oor8Jus61IsDaPAIkxs8lGphkYo2pioP4Ojr1sbkRUitBo8wucHTNtgNplVevbDAPuBzpm5q8BBAqRYWKWjt5oqlygM4+jq1sXkRSnvEB6PBI0Ju8LQJ+arW5SqPK7x6ocEjTm7wlFWLPGLX5k+wWKo8gKOvQ4uDJhYvQmj79oTR4BEhN3jagnxls993EdgH29dFYC80eATJDZ6iaoERsxafXLFUeQBHP6gW+3DYF4EXTWuxFxo8goTgsU9EV9oL/7uebap8P/6+C63LB9vv0re5BR/wcdvv8TlTNzsbPBzYJ4WCWLW4sh32RVDlARz9IFqXD4BYvGhS6/JCr3gEyQ2elAEbyRLD1ddm+HwA+PrbCp8XGjyC5AaPq1r4EJvWtbksYqnyAI6+qjYFL5rS+rzQ4BEkN3hSha+qWRT9rG1QL3oo8kKDR5Dc4MHVoggxaX2byyKWKg/g6KtoU/GiCW2RFxo8guQGT4ooqmoWZT9vC9SLHsq80OARJDd4qlaWMkhqizaXRSxVHsDRc7UpeSGtLfNCg0eQ3OBJDWVVzYKiSR3qxQGsD2XHqcEjSG7wVKksFEhp7ZvAyhBLlQdw9Bxtal5IaVk+GA0eEXKDJzWUVTULqi5lUI+RqksV1OPT4BEk9yMTlrjf1T569MjZ72ol5oXKBsT9rhY22ePV1b5+X2uJ+10tdb1V9NR1wPFdufVlX7+rza4I/rviwf2+VmK9AIl52T4YDR4RtvmKh1rZABxtiuAcH0ebGjjHplc8guQGj60GFITUwqbJrmIIWkC2ySK4rwHg6CnaVL2oW1vJB6PBI0Ju8KQCTmUDcPUpgXtsXH0q4B6XBo8gucFDrRaAUFpb2QBlWotYqjyAoy/SWh9S9aJObWUfjAaPCLnBkwK4lQ1QZUzsqHpMVcfFjCrHpMEjSG7wUKsFIIQ2X9kARdo8YqnyAI7ep8U+AHxajFi8qEuLvSjS5qHBI0hu8MQOfLJRUXVcrBjkeAYZGyOqHo8GjyC5wUOtFoCmtbiyAXxajFiqPICjd2ldPgBcWhdi8aIOrcsLnxZDg0eQ3OCJGXiDcTDI2Ngw6LEMOj4mDHIsGjyCbMM7l+0fLcd/rJszL4xvwzuXfT4AqPO25Z3Lvj9mT51X37ksyDZc8QxS1SzqmCMG1HEcdcwRAwY9Dr3iESQ3eGw1oKAJLWyOog1GnTebI4L7GgCOvs1eDKIt8gJrfdDgESQ3eGKDb3NxUdc8IVHXMdQ1T0jUcQwaPILkBg+1WgCktUVVzYI6byxVHsDRt9mLqtoyL6jzavAIkhs8MaFoc3FR51whUOf665wrBOpaf2eC5/z58+b69euH3y8uLpqRkZGMCwsLfXpMrh7IDR5qtQBIaykbjDpvLFUewNG32Yuq2jIvqPN2Injm5+fNiRMnDoNne3vbnD592uzs7Jjd3V0zPDxstra2+sZZcvWW3OCJBWWX01zUOVfTUC8OYH2oa/2tDx4Ii7Nnz5q5ubnD4Ll//76ZmprKvt7f3zdjY2NmdXW1b6wlV2/JDR5qtQBIaqmbizpvLFUewNG32QuuVsQH0+LguXr1qrl9+7a5efPmYfAsLy+bmZkZs7GxYSYnJ7OXT3fu3Okba8nVW3KDJwbUWdUs6p6vKagXB5D0AZ8zdTNI8Dx8+NBcvHgx+xoHz/j4uJmYmDDr6+vm8uXLhUHC1Vtyg4daLQBSWup/CQBQ542lygM4+jZ7wdGK+WBaGjzXrl0zp06dMqOjo+bkyZPm+PHj5saNG2Ztbc0MDQ2Zzc3NTDc9PW1WVlb6xltS9RA0mIebLIEWNsPM7N2+/kHbIydbIi34ILFuCX8lW2kf8DlUN4MET575Kx64WQw3iOFG8d7enjlz5syRm8XwW6vZ2dnD78v0PqZ2xQMbjKoFULWxVHkAVd92L6haUR9Mx4IHuLS0lF0Jwf0a+K1XXgs3oi9dunSkr0jvIzd4QkLidbyF1LwSsD5IrVlqXgk04QM+Z+pm8OAJQW7wUKsFoG6t3QgUrQVVG0uVB5Tp8ydamTYPqjYWLyha8T1hNHhEyA2eUJCsbADJueuEtA8A6fnrgrQXGjyC5AYPtVoA6tR2pcoDivT4RCvSYlC1sXhRpm1kTxgNHhFygycEpCsbQHr+OtCED4AmHmNQNOGFBo8gucFDrRaAurR4gxVpMajaWKo8wKfHPgB8Wheo2li8KNJiL4q0GFStBo8gucHTJGxVw5tMAk08xiBoygdAU49TFU15ocEjSG7wUKsFYFCtb3O5tD5QtbFUeYBL30UvfFqXFz6tC1StBo8gIXjsExFTC0+674+WS7TweK7+GFrfHy2Xapv0nds2uS/0j70LMtYrHldVs8DaIlC1sVR5ANZ31QuX1ueFS+sDVatXPILkBk8TgCfct8Gk0PTjUaFe9NC0Fxo8guQGD7VaAKpqyzZX1XmLEEuVB6gXB8DaIi+wtghUrQaPILnB0wSKNpgUQjwmBSHWFeIxKWh6XRo8guQGD7VaAKpoKZfTVeYtQyxVHqBeHAD7UORFlXnLoMEjSG7wSKNoc0ki1OMWIdSaQj2uD6HWo8EjSG7wUKsFgKstq2oW3HkpiKXKA9SLA0Thg9HgESE3eCRB2WBSCPnYLoRcT8jHxgi5Fg0eQXKDh1otABytfZMcBZx5qdpYqjxAvThAFD4YDR4RcoNHCtQNJoXQj59H6LWEfnyL0OvQ4BEk9yMTlrjf1T569MjZj1uobEDc72up80JriftxC5vs8epqX7+vpc4LoK7XVvgrt750/tzVSq0Drnhwv6+lzgutJe7HbTQ+GA0eEcZwxRO6sgF0DT3EsI6Y1oDPmbqpwUOArQYUULTw5GZXGwSthYQ222QB72tYHwAUvYWENhYvKFoLCa0GjyC5wVM3YqhsgNDrCP34eYReS+jHt9DgESQ3eKjVAlCm1Sp/gLwPgDJ9HhLaWLwo0+YhodXgESQ3eOpELJUNEHItIR/bhZDrCfnYGBo8guQGD7VaAHxaW9W0yvdf7QCK9BgS2li8KNJiSGg1eATJDZ46gE+0GBBqTaEetwih1hTqcX3Q4BEkN3io1QLg0uKqZuHS+iChDVHl1YseXF74tC5IaDV4BMkNnkGBN1csCLGuEI9JQYh1hXjMMmjwCJIbPNRqAXBpfRvMpfVBQhuqyrvg07sgoY3FC5/WBQmtBo8guR+ZGKRt+r8lcNqm1wWP19R/S+C2Ta8r1n2hH5kQZJNXPK6qZoG1RZDQNl3l1YsefF64tD5IaPWKR5Dc4KkKeBJ9GywGNLk29eIA1oemHo8LDR5BcoOHWi0AeW3Z5qo6bxmo2iarvHpxgCR8MBo8IuQGTxXEXNUsmlqfenGAlHzA50zdDBI8f/75p5mZmTGjo6NmbGzMfPXVV4c/W1xcNCMjIxkXFhb6xmJy9UBu8FCrBcBqKRusyrwUULWxVHlA1bnLQNU24UUyPpiWBs+HH35orly5kn1979498/LLL2dfb29vm9OnT5udnR2zu7trhoeHzdbWVt94S67ekhs8XKRQ2QBNrFG9OEBqPuBzpm4GCZ779++b7777Lvt6c3PTPP/884f9U1NT2df7+/vZ1dDq6mrf+Pw8HL0lN3io1QIAWuoG485LBVUbS5UHVJmbAqpW2oukfDAtDZ4833vvPfPOO+9kXy8vL2cvwTY2Nszk5GT28unOnTt9Yyy5ektu8HCQSmUDSK7T+iD5GHVCcp0p+oDPmboZNHjgigWuUn7//ffsewiS8fFxMzExYdbX183ly5cLg4Srt+QGD7VaAOwbsCjgzCuhlazyHB8AnLkltLF4wZlXQtv64Pn555/NmTNnzI8//njYt7a2ZoaGhrKXX/D99PS0WVlZ6RvL1UPQYB5ushpbeNJmZu/29cfaHjnZamxT8wEgtV6YV8pnidb6gM+huhkkeOB+zLlz58znn39+pB9uFsMNYrhRvLe3lwVT/mYx/NZqdnaWrPdR6ooHNhhVCwitlaryXB8AHL2ENhYvQmtbfcXzwQcfmCeeeCL7dbol/PsN+NnS0lL2PdyvmZ+fPzJubm7OXLp06Uhfkd5HbvBQkNLreAuJ9aboA0BizSl60ergCU1u8FCqhX3CKFqL0FqJKl/FBwBHL6GNxYvQWg0eQXKDpwi2qqVW2QB1rzlVHwB1rztVLzR4BMkNnqJqgTdXkRYjtLbuKp/3okyLwdFLaGPxIrRWg0eQ3ODxIdWqZlHn2tWLHlL2QoNHkNzg8VUL1+byaV0Ira2zymMvirQucPQS2li8CK3V4BEkN3h8wBssNdS5/jrnCoE611/nXE1Dg0eQ3OBxVQvf5bRL60NobV1V3uWFT+sDRy+hjcWL0FoNHkFyg8cFvLlSRF3HUNc8IVHXMdQ1Tyho8AgSgsdWAEprab+HJ8f3x8HhjZCufleL5y1qJeaF43i8utrX72td8/r+aDlnvQCO3rUOX0udN3s+/7viwf2+Fs9rfXDtC0vc72rxvEWtxLz6x94FOegVT+pVzaKO46hjjhgw6HEMOj4W6BWPILnBY6sBAJ6Yok2W15YhtDY7jgHuaxR5gbVl4OgltIN4UeQDgLoGQGitBo8gucGTR9EGSw2DHsug42PCIMcyyNjYoMEjSG7w2GpRVtkA1MoCCK2NpcoDOHoJbVUvynwAUNcACK3V4BEkN3gsyjZYahjkeAYZGyOqHk/VcbFCg0eQ3OCBakGpbABqZQGE1lap8taHMi+oa7Dg6CW0g3hRBuoaAKG1GjyC5AYPgLLBUkOVY6oyJgVUOa4qY2KHBo8gucFj36NBAbWyAEJruVVeygcARy+hjcWL0FoNHkFyg4e6wVID97i4+pTAPTauPhVo8AiS885lqGxA3O9rqe8QhdYS97taiXlhk1HfuSzpA4Cjt8T9rpY6L+edy+DblVtf9vX7Wkvc72qp65WaV9+5LEjOFU9bKxuAc2wcbYrgHB9Hmxr0ikeQlOCBJ8DSVgMKUtJmm4xwX0PaBwBHL6GNxYvQWg0eQVKDp+2gHiNVlzKox0jVpQoNHkFyg4daLQApaTlVHkCdF8DRAjh6CW0sXoTWavAIsix47OV020E5RvWihy54ocEjSErw5EGtFoCUtJQqn/eCOi+AowVw9BLaWLwIrdXgEWRR8HShqlmUHad60UNXvPjw5WMZ8TlTNzV4EFybi1otAClpy6o89oI6L4CjBXD0EtpYvAithdAB4HOmbmrw5NCVqmZRdKxd88JWeqUGjxiLgscFarUApKQtqvIuL6jzAjhaAEcvoc1OOIcXLh8A1HkBKWnt8eJzpm52NnjsE2Fb3x8tb3MLJ9vtKxe0/f8W+wP7wfXH29vc6kcmBOm64vFVNoB9UihISQsnXAxVHsDRS2hdV38+HwDUeQEpafWKR5AQPHDSKY+hbWc6d2/HAh9z133A50zd7GzwuMz2gVotAClpY6nyAI5eQou9KPIBQJ0XkJJWg0eQ+eDpamUD5I/b+qBe6J4A4HOmbkYXPIuLi2ZkZCTjwsJC388xuXogDp4yUKsFICVtvsqH9AHA0UtoY/EitLaTwbO9vW1Onz5tdnZ2zO7urhkeHjZbW1t9uqp6Sxs8Xa5sAHvsXfcBoF4coJPBc//+fTM1NZV9vb+/b8bGxszq6mqfrqreMh88FFCrBSAlra3yoX0AcPQS2li8CK3tZPAsLy+bmZkZs7GxYSYnJ7OXT3fu3OnTVdVbQvB0vbIBrAdd9wGgXhygs8EzPj5uJiYmzPr6url8+XJhkHD1lvi3WmWgVgtASlrYZDOzd3G3F9R5ARwtgKOX0MbiRWhtJ4NnbW3NDA0Nmc3Nzez76elps7Ky0qfj6rMrHESF3s/IQ704gPUBn0N1M6rggZvFcIMYbhTv7e2ZM2fOHLlZDL+1mp2dJeuLCOHzzTffdJ7qQ4/qRY/gBT5n6mRUwQNcWloyo6Oj2f2a+fn5Iz+bm5szly5dIuuLKG1sKlQfelQvepT2IrrgaYrSxqZC9aFH9aJHaS80eDpO9aFH9aJHaS80eDpO9aFH9aJHaS86GzxKpTIcNXiUSmXjbEXwlH1Q9Pz58+b69et9/Zi+eXz9sdG3zrfffts8/fTT2W//gN9//33fWMo8vv4Y6VsrvPXijTfeyPq//fbbvnGYvnl8/THStdaPPvrocD8An3zyydI337rmKeovYvLBU/ZBUfgV+4kTJ0qDxzePrx+PD82idb7++uvON1a66JvH14/Hx8CitcKbTN99913z999/943D9M3j68fjYyBlreDFCy+8kH3eEY8vm8fXj8djJh88RR8UBTPOnj2bvf8HBw8kc/7NiL55fP14HaFZtM7XXnvNfP31131jgG3zAehb6y+//GKeffZZ888///SNAXbJi7zms88+M2+++eaRPmkvkg+eog+KXr161dy+fdvcvHmzL3jwmxF98/j68TpCs2id8Hm2c+fOZX3vv//+kXFt8wHoWytc9b344ovmlVdeyQrSJ598cmRcl7zIa1599dXss475PmkvWhE8rg+KPnz40Fy8eDHTuIIH0zePrx+PD82idX7xxRfm119/zS6LYWOAN3h82Ty+fjw+BvrW+umnn5pTp05ln+376aefzFNPPWV+++23vvFl8/j68fgYWLbWH374Ifs5Hofpm8fXj8djJh88vg+KXrt2LdtkcOPs5MmT5vjx4+bGjRt948vm8fXj8aHpWye8rICXGFYHvhTdAPTN4+vH42Ogb6337t07fFkAvHDhQuENZt88vn48PgaWrfWtt94yt27d6huH6ZvH14/HYyYfPJQPirquePBrWN88vn68jtD0rRNuHNoq/9dff5mXXnrJPHjw4HBc23wA+tYK9/yee+657OoP+Mwzz2Q/t+O65AX87I8//sg8gJ/hcdJeJB88wLIPirqCB7+GLZrH1x8bfeu8e/du1gcbBCpcfkwbfQD61vrxxx9nv4UBL+DXwPkxXfMC7n/CbzyxHijtRSuCR6lUpkUNHqVS2Tg1eJRKZePU4FEqlY1Tg0epVDZODR6lUtk4NXiUSmXj/D8cUwdyIYO/AgAAAABJRU5ErkJggg==" width="286" height="153"/></td><td><img src="data:image/png;base64,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" width="286" height="153"/></td></tr>
+<tr><td><pre>minuteOfHour,<a href="https://netflix.github.io/atlas-docs/asl/ref/time/">:time</a>,
+hourOfDay,<a href="https://netflix.github.io/atlas-docs/asl/ref/time/">:time</a>
+</pre></td><td><pre>minuteOfHour,<a href="https://netflix.github.io/atlas-docs/asl/ref/time/">:time</a>,
+hourOfDay,<a href="https://netflix.github.io/atlas-docs/asl/ref/time/">:time</a>,
+<a href="https://netflix.github.io/atlas-docs/asl/ref/le/"><span class="atlas-hilite">:le</span></a>
+</pre></td></tr>
+</tbody></table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../gt/" title="gt" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                gt
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../lt/" title="lt" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                lt
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
