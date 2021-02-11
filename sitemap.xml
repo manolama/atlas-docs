@@ -8,6 +8,22 @@
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://netflix.github.io/atlas-docs/concepts/time-series/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/concepts/normalization/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/concepts/consolidation/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/concepts/naming/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://netflix.github.io/atlas-docs/api/fetch/</loc>
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
@@ -85,6 +101,22 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://netflix.github.io/atlas-docs/asl/ref/by/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/cf-avg/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/cf-max/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/cf-min/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/cf-sum/</loc>
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -216,6 +248,10 @@
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://netflix.github.io/atlas-docs/asl/ref/all/</loc>
+     <lastmod>2021-02-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://netflix.github.io/atlas-docs/asl/ref/stat-avg-mf/</loc>
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
@@ -229,18 +265,6 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://netflix.github.io/atlas-docs/spectator/</loc>
-     <lastmod>2021-02-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://netflix.github.io/atlas-docs/spectator/core/time-series/</loc>
-     <lastmod>2021-02-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://netflix.github.io/atlas-docs/spectator/core/normalization/</loc>
-     <lastmod>2021-02-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://netflix.github.io/atlas-docs/spectator/core/naming/</loc>
      <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
