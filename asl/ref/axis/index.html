@@ -1,0 +1,4331 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://netflix.github.io/atlas-docs/asl/ref/axis/">
+      
+      <link rel="shortcut icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>axis - Atlas Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-header-nav__button md-logo" aria-label="Atlas Docs">
+      
+  <img src="../../../images/atlas_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Atlas Docs
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              axis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../concepts/time-series/" class="md-tabs__link">
+        Core Concepts
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../api/graph/graph/" class="md-tabs__link">
+        API
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/" class="md-tabs__link md-tabs__link--active">
+        Stack Language
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../spectator/" class="md-tabs__link">
+        Spectator
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://netflix.github.io/atlas-docs/" title="Atlas Docs" class="md-nav__button md-logo" aria-label="Atlas Docs">
+      
+  <img src="../../../images/atlas_logo.svg" alt="logo">
+
+    </a>
+    Atlas Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Netflix/atlas-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        Home
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Core Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core Concepts" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Core Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/time-series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/normalization/" class="md-nav__link">
+        Normalization
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/consolidation/" class="md-nav__link">
+        Consolidation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/naming/" class="md-nav__link">
+        Naming
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+      
+      <label class="md-nav__link" for="nav-3-1">
+        Graph
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Graph" data-md-level="2">
+        <label class="md-nav__title" for="nav-3-1">
+          <span class="md-nav__icon md-icon"></span>
+          Graph
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/graph/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/anonymization/" class="md-nav__link">
+        Anonymization
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/axis-bounds/" class="md-nav__link">
+        Axis Bounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/axis-scale/" class="md-nav__link">
+        Axis Scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/vision/" class="md-nav__link">
+        Color Blindness
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/color-palettes/" class="md-nav__link">
+        Color Palettes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/layout/" class="md-nav__link">
+        Layout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/legends/" class="md-nav__link">
+        Legends
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/line-attributes/" class="md-nav__link">
+        Line Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/line-styles/" class="md-nav__link">
+        Line Styles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/multi-y/" class="md-nav__link">
+        Multi Y Axis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/outputs/" class="md-nav__link">
+        Output Formats
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/tick/" class="md-nav__link">
+        Tick Labels
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/time-shift/" class="md-nav__link">
+        Time Shift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/graph/time-zone/" class="md-nav__link">
+        Time Zones
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/tags/" class="md-nav__link">
+        Tags
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/time-parameters/" class="md-nav__link">
+        Time Parameters
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
+        Stack Language
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Stack Language" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Stack Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alerting-expressions/" class="md-nav__link">
+        Alerting Expressions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alerting-philosophy/" class="md-nav__link">
+        Alerting Philosophy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../des/" class="md-nav__link">
+        Double Exponential Smoothing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5" checked>
+      
+      <label class="md-nav__link" for="nav-4-5">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-1" type="checkbox" id="nav-4-5-1" >
+      
+      <label class="md-nav__link" for="nav-4-5-1">
+        Query
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Query" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-1">
+          <span class="md-nav__icon md-icon"></span>
+          Query
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../and/" class="md-nav__link">
+        and
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eq/" class="md-nav__link">
+        eq
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../false/" class="md-nav__link">
+        false
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ge/" class="md-nav__link">
+        ge
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gt/" class="md-nav__link">
+        gt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../has/" class="md-nav__link">
+        has
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../in/" class="md-nav__link">
+        in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../le/" class="md-nav__link">
+        le
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lt/" class="md-nav__link">
+        lt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../not/" class="md-nav__link">
+        not
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../offset/" class="md-nav__link">
+        offset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../or/" class="md-nav__link">
+        or
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../re/" class="md-nav__link">
+        re
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reic/" class="md-nav__link">
+        reic
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../true/" class="md-nav__link">
+        true
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-2" type="checkbox" id="nav-4-5-2" >
+      
+      <label class="md-nav__link" for="nav-4-5-2">
+        Aggregation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Aggregation" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Aggregation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avg/" class="md-nav__link">
+        avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../by/" class="md-nav__link">
+        by
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cf-avg/" class="md-nav__link">
+        cf-avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cf-max/" class="md-nav__link">
+        cf-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cf-min/" class="md-nav__link">
+        cf-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cf-sum/" class="md-nav__link">
+        cf-sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../count/" class="md-nav__link">
+        count
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../max/" class="md-nav__link">
+        max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../min/" class="md-nav__link">
+        min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sum/" class="md-nav__link">
+        sum
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-3" type="checkbox" id="nav-4-5-3" >
+      
+      <label class="md-nav__link" for="nav-4-5-3">
+        Math
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Math" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abs/" class="md-nav__link">
+        abs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add/" class="md-nav__link">
+        add
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../and/" class="md-nav__link">
+        and
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avg/" class="md-nav__link">
+        avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bottomk/" class="md-nav__link">
+        bottomk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bottomk-others-avg/" class="md-nav__link">
+        bottomk-others-avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bottomk-others-max/" class="md-nav__link">
+        bottomk-others-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bottomk-others-min/" class="md-nav__link">
+        bottomk-others-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bottomk-others-sum/" class="md-nav__link">
+        bottomk-others-sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../by/" class="md-nav__link">
+        by
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clamp-max/" class="md-nav__link">
+        clamp-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clamp-min/" class="md-nav__link">
+        clamp-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../count/" class="md-nav__link">
+        count
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cq/" class="md-nav__link">
+        cq
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dist-avg/" class="md-nav__link">
+        dist-avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dist-max/" class="md-nav__link">
+        dist-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dist-stddev/" class="md-nav__link">
+        dist-stddev
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../div/" class="md-nav__link">
+        div
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fadd/" class="md-nav__link">
+        fadd
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fdiv/" class="md-nav__link">
+        fdiv
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter/" class="md-nav__link">
+        filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fmul/" class="md-nav__link">
+        fmul
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fsub/" class="md-nav__link">
+        fsub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ge/" class="md-nav__link">
+        ge
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gt/" class="md-nav__link">
+        gt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../le/" class="md-nav__link">
+        le
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lt/" class="md-nav__link">
+        lt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../max/" class="md-nav__link">
+        max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../median/" class="md-nav__link">
+        median
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mul/" class="md-nav__link">
+        mul
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../min/" class="md-nav__link">
+        min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neg/" class="md-nav__link">
+        neg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../or/" class="md-nav__link">
+        or
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pct/" class="md-nav__link">
+        pct
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../per-step/" class="md-nav__link">
+        per-step
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../percentiles/" class="md-nav__link">
+        percentiles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pow/" class="md-nav__link">
+        pow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        random
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sqrt/" class="md-nav__link">
+        sqrt
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../srandom/" class="md-nav__link">
+        srandom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat/" class="md-nav__link">
+        stat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-avg/" class="md-nav__link">
+        stat-avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-count/" class="md-nav__link">
+        stat-count
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-last/" class="md-nav__link">
+        stat-last
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-max/" class="md-nav__link">
+        stat-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-min/" class="md-nav__link">
+        stat-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-total/" class="md-nav__link">
+        stat-total
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stddev/" class="md-nav__link">
+        stddev
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sub/" class="md-nav__link">
+        sub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sum/" class="md-nav__link">
+        sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time-span/" class="md-nav__link">
+        time-span
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topk/" class="md-nav__link">
+        topk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topk-others-avg/" class="md-nav__link">
+        topk-others-avg
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topk-others-max/" class="md-nav__link">
+        topk-others-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topk-others-min/" class="md-nav__link">
+        topk-others-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topk-others-sum/" class="md-nav__link">
+        topk-others-sum
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-4" type="checkbox" id="nav-4-5-4" >
+      
+      <label class="md-nav__link" for="nav-4-5-4">
+        Stack Manipulation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Stack Manipulation" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Stack Manipulation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../-rot/" class="md-nav__link">
+        -rot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2over/" class="md-nav__link">
+        2over
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../call/" class="md-nav__link">
+        call
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clear/" class="md-nav__link">
+        clear
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../depth/" class="md-nav__link">
+        depth
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drop/" class="md-nav__link">
+        drop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dup/" class="md-nav__link">
+        dup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../each/" class="md-nav__link">
+        each
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fcall/" class="md-nav__link">
+        fcall
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../freeze/" class="md-nav__link">
+        freeze
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../get/" class="md-nav__link">
+        get
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../list/" class="md-nav__link">
+        list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map/" class="md-nav__link">
+        map
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ndrop/" class="md-nav__link">
+        ndrop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nip/" class="md-nav__link">
+        nip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nlist/" class="md-nav__link">
+        nlist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../over/" class="md-nav__link">
+        over
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pick/" class="md-nav__link">
+        pick
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roll/" class="md-nav__link">
+        roll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rot/" class="md-nav__link">
+        rot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set/" class="md-nav__link">
+        set
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sset/" class="md-nav__link">
+        sset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swap/" class="md-nav__link">
+        swap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuck/" class="md-nav__link">
+        tuck
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-5" type="checkbox" id="nav-4-5-5" checked>
+      
+      <label class="md-nav__link" for="nav-4-5-5">
+        Presentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Presentation" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-5">
+          <span class="md-nav__icon md-icon"></span>
+          Presentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alpha/" class="md-nav__link">
+        alpha
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        axis
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-epic-viz/" class="md-nav__link">
+        des-epic-viz
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legend/" class="md-nav__link">
+        legend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stack/" class="md-nav__link">
+        stack
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-6" type="checkbox" id="nav-4-5-6" >
+      
+      <label class="md-nav__link" for="nav-4-5-6">
+        Stateful Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Stateful Functions" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-6">
+          <span class="md-nav__icon md-icon"></span>
+          Stateful Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../delay/" class="md-nav__link">
+        delay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../derivative/" class="md-nav__link">
+        derivitive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des/" class="md-nav__link">
+        des
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-epic-signal/" class="md-nav__link">
+        des-epic-signal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-fast/" class="md-nav__link">
+        des-fast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-simple/" class="md-nav__link">
+        des-simple
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-slow/" class="md-nav__link">
+        des-slow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../des-slower/" class="md-nav__link">
+        des-slower
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integral/" class="md-nav__link">
+        integral
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling-count/" class="md-nav__link">
+        rolling-count
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling-max/" class="md-nav__link">
+        rolling-max
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling-mean/" class="md-nav__link">
+        rolling-mean
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling-min/" class="md-nav__link">
+        rolling-min
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling-sum/" class="md-nav__link">
+        rolling-sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdes/" class="md-nav__link">
+        sdes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdes-fast/" class="md-nav__link">
+        sdes-fast
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdes-simple/" class="md-nav__link">
+        sdes-simple
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdes-slow/" class="md-nav__link">
+        sdes-slow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdes-slower/" class="md-nav__link">
+        sdes-slower
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-7" type="checkbox" id="nav-4-5-7" >
+      
+      <label class="md-nav__link" for="nav-4-5-7">
+        Utilities
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Utilities" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-7">
+          <span class="md-nav__icon md-icon"></span>
+          Utilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../format/" class="md-nav__link">
+        format
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../named-rewrite/" class="md-nav__link">
+        named-rewrite
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5-8" type="checkbox" id="nav-4-5-8" >
+      
+      <label class="md-nav__link" for="nav-4-5-8">
+        Deprecated
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Deprecated" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-5-8">
+          <span class="md-nav__icon md-icon"></span>
+          Deprecated
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../all/" class="md-nav__link">
+        all
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-avg-mf/" class="md-nav__link">
+        stat-avg-mf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-max-mf/" class="md-nav__link">
+        stat-max-mf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-min-mf/" class="md-nav__link">
+        stat-min-mf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trend/" class="md-nav__link">
+        trend
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        Spectator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spectator" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          Spectator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" >
+      
+      <label class="md-nav__link" for="nav-5-2">
+        Core Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core Concepts" data-md-level="2">
+        <label class="md-nav__title" for="nav-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Core Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/core/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2-2" type="checkbox" id="nav-5-2-2" >
+      
+      <label class="md-nav__link" for="nav-5-2-2">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/core/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/core/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/core/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/core/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" >
+      
+      <label class="md-nav__link" for="nav-5-3">
+        Languages
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Languages" data-md-level="2">
+        <label class="md-nav__title" for="nav-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-2">
+        C++
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C++" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-2">
+          <span class="md-nav__icon md-icon"></span>
+          C++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-2-2" type="checkbox" id="nav-5-3-2-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-2-2">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/cpp/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3" >
+      
+      <label class="md-nav__link" for="nav-5-3-3">
+        Go
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Go" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-3">
+          <span class="md-nav__icon md-icon"></span>
+          Go
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-3-2" type="checkbox" id="nav-5-3-3-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-3-2">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-3-2">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/go/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-4" type="checkbox" id="nav-5-3-4" >
+      
+      <label class="md-nav__link" for="nav-5-3-4">
+        Java
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Java" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-4">
+          <span class="md-nav__icon md-icon"></span>
+          Java
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-4-2" type="checkbox" id="nav-5-3-4-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-4-2">
+        Registry
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Registry" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-4-2">
+          <span class="md-nav__icon md-icon"></span>
+          Registry
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/registry/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/registry/metrics3/" class="md-nav__link">
+        Metrics3
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-4-3" type="checkbox" id="nav-5-3-4-3" >
+      
+      <label class="md-nav__link" for="nav-5-3-4-3">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-4-3">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-4-4" type="checkbox" id="nav-5-3-4-4" >
+      
+      <label class="md-nav__link" for="nav-5-3-4-4">
+        Extensions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Extensions" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-4-4">
+          <span class="md-nav__icon md-icon"></span>
+          Extensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-4-4-1" type="checkbox" id="nav-5-3-4-4-1" >
+      
+      <label class="md-nav__link" for="nav-5-3-4-4-1">
+        JVM Stats
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="JVM Stats" data-md-level="5">
+        <label class="md-nav__title" for="nav-5-3-4-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          JVM Stats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/jvm-buffer-pools/" class="md-nav__link">
+        Buffer Pools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/jvm-gc/" class="md-nav__link">
+        Garbage Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/jvm-gc-causes/" class="md-nav__link">
+        GC Causes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/jvm-memory-pools/" class="md-nav__link">
+        Memory Pools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/thread-pools/" class="md-nav__link">
+        Thread Pools
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/log4j2/" class="md-nav__link">
+        Log4j2 Appender
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/log4j1/" class="md-nav__link">
+        Log4j1 Appender
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/ext/placeholders/" class="md-nav__link">
+        Placeholders
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/java/servo-migration/" class="md-nav__link">
+        Servo Migration
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-5" type="checkbox" id="nav-5-3-5" >
+      
+      <label class="md-nav__link" for="nav-5-3-5">
+        Node.js
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Node.js" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-5">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-5-2" type="checkbox" id="nav-5-3-5-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-5-2">
+        Extensions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Extensions" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-5-2">
+          <span class="md-nav__icon md-icon"></span>
+          Extensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-5-2-1" type="checkbox" id="nav-5-3-5-2-1" >
+      
+      <label class="md-nav__link" for="nav-5-3-5-2-1">
+        Node.js Stats
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Node.js Stats" data-md-level="5">
+        <label class="md-nav__title" for="nav-5-3-5-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Node.js Stats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-cpu/" class="md-nav__link">
+        CPU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-eventloop/" class="md-nav__link">
+        Event Loop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-filedescriptor/" class="md-nav__link">
+        File Descriptor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-gc/" class="md-nav__link">
+        Garbarge Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-heap/" class="md-nav__link">
+        Heap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-heapspace/" class="md-nav__link">
+        Heap Space
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/ext/nodejs-memory/" class="md-nav__link">
+        Memory
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-5-3" type="checkbox" id="nav-5-3-5-3" >
+      
+      <label class="md-nav__link" for="nav-5-3-5-3">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-5-3">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/nodejs/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-6" type="checkbox" id="nav-5-3-6" >
+      
+      <label class="md-nav__link" for="nav-5-3-6">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-6-2" type="checkbox" id="nav-5-3-6-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-6-2">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-6-2">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/py/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-7" type="checkbox" id="nav-5-3-7" >
+      
+      <label class="md-nav__link" for="nav-5-3-7">
+        Ruby
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ruby" data-md-level="3">
+        <label class="md-nav__title" for="nav-5-3-7">
+          <span class="md-nav__icon md-icon"></span>
+          Ruby
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3-7-2" type="checkbox" id="nav-5-3-7-2" >
+      
+      <label class="md-nav__link" for="nav-5-3-7-2">
+        Meters
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Meters" data-md-level="4">
+        <label class="md-nav__title" for="nav-5-3-7-2">
+          <span class="md-nav__icon md-icon"></span>
+          Meters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/meters/counter/" class="md-nav__link">
+        Counters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/meters/dist-summary/" class="md-nav__link">
+        Distribution Summaries
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/meters/gauge/" class="md-nav__link">
+        Gauges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/meters/percentile-timer/" class="md-nav__link">
+        Percentile Timers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/lang/rb/meters/timer/" class="md-nav__link">
+        Timers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" >
+      
+      <label class="md-nav__link" for="nav-5-4">
+        Patterns
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Patterns" data-md-level="2">
+        <label class="md-nav__title" for="nav-5-4">
+          <span class="md-nav__icon md-icon"></span>
+          Patterns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/cardinality-limiter/" class="md-nav__link">
+        Cardinality Limiter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/gauge-poller/" class="md-nav__link">
+        Gauge Poller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/interval-counter/" class="md-nav__link">
+        Interval Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/long-task-timer/" class="md-nav__link">
+        Long Task Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/percentile-timer/" class="md-nav__link">
+        Percentile Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/patterns/polled-meter/" class="md-nav__link">
+        Polled Meter
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5" >
+      
+      <label class="md-nav__link" for="nav-5-5">
+        Specifications
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Specifications" data-md-level="2">
+        <label class="md-nav__title" for="nav-5-5">
+          <span class="md-nav__icon md-icon"></span>
+          Specifications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spectator/specs/ipc/" class="md-nav__link">
+        IPC
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Netflix/atlas-docs/edit/master/docs/asl/ref/axis.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>axis</h1>
+                
+                <table><tbody><tr>
+<td><strong>Input Stack:</strong><table><tbody><tr><td>Query</td></tr><tr><td>Integer</td></tr></tbody></table></td>
+<td style="vertical-align: middle;">&#8680;</td>
+<td><strong>Output Stack:</strong><table><tbody><tr><td>StyleExpr</td></tr><tr><td>&nbsp;</td></tr></tbody></table></td>
+</tr></tbody></table>
+<p>Specify which Y-axis to use for the line. Axis are indexed with <code>0</code> as the left and <code>1</code>
+or greater to the right. If only one time series is present, it will use the left
+axis regardless of the <code>:axis</code> setting. Likewise, if all time series are assigned to 
+an axis greater than <code>0</code>, they will be shifted to the left axis.</p>
+<p>Example with one series on the left, another on the right:</p>
+<table><tbody>
+<tr><td>Before</td><td>After</td></tr>
+<tr><td><img src="data:image/png;base64,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" width="286" height="314"/></td><td><img src="data:image/png;base64,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" width="324" height="337"/></td></tr>
+<tr><td><pre>name,requestsPerSecond,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+name,requestLatency,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>
+</pre></td><td><pre>name,requestsPerSecond,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+name,requestLatency,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+1,<a href="https://netflix.github.io/atlas-docs/asl/ref/axis/"><span class="atlas-hilite">:axis</span></a>
+</pre></td></tr>
+</tbody></table>
+<p>Example with three series and three axis:</p>
+<table><tbody>
+<tr><td>Multi Axis</td></tr>
+<tr><td><img src="data:image/png;base64,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" width="386" height="413"/></td></tr>
+<tr><td><pre>name,requestsPerSecond,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+1,<a href="https://netflix.github.io/atlas-docs/asl/ref/axis/"><span class="atlas-hilite">:axis</span></a>,
+name,requestLatency,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+name,sps,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
+2,<a href="https://netflix.github.io/atlas-docs/asl/ref/axis/"><span class="atlas-hilite">:axis</span></a>
+</pre></td></tr>
+</tbody></table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../alpha/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                alpha
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../color/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                color
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
