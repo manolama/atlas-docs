@@ -2338,6 +2338,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../asl/ref/area/" class="md-nav__link">
+        area
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../asl/ref/axis/" class="md-nav__link">
         axis
       </a>
@@ -2362,8 +2374,44 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../asl/ref/decode/" class="md-nav__link">
+        decode
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../asl/ref/des-epic-viz/" class="md-nav__link">
         des-epic-viz
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/filter/" class="md-nav__link">
+        filter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/head/" class="md-nav__link">
+        head
       </a>
     </li>
   
@@ -2386,8 +2434,116 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../asl/ref/limit/" class="md-nav__link">
+        limit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/line/" class="md-nav__link">
+        line
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/ls/" class="md-nav__link">
+        ls
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/lw/" class="md-nav__link">
+        lw
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/palette/" class="md-nav__link">
+        palette
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/order/" class="md-nav__link">
+        order
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/s/" class="md-nav__link">
+        s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/sort/" class="md-nav__link">
+        sort
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../asl/ref/stack/" class="md-nav__link">
         stack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../asl/ref/vspan/" class="md-nav__link">
+        vspan
       </a>
     </li>
   
@@ -4387,7 +4543,7 @@
                 
                 <p>The diagram below shows the parts of an Atlas graph and will be used when describing
 the behavior for various options.</p>
-<p><img alt="Graph Layout" src="../../../images/graph_layout.svg" style="width:450px" /></p>
+<p><img alt="Graph Component Layout" src="../../../images/graph_layout.svg" width="450px" /></p>
 <p>The layout for graph images is trying to accomplish two main goals:</p>
 <h4 id="usable-canvas-size">Usable Canvas Size<a class="headerlink" href="#usable-canvas-size" title="Permanent link">&para;</a></h4>
 <p>Keep the canvas usable regardless of the number of lines, axes, etc that are competing for space. For example, the canvas area should not become too small due to the number of lines on the chart.</p>
@@ -4401,19 +4557,19 @@ the behavior for various options.</p>
 <tbody>
 <tr>
 <td><img alt="Good Layout" src="../../../images/graph_layout_example_ok.png" /></td>
-<td><img alt="Bad Layout" src="../../../images/graph_layout_example_bad.png" /></td>
+<td><img alt="Poor Layout" src="../../../images/graph_layout_example_bad.png" /></td>
 </tr>
 </tbody>
 </table>
 <h4 id="canvas-alignment">Canvas Alignment<a class="headerlink" href="#canvas-alignment" title="Permanent link">&para;</a></h4>
 <p>Make it easy to align the canvas portion of several graphs on an html page. This is important because it makes it easier to find visual correlations between multiple graphs on a dashboard.</p>
 <p>In particular if arranged in a grid with the image in the top left of each cell, then the canvas should line up vertically for columns:</p>
-<p><img alt="Vertical" src="../../../images/layout_canvas_vertical.png" /></p>
+<p><img alt="Vertical Layout" src="../../../images/layout_canvas_vertical.png" /></p>
 <p>And horizontally for rows:</p>
-<p><img alt="Vertical" src="../../../images/layout_canvas_horizontal.png" /></p>
+<p><img alt="Horizontal Layout" src="../../../images/layout_canvas_horizontal.png" /></p>
 <p>In the graph layout diagram at the top, this is why variable components such as multi axes, legend entries, and warnings are positioned on either the right side or the bottom of the canvas.</p>
 <h2 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">&para;</a></h2>
-<p>There are four supported <code>layout</code> modes that can be used with the <a href="../graph/#image-size">layout query parameter</a>:</p>
+<p>There are four supported layout modes that can be used with the <a href="../graph/#image-size">layout query parameter</a>:</p>
 <ul>
 <li><code>canvas</code>: the width or height are for the canvas component within the chart. The actual image size will be calculated based on the number of entries in the legend, number of axes, etc. This is the default behavior.</li>
 <li><code>image</code>: the width or height are for the final image not including the zoom parameter. To try and adhere to layout goals when using this mode everything below the X-axes will automatically be suppressed. Vertical alignment will still hold as long as all graphs use the same number of Y-axes. Horizontal alignment will still hold as long as all graphs use the same number of X-axes.</li>
@@ -4425,7 +4581,7 @@ the behavior for various options.</p>
 <pre>/api/v1/graph?
   e=2012-01-01T09:00
   &h=175
-  &<span class="atlas-hilite">layout=canvas</span>
+  &<span class="atlas-hilite">layout</span>=canvas
   &q=
     name,sps,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
     <a href="https://netflix.github.io/atlas-docs/asl/ref/sum/">:sum</a>,
@@ -4439,7 +4595,7 @@ the behavior for various options.</p>
 <pre>/api/v1/graph?
   e=2012-01-01T09:00
   &h=175
-  &<span class="atlas-hilite">layout=image</span>
+  &<span class="atlas-hilite">layout</span>=image
   &q=
     name,sps,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
     <a href="https://netflix.github.io/atlas-docs/asl/ref/sum/">:sum</a>,
@@ -4453,7 +4609,7 @@ the behavior for various options.</p>
 <pre>/api/v1/graph?
   e=2012-01-01T09:00
   &h=175
-  &<span class="atlas-hilite">layout=iw</span>
+  &<span class="atlas-hilite">layout</span>=iw
   &q=
     name,sps,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
     <a href="https://netflix.github.io/atlas-docs/asl/ref/sum/">:sum</a>,
@@ -4467,7 +4623,7 @@ the behavior for various options.</p>
 <pre>/api/v1/graph?
   e=2012-01-01T09:00
   &h=175
-  &<span class="atlas-hilite">layout=ih</span>
+  &<span class="atlas-hilite">layout</span>=ih
   &q=
     name,sps,<a href="https://netflix.github.io/atlas-docs/asl/ref/eq/">:eq</a>,
     <a href="https://netflix.github.io/atlas-docs/asl/ref/sum/">:sum</a>,
